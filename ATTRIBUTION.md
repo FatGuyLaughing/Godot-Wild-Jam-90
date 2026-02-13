@@ -1,6 +1,8 @@
 # Attribution
 ## Collaborators
 
+[hatmix](https://hatmix.itch.io)
+
 ### Godot Minimal Game Template
 ![Maaack Plugin Icon](/assets/plugin_logo/logo.png)  
 Author: [Marek Belski and contributors](https://github.com/Maaack/Godot-Minimal-Game-Template/graphs/contributors)  
