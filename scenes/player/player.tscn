@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://haj0s8e6d10f"]
 
+[ext_resource type="Script" uid="uid://dbjw3he336jxs" path="res://scenes/player/player.gd" id="1_75vfm"]
 [ext_resource type="Texture2D" uid="uid://byyob18nrre04" path="res://assets/player/player_placeholder.png" id="1_lvxji"]
 [ext_resource type="PackedScene" uid="uid://durh24oy4tibk" path="res://components/hurtbox/hurtbox.tscn" id="2_p47bc"]
 [ext_resource type="PackedScene" uid="uid://boq4mravejikc" path="res://components/hitbox/hitbox.tscn" id="3_75vfm"]
@@ -11,11 +12,14 @@ radius = 25.019993
 
 [node name="PlayerCharacter" type="CharacterBody2D" unique_id=44599593]
 collision_layer = 2
+script = ExtResource("1_75vfm")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=79515036]
+unique_name_in_owner = true
 texture = ExtResource("1_lvxji")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1061781762]
+unique_name_in_owner = true
 root_node = NodePath("../Sprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1178236850]
@@ -23,13 +27,17 @@ position = Vector2(1, 17)
 shape = SubResource("CircleShape2D_qek5x")
 
 [node name="HurtboxComponent" parent="." unique_id=1179701126 instance=ExtResource("2_p47bc")]
+unique_name_in_owner = true
 entity_type = 0
 
 [node name="HitboxComponent" parent="." unique_id=1334252649 instance=ExtResource("3_75vfm")]
+unique_name_in_owner = true
 
 [node name="HealthComponent" parent="." unique_id=634366022 node_paths=PackedStringArray("hurtbox") instance=ExtResource("4_p47bc")]
+unique_name_in_owner = true
 max_health = 100.0
 hurtbox = NodePath("../HurtboxComponent")
 
 [node name="KnockbackComponent" parent="." unique_id=184767056 node_paths=PackedStringArray("hurtbox") instance=ExtResource("5_75vfm")]
+unique_name_in_owner = true
 hurtbox = NodePath("../HurtboxComponent")
