@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://boq4mravejikc" path="res://components/hitbox/hitbox.tscn" id="3_75vfm"]
 [ext_resource type="PackedScene" uid="uid://b3qijgyqfxb88" path="res://components/health/health.tscn" id="4_p47bc"]
 [ext_resource type="PackedScene" uid="uid://dibptag8uqy1v" path="res://components/knockback/knockback.tscn" id="5_75vfm"]
+[ext_resource type="PackedScene" uid="uid://4jii8umru44f" path="res://components/movement/movement.tscn" id="7_0owmy"]
+[ext_resource type="Script" uid="uid://bkgel2ay0al2c" path="res://components/state_machine/state_machine.gd" id="8_5gtgg"]
+[ext_resource type="Script" uid="uid://cj2s51e6wd4tp" path="res://components/state_machine/state.gd" id="9_h17s1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qek5x"]
 radius = 25.019993
@@ -41,3 +44,31 @@ hurtbox = NodePath("../HurtboxComponent")
 [node name="KnockbackComponent" parent="." unique_id=184767056 node_paths=PackedStringArray("hurtbox") instance=ExtResource("5_75vfm")]
 unique_name_in_owner = true
 hurtbox = NodePath("../HurtboxComponent")
+
+[node name="MovementComponent" parent="." unique_id=1168461939 node_paths=PackedStringArray("knockback") instance=ExtResource("7_0owmy")]
+unique_name_in_owner = true
+knockback = NodePath("../KnockbackComponent")
+
+[node name="StateMachine" type="Node" parent="." unique_id=851901206]
+script = ExtResource("8_5gtgg")
+metadata/_custom_type_script = "uid://bkgel2ay0al2c"
+
+[node name="Idle" type="Node" parent="StateMachine" unique_id=408281892]
+script = ExtResource("9_h17s1")
+metadata/_custom_type_script = "uid://cj2s51e6wd4tp"
+
+[node name="Move" type="Node" parent="StateMachine" unique_id=675773304]
+script = ExtResource("9_h17s1")
+metadata/_custom_type_script = "uid://cj2s51e6wd4tp"
+
+[node name="Attack" type="Node" parent="StateMachine" unique_id=15784285]
+script = ExtResource("9_h17s1")
+metadata/_custom_type_script = "uid://cj2s51e6wd4tp"
+
+[node name="Hurt" type="Node" parent="StateMachine" unique_id=60577208]
+script = ExtResource("9_h17s1")
+metadata/_custom_type_script = "uid://cj2s51e6wd4tp"
+
+[node name="Dead" type="Node" parent="StateMachine" unique_id=1222142277]
+script = ExtResource("9_h17s1")
+metadata/_custom_type_script = "uid://cj2s51e6wd4tp"
