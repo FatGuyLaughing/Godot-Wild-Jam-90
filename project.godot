@@ -91,6 +91,18 @@ interact={
 
 locale/translations=PackedStringArray("res://addons/maaacks_game_template/base/translations/menus_translations.en.translation", "res://addons/maaacks_game_template/base/translations/menus_translations.fr.translation")
 
+[layer_names]
+
+2d_physics/layer_1="world"
+2d_physics/layer_2="player"
+2d_physics/layer_3="player_hitbox"
+2d_physics/layer_4="player_hurtbox"
+2d_physics/layer_5="enemy"
+2d_physics/layer_6="enemy_hitbox"
+2d_physics/layer_7="enemy_hurtbox"
+2d_physics/layer_8="pickups"
+2d_physics/layer_9="triggers"
+
 [maaacks_game_template]
 
 copy_path="res://"
