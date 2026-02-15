@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://4jii8umru44f" path="res://components/movement/movement.tscn" id="7_0owmy"]
 [ext_resource type="Script" uid="uid://bkgel2ay0al2c" path="res://components/state_machine/state_machine.gd" id="8_5gtgg"]
 [ext_resource type="Script" uid="uid://cj2s51e6wd4tp" path="res://components/state_machine/state.gd" id="9_h17s1"]
+[ext_resource type="Script" uid="uid://cehq1sya56ppb" path="res://scenes/player/states/idle.gd" id="9_je7p5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qek5x"]
 radius = 25.019993
@@ -47,14 +48,16 @@ hurtbox = NodePath("../HurtboxComponent")
 
 [node name="MovementComponent" parent="." unique_id=1168461939 node_paths=PackedStringArray("knockback") instance=ExtResource("7_0owmy")]
 unique_name_in_owner = true
+move_speed = null
 knockback = NodePath("../KnockbackComponent")
 
 [node name="StateMachine" type="Node" parent="." unique_id=851901206]
+unique_name_in_owner = true
 script = ExtResource("8_5gtgg")
 metadata/_custom_type_script = "uid://bkgel2ay0al2c"
 
 [node name="Idle" type="Node" parent="StateMachine" unique_id=408281892]
-script = ExtResource("9_h17s1")
+script = ExtResource("9_je7p5")
 metadata/_custom_type_script = "uid://cj2s51e6wd4tp"
 
 [node name="Move" type="Node" parent="StateMachine" unique_id=675773304]
