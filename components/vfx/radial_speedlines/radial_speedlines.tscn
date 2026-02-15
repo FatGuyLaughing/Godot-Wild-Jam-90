@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://61gnmvy80wfq"]
+[gd_scene format=3 uid="uid://61gnmvy80wfq"]
 
-[ext_resource type="Shader" uid="uid://cc1hup33na1l5" path="res://src/vfx/radial_speedlines/radial_speedlines.gdshader" id="1_cia4f"]
-[ext_resource type="Script" uid="uid://ccqoj1iw3pqp8" path="res://src/vfx/radial_speedlines/radial_speedlines.gd" id="1_yav5h"]
+[ext_resource type="Shader" uid="uid://cc1hup33na1l5" path="res://components/vfx/radial_speedlines/radial_speedlines.gdshader" id="1_cia4f"]
+[ext_resource type="Script" uid="uid://ccqoj1iw3pqp8" path="res://components/vfx/radial_speedlines/radial_speedlines.gd" id="1_yav5h"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_yav5h"]
 frequency = 0.05
@@ -19,10 +19,10 @@ shader_parameter/center_radius = 0.0
 shader_parameter/lines_start = 0.0
 shader_parameter/lines_end = 0.69200003287
 
-[node name="RadialSpeedlines" type="CanvasLayer"]
+[node name="RadialSpeedlines" type="CanvasLayer" unique_id=813593756]
 script = ExtResource("1_yav5h")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=637672850]
 material = SubResource("ShaderMaterial_yav5h")
 anchors_preset = 15
 anchor_right = 1.0

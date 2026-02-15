@@ -14,8 +14,8 @@ extends CanvasLayer
 ##     await <AutoloadName>.fade_in()
 ##
 
-const IN_TEXTURE: Texture2D = preload("res://src/vfx/scene_transition/gradients/feather_transition_gradient_v2.png")
-const OUT_TEXTURE: Texture2D = preload("res://src/vfx/scene_transition/gradients/feather_transition_gradient_v2_inverted.png")
+const IN_TEXTURE: Texture2D = preload("res://components/vfx/scene_transition/gradients/feather_transition_gradient_v2.png")
+const OUT_TEXTURE: Texture2D = preload("res://components/vfx/scene_transition/gradients/feather_transition_gradient_v2_inverted.png")
 
 var tween: Tween
 
