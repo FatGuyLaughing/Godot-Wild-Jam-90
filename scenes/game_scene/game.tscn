@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://br5kx565d3yl8"]
+
+[ext_resource type="Script" uid="uid://068km4oiwa60" path="res://scenes/game_scene/game.gd" id="1_6y8rp"]
+[ext_resource type="PackedScene" uid="uid://7k7sd5u8xvg7" path="res://components/blockout/blockout_empty_room.tscn" id="2_700et"]
+[ext_resource type="PackedScene" uid="uid://haj0s8e6d10f" path="res://scenes/player/player.tscn" id="3_o347i"]
+
+[node name="Game" type="Node2D" unique_id=843301946]
+script = ExtResource("1_6y8rp")
+
+[node name="TileMapLayer" parent="." unique_id=920795053 instance=ExtResource("2_700et")]
+
+[node name="PlayerCharacter" parent="." unique_id=44599593 instance=ExtResource("3_o347i")]
+position = Vector2(442, 409)
+scale = Vector2(2, 2)

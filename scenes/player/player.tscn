@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dbjw3he336jxs" path="res://scenes/player/player.gd" id="1_75vfm"]
 [ext_resource type="Texture2D" uid="uid://byyob18nrre04" path="res://assets/player/player_placeholder.png" id="1_lvxji"]
 [ext_resource type="PackedScene" uid="uid://durh24oy4tibk" path="res://components/hurtbox/hurtbox.tscn" id="2_p47bc"]
+[ext_resource type="Shader" uid="uid://70awdshy8ls0" path="res://scenes/player/glow_outline.gdshader" id="2_ugbui"]
 [ext_resource type="PackedScene" uid="uid://boq4mravejikc" path="res://components/hitbox/hitbox.tscn" id="3_75vfm"]
 [ext_resource type="PackedScene" uid="uid://b3qijgyqfxb88" path="res://components/health/health.tscn" id="4_p47bc"]
 [ext_resource type="PackedScene" uid="uid://dibptag8uqy1v" path="res://components/knockback/knockback.tscn" id="5_75vfm"]
@@ -14,6 +15,15 @@
 [ext_resource type="Script" uid="uid://dltcdnhoxux0p" path="res://scenes/player/states/hurt.gd" id="12_gx1jg"]
 [ext_resource type="Script" uid="uid://dokrxgwm5tmva" path="res://scenes/player/states/ranged_attack.gd" id="12_ugbui"]
 [ext_resource type="Script" uid="uid://dmwbgu6ur28mf" path="res://scenes/player/states/dead.gd" id="13_gx1jg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fcs02"]
+shader = ExtResource("2_ugbui")
+shader_parameter/max_line_width = 20.0
+shader_parameter/min_line_width = 10.0
+shader_parameter/freq = 0.0
+shader_parameter/block_size = 10.0
+shader_parameter/starting_colour = Color(1, 1, 0, 1)
+shader_parameter/ending_colour = Color(1, 1, 0, 0)
 
 [sub_resource type="Animation" id="Animation_je7p5"]
 length = 0.001
@@ -124,6 +134,7 @@ script = ExtResource("1_75vfm")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=79515036]
 unique_name_in_owner = true
+material = SubResource("ShaderMaterial_fcs02")
 texture = ExtResource("1_lvxji")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1061781762]

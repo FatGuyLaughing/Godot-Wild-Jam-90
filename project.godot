@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Godot Wild Jam 90"
-run/main_scene="res://scenes/opening/opening.tscn"
+run/main_scene="uid://br5kx565d3yl8"
 config/features=PackedStringArray("4.6")
 config/icon="res://icon.png"
+
+[autoload]
+
+SceneTransition="*uid://baukor1qipeg1"
 
 [display]
 
