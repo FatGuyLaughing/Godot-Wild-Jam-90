@@ -1,5 +1,6 @@
-## The playable character. Handles attack input and responds to
-## health and knockback component signals.
+## The playable character. Wires up combat components and handles
+## global state transitions (hurt, death) that can occur in any state.
+## Individual states handle input, movement, and animations.
 class_name PlayerCharacter
 extends CharacterBody2D
 
@@ -20,9 +21,12 @@ func _ready() -> void:
 	_hitbox.enabled = false
 
 
+## Forces transition to Dead state and emits died signal.
 func _on_died() -> void:
 	_state_machine.transition_to("Dead")
+	died.emit()
 
 
+## Forces transition to Hurt state from any active state.
 func _on_hurtbox_hit(_incoming_hitbox: HitboxComponent, _damage: float) -> void:
 	_state_machine.transition_to("Hurt")
