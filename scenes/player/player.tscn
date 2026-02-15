@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://cj2s51e6wd4tp" path="res://components/state_machine/state.gd" id="9_h17s1"]
 [ext_resource type="Script" uid="uid://cehq1sya56ppb" path="res://scenes/player/states/idle.gd" id="9_je7p5"]
 [ext_resource type="Script" uid="uid://dqmyvdw28a50a" path="res://scenes/player/states/move.gd" id="10_je7p5"]
+[ext_resource type="Script" uid="uid://b6ai11yyht4k2" path="res://scenes/player/states/attack.gd" id="11_fm80t"]
 
 [sub_resource type="Animation" id="Animation_je7p5"]
 length = 0.001
@@ -168,7 +169,7 @@ script = ExtResource("10_je7p5")
 metadata/_custom_type_script = "uid://cj2s51e6wd4tp"
 
 [node name="Attack" type="Node" parent="StateMachine" unique_id=15784285]
-script = ExtResource("9_h17s1")
+script = ExtResource("11_fm80t")
 metadata/_custom_type_script = "uid://cj2s51e6wd4tp"
 
 [node name="Hurt" type="Node" parent="StateMachine" unique_id=60577208]
