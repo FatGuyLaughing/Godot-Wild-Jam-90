@@ -19,7 +19,7 @@ func physics_process(_delta: float) -> void:
 		return
 
 	if Input.is_action_just_pressed("attack"):
-		transition_to("Attack")
+		transition_to("MeleeAttack")
 		return
 
 	# Only apply movement if we're not transitioning out
