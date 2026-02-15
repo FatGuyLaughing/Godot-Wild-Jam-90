@@ -1,7 +1,7 @@
 ## Player attack state. Active when the player initiates an attack.
 ## The AnimationPlayer drives the hitbox enable/disable via keyframes.
 ## Transitions to Move or Idle when the attack animation finishes.
-class_name PlayerAttackState
+class_name PlayerMeleeAttackState
 extends State
 
 @onready var _animation_player: AnimationPlayer = %AnimationPlayer
