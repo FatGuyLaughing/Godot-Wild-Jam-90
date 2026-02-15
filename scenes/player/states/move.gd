@@ -1,5 +1,6 @@
 ## Player move state. Active when directional input is detected.
-## Transitions to Idle when input stops and Attack on attack input.
+## Transitions to Idle when input stops, MeleeAttack or RangedAttack
+## on their respective inputs.
 class_name PlayerMoveState
 extends State
 
@@ -20,6 +21,10 @@ func physics_process(_delta: float) -> void:
 
 	if Input.is_action_just_pressed("attack"):
 		transition_to("MeleeAttack")
+		return
+
+	if Input.is_action_just_pressed("ranged_attack"):
+		transition_to("RangedAttack")
 		return
 
 	# Only apply movement if we're not transitioning out
