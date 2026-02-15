@@ -10,6 +10,107 @@
 [ext_resource type="Script" uid="uid://bkgel2ay0al2c" path="res://components/state_machine/state_machine.gd" id="8_5gtgg"]
 [ext_resource type="Script" uid="uid://cj2s51e6wd4tp" path="res://components/state_machine/state.gd" id="9_h17s1"]
 [ext_resource type="Script" uid="uid://cehq1sya56ppb" path="res://scenes/player/states/idle.gd" id="9_je7p5"]
+[ext_resource type="Script" uid="uid://dqmyvdw28a50a" path="res://scenes/player/states/move.gd" id="10_je7p5"]
+
+[sub_resource type="Animation" id="Animation_je7p5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_lvxji")]
+}
+
+[sub_resource type="Animation" id="Animation_fm80t"]
+resource_name = "attack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_lvxji")]
+}
+
+[sub_resource type="Animation" id="Animation_gx1jg"]
+resource_name = "dead"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_lvxji")]
+}
+
+[sub_resource type="Animation" id="Animation_ugbui"]
+resource_name = "hurt"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_lvxji")]
+}
+
+[sub_resource type="Animation" id="Animation_fcs02"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_lvxji")]
+}
+
+[sub_resource type="Animation" id="Animation_myrg7"]
+resource_name = "move"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_lvxji")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kvlxm"]
+_data = {
+&"RESET": SubResource("Animation_je7p5"),
+&"attack": SubResource("Animation_fm80t"),
+&"dead": SubResource("Animation_gx1jg"),
+&"hurt": SubResource("Animation_ugbui"),
+&"idle": SubResource("Animation_fcs02"),
+&"move": SubResource("Animation_myrg7")
+}
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qek5x"]
 radius = 25.019993
@@ -25,6 +126,7 @@ texture = ExtResource("1_lvxji")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1061781762]
 unique_name_in_owner = true
 root_node = NodePath("../Sprite2D")
+libraries/ = SubResource("AnimationLibrary_kvlxm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1178236850]
 position = Vector2(1, 17)
@@ -61,7 +163,7 @@ script = ExtResource("9_je7p5")
 metadata/_custom_type_script = "uid://cj2s51e6wd4tp"
 
 [node name="Move" type="Node" parent="StateMachine" unique_id=675773304]
-script = ExtResource("9_h17s1")
+script = ExtResource("10_je7p5")
 metadata/_custom_type_script = "uid://cj2s51e6wd4tp"
 
 [node name="Attack" type="Node" parent="StateMachine" unique_id=15784285]
