@@ -6,12 +6,12 @@ extends CanvasLayer
 ##
 ## Example use
 ##
-##   await <AutoloadName>.fade_out()
+##   await SceneTransition.fade_out()
 ##   get_tree().change_scene_to_file(...)
 ##
 ##   [in new scene script]
-##   if <AutoloadName>.is_hiding_scene():
-##     await <AutoloadName>.fade_in()
+##   if SceneTransition.is_hiding_scene():
+##     await SceneTransition.fade_in()
 ##
 
 const IN_TEXTURE: Texture2D = preload("res://components/vfx/scene_transition/gradients/feather_transition_gradient_v2.png")
