@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://1adruxqkkti0"]
+
+[ext_resource type="PackedScene" uid="uid://c7qau5m3yhrd5" path="res://scenes/game_scene/MainLevel/Rooms/room_1.tscn" id="2_0f18m"]
+[ext_resource type="Script" uid="uid://3w5tb8qd8deu" path="res://scenes/game_scene/MainLevel/room_manager.gd" id="3_8nimi"]
+[ext_resource type="PackedScene" uid="uid://divvu0d75iort" path="res://scenes/game_scene/MainLevel/Rooms/character_body_2d.tscn" id="3_domd1"]
+[ext_resource type="PackedScene" uid="uid://bjopknqv0762c" path="res://scenes/game_scene/MainLevel/Rooms/room_2.tscn" id="4_8nimi"]
+
+[node name="Main_Level" type="Node2D" unique_id=1047891546]
+
+[node name="CharacterBody2D" parent="." unique_id=597911775 instance=ExtResource("3_domd1")]
+position = Vector2(399, 173)
+
+[node name="Room_Manager" type="Node2D" parent="." unique_id=408174744]
+script = ExtResource("3_8nimi")
+scene_to_instance = ExtResource("4_8nimi")
+
+[node name="Room_1" parent="Room_Manager" unique_id=1432263839 instance=ExtResource("2_0f18m")]
+
+[connection signal="entrandopuerta" from="CharacterBody2D" to="Room_Manager" method="_on_character_body_2d_entrandopuerta"]

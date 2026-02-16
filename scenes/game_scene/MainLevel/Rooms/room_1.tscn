@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://c7qau5m3yhrd5"]
+
+[ext_resource type="Texture2D" uid="uid://lu0fk6h33a34" path="res://assets/test assets/tilesettest1.png" id="1_q7vxt"]
+[ext_resource type="Script" uid="uid://hfwkd0sn2umv" path="res://scenes/game_scene/MainLevel/Rooms/rooms.gd" id="1_radi4"]
+[ext_resource type="Script" uid="uid://doqs6h6xdjoqm" path="res://scenes/game_scene/MainLevel/Rooms/door.gd" id="2_vfht3"]
+[ext_resource type="PackedScene" uid="uid://bjopknqv0762c" path="res://scenes/game_scene/MainLevel/Rooms/room_2.tscn" id="4_radi4"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q7vxt"]
+texture = ExtResource("1_q7vxt")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_vfht3"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_q7vxt")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g5ect"]
+size = Vector2(321, 130)
+
+[node name="Room_1" type="Node2D" unique_id=10027329]
+script = ExtResource("1_radi4")
+
+[node name="TileMap" type="TileMap" parent="." unique_id=318795997]
+z_index = -1
+tile_set = SubResource("TileSet_vfht3")
+format = 2
+layer_0/tile_data = PackedInt32Array(131080, 0, 0, 196616, 0, 0, 131081, 0, 0, 196617, 0, 0, 131082, 0, 0, 196618, 0, 0, 131083, 0, 0, 196619, 0, 0, 131084, 0, 0, 196620, 0, 0, 196610, 65536, 0, 131075, 65536, 0, 65540, 65536, 0, 65541, 65536, 0, 131077, 65536, 0, 196613, 65536, 0, 262149, 65536, 0, 327685, 65536, 0, 393221, 65536, 0, 458757, 65536, 0, 458754, 65536, 0, 458755, 65536, 0, 458756, 65536, 0, 458758, 65536, 0, 458759, 65536, 0)
+
+[node name="Door1" type="Area2D" parent="." unique_id=1139857880]
+position = Vector2(664, 177)
+script = ExtResource("2_vfht3")
+target_position = Vector2(300, 600)
+target_scene = ExtResource("4_radi4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door1" unique_id=1591536055]
+position = Vector2(8.5, 16)
+shape = SubResource("RectangleShape2D_g5ect")

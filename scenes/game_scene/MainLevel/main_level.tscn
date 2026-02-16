@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://1adruxqkkti0"]
+
+[ext_resource type="PackedScene" uid="uid://c7qau5m3yhrd5" path="res://scenes/game_scene/MainLevel/Rooms/room_1.tscn" id="2_0f18m"]
+[ext_resource type="Script" uid="uid://3w5tb8qd8deu" path="res://scenes/game_scene/MainLevel/room_manager.gd" id="3_8nimi"]
+[ext_resource type="PackedScene" uid="uid://divvu0d75iort" path="res://scenes/game_scene/MainLevel/Rooms/character_body_2d.tscn" id="3_domd1"]
+
+[node name="Main_Level" type="Node2D" unique_id=1832875075]
+
+[node name="CharacterBody2D" parent="." unique_id=597911775 instance=ExtResource("3_domd1")]
+position = Vector2(577, 444)
+
+[node name="Room_Manager" type="Node2D" parent="." unique_id=198938838 groups=["room_manager"]]
+script = ExtResource("3_8nimi")
+player_path = NodePath("../CharacterBody2D")
+first_room_scene = ExtResource("2_0f18m")
