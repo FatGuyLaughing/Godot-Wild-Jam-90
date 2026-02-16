@@ -7,6 +7,7 @@
 [node name="Main_Level" type="Node2D" unique_id=1832875075]
 
 [node name="PlayerCharacter" parent="." unique_id=44599593 instance=ExtResource("1_domd1")]
+position = Vector2(515, 478)
 
 [node name="Room_Manager" type="Node2D" parent="." unique_id=198938838 groups=["room_manager"]]
 script = ExtResource("3_8nimi")
