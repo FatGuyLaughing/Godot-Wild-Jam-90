@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://dagsoh6hijejv"]
+
+[ext_resource type="Script" uid="uid://d4g8b4uf8onfx" path="res://scenes/projectiles/feather/feather.gd" id="1_6refw"]
+[ext_resource type="Texture2D" uid="uid://dkbecn2g3sy5y" path="res://assets/player/Projectile feather.png" id="2_3i5e3"]
+[ext_resource type="PackedScene" uid="uid://boq4mravejikc" path="res://components/hitbox/hitbox.tscn" id="3_t1x6e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3i5e3"]
+size = Vector2(20, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t1x6e"]
+size = Vector2(27, 10)
+
+[node name="Feather" type="CharacterBody2D" unique_id=543285726]
+collision_layer = 0
+script = ExtResource("1_6refw")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2079581493]
+texture = ExtResource("2_3i5e3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1830725650]
+shape = SubResource("RectangleShape2D_3i5e3")
+
+[node name="HitboxComponent" parent="." unique_id=1334252649 instance=ExtResource("3_t1x6e")]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" parent="HitboxComponent" index="0" unique_id=1533460143]
+position = Vector2(3.5, 0)
+shape = SubResource("RectangleShape2D_t1x6e")
+
+[node name="LifetimeTimer" type="Timer" parent="." unique_id=1273926476]
+unique_name_in_owner = true
+one_shot = true
+
+[editable path="HitboxComponent"]
