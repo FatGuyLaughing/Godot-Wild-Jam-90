@@ -30,7 +30,7 @@ func add_room(new_scene: PackedScene) -> void:
 
 	# Instance new room
 	current_room = new_scene.instantiate()
-	add_child(current_room)
+	add_child.call_deferred(current_room)
 	print("Added room:", current_room.room_id)
 
 	# Connect all doors in this room
@@ -62,7 +62,7 @@ func change_room(new_player_pos: Vector2, new_scene: PackedScene) -> void:
 	print("Changing room to:", new_scene, "with player position:", new_player_pos)
 	add_room(new_scene)
 
-	var player = get_node_or_null(player_path)
+	var player = get_tree().get_first_node_in_group("player")
 	if player:
 		player.global_position = new_player_pos
 		print("Player moved to:", player.global_position)

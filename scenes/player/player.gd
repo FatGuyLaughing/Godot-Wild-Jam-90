@@ -16,9 +16,11 @@ signal died()
 
 
 func _ready() -> void:
+	add_to_group("player")
 	_hurtbox.hit.connect(_on_hurtbox_hit)
 	_health.died.connect(_on_died)
 	_hitbox.enabled = false
+	
 
 
 func _process(_delta: float) -> void:
