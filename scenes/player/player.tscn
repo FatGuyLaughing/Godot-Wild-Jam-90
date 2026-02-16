@@ -1,14 +1,150 @@
 [gd_scene format=3 uid="uid://haj0s8e6d10f"]
 
 [ext_resource type="Script" uid="uid://dbjw3he336jxs" path="res://scenes/player/player.gd" id="1_75vfm"]
-[ext_resource type="Texture2D" uid="uid://byyob18nrre04" path="res://assets/player/player_placeholder.png" id="1_lvxji"]
 [ext_resource type="PackedScene" uid="uid://durh24oy4tibk" path="res://components/hurtbox/hurtbox.tscn" id="2_p47bc"]
+[ext_resource type="Shader" uid="uid://70awdshy8ls0" path="res://scenes/player/glow_outline.gdshader" id="2_ugbui"]
 [ext_resource type="PackedScene" uid="uid://boq4mravejikc" path="res://components/hitbox/hitbox.tscn" id="3_75vfm"]
+[ext_resource type="Texture2D" uid="uid://brtonoqaq2xtw" path="res://assets/player/Valka the Fallen.png" id="3_fcs02"]
 [ext_resource type="PackedScene" uid="uid://b3qijgyqfxb88" path="res://components/health/health.tscn" id="4_p47bc"]
 [ext_resource type="PackedScene" uid="uid://dibptag8uqy1v" path="res://components/knockback/knockback.tscn" id="5_75vfm"]
+[ext_resource type="PackedScene" uid="uid://4jii8umru44f" path="res://components/movement/movement.tscn" id="7_0owmy"]
+[ext_resource type="Script" uid="uid://bkgel2ay0al2c" path="res://components/state_machine/state_machine.gd" id="8_5gtgg"]
+[ext_resource type="Script" uid="uid://cehq1sya56ppb" path="res://scenes/player/states/idle.gd" id="9_je7p5"]
+[ext_resource type="Script" uid="uid://dqmyvdw28a50a" path="res://scenes/player/states/move.gd" id="10_je7p5"]
+[ext_resource type="Script" uid="uid://b6ai11yyht4k2" path="res://scenes/player/states/melee_attack.gd" id="11_fm80t"]
+[ext_resource type="Script" uid="uid://dltcdnhoxux0p" path="res://scenes/player/states/hurt.gd" id="12_gx1jg"]
+[ext_resource type="Script" uid="uid://dokrxgwm5tmva" path="res://scenes/player/states/ranged_attack.gd" id="12_ugbui"]
+[ext_resource type="Script" uid="uid://dmwbgu6ur28mf" path="res://scenes/player/states/dead.gd" id="13_gx1jg"]
+[ext_resource type="PackedScene" uid="uid://dagsoh6hijejv" path="res://scenes/projectiles/feather/feather.tscn" id="14_myrg7"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_qek5x"]
-radius = 25.019993
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fcs02"]
+shader = ExtResource("2_ugbui")
+shader_parameter/max_line_width = 4.0
+shader_parameter/min_line_width = 2.0
+shader_parameter/freq = 0.0
+shader_parameter/block_size = 20.0
+shader_parameter/starting_colour = Color(1, 1, 0, 1)
+shader_parameter/ending_colour = Color(1, 1, 0, 0)
+
+[sub_resource type="Animation" id="Animation_je7p5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_fcs02")]
+}
+
+[sub_resource type="Animation" id="Animation_fm80t"]
+resource_name = "attack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_fcs02")]
+}
+
+[sub_resource type="Animation" id="Animation_gx1jg"]
+resource_name = "dead"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_fcs02")]
+}
+
+[sub_resource type="Animation" id="Animation_ugbui"]
+resource_name = "hurt"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_fcs02")]
+}
+
+[sub_resource type="Animation" id="Animation_fcs02"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_fcs02")]
+}
+
+[sub_resource type="Animation" id="Animation_myrg7"]
+resource_name = "move"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_fcs02")]
+}
+
+[sub_resource type="Animation" id="Animation_kvlxm"]
+resource_name = "ranged_attack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_fcs02")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kvlxm"]
+_data = {
+&"RESET": SubResource("Animation_je7p5"),
+&"attack": SubResource("Animation_fm80t"),
+&"dead": SubResource("Animation_gx1jg"),
+&"hurt": SubResource("Animation_ugbui"),
+&"idle": SubResource("Animation_fcs02"),
+&"move": SubResource("Animation_myrg7"),
+&"ranged_attack": SubResource("Animation_kvlxm")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fcs02"]
+radius = 9.0
+height = 48.0
 
 [node name="PlayerCharacter" type="CharacterBody2D" unique_id=44599593]
 collision_layer = 2
@@ -16,22 +152,29 @@ script = ExtResource("1_75vfm")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=79515036]
 unique_name_in_owner = true
-texture = ExtResource("1_lvxji")
+material = SubResource("ShaderMaterial_fcs02")
+texture = ExtResource("3_fcs02")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1061781762]
 unique_name_in_owner = true
 root_node = NodePath("../Sprite2D")
+libraries/ = SubResource("AnimationLibrary_kvlxm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1178236850]
-position = Vector2(1, 17)
-shape = SubResource("CircleShape2D_qek5x")
+position = Vector2(2, 2)
+shape = SubResource("CapsuleShape2D_fcs02")
 
 [node name="HurtboxComponent" parent="." unique_id=1179701126 instance=ExtResource("2_p47bc")]
 unique_name_in_owner = true
+position = Vector2(2, 0)
 entity_type = 0
+
+[node name="CollisionShape2D" parent="HurtboxComponent" index="0" unique_id=1354527137]
+position = Vector2(0, 2)
 
 [node name="HitboxComponent" parent="." unique_id=1334252649 instance=ExtResource("3_75vfm")]
 unique_name_in_owner = true
+visible = false
 
 [node name="HealthComponent" parent="." unique_id=634366022 node_paths=PackedStringArray("hurtbox") instance=ExtResource("4_p47bc")]
 unique_name_in_owner = true
@@ -41,3 +184,45 @@ hurtbox = NodePath("../HurtboxComponent")
 [node name="KnockbackComponent" parent="." unique_id=184767056 node_paths=PackedStringArray("hurtbox") instance=ExtResource("5_75vfm")]
 unique_name_in_owner = true
 hurtbox = NodePath("../HurtboxComponent")
+
+[node name="MovementComponent" parent="." unique_id=1168461939 node_paths=PackedStringArray("knockback") instance=ExtResource("7_0owmy")]
+unique_name_in_owner = true
+move_speed = 100.0
+knockback = NodePath("../KnockbackComponent")
+
+[node name="StateMachine" type="Node" parent="." unique_id=851901206 node_paths=PackedStringArray("starting_state")]
+unique_name_in_owner = true
+script = ExtResource("8_5gtgg")
+starting_state = NodePath("Idle")
+metadata/_custom_type_script = "uid://bkgel2ay0al2c"
+
+[node name="Idle" type="Node" parent="StateMachine" unique_id=408281892]
+script = ExtResource("9_je7p5")
+metadata/_custom_type_script = "uid://cj2s51e6wd4tp"
+
+[node name="Move" type="Node" parent="StateMachine" unique_id=675773304]
+script = ExtResource("10_je7p5")
+metadata/_custom_type_script = "uid://cj2s51e6wd4tp"
+
+[node name="MeleeAttack" type="Node" parent="StateMachine" unique_id=15784285]
+script = ExtResource("11_fm80t")
+metadata/_custom_type_script = "uid://cj2s51e6wd4tp"
+
+[node name="RangedAttack" type="Node" parent="StateMachine" unique_id=195741915]
+script = ExtResource("12_ugbui")
+projectile_scene = ExtResource("14_myrg7")
+metadata/_custom_type_script = "uid://cj2s51e6wd4tp"
+
+[node name="Hurt" type="Node" parent="StateMachine" unique_id=60577208]
+script = ExtResource("12_gx1jg")
+metadata/_custom_type_script = "uid://cj2s51e6wd4tp"
+
+[node name="Dead" type="Node" parent="StateMachine" unique_id=1222142277]
+script = ExtResource("13_gx1jg")
+metadata/_custom_type_script = "uid://cj2s51e6wd4tp"
+
+[node name="ProjectileSpawnPoint" type="Marker2D" parent="." unique_id=1120945987]
+unique_name_in_owner = true
+position = Vector2(2, 0)
+
+[editable path="HurtboxComponent"]
