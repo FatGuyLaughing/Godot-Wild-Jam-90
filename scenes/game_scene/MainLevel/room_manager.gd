@@ -2,43 +2,69 @@ extends Node2D
 
 @export var player_path: NodePath
 @export var first_room_scene: PackedScene
+@export var door_cooldown_time: float = 0.2  # Seconds to ignore rapid retriggers
 
-@onready var current_room: Node = null
-@onready var game_state = get_node("/root/GameState")
+var current_room: Node = null
+var door_timer: float = 0.0
+
+func _physics_process(delta: float) -> void:
+	if door_timer > 0:
+		door_timer -= delta
 
 func _ready():
-	if first_room_scene != null:
+	if first_room_scene:
 		add_room(first_room_scene)
 	else:
-		print("No first room assigned!")
+		push_warning("No first_room_scene assigned!")
 
-func add_room(new_scene: PackedScene):
-	if new_scene != null:
-		# Save old room state before deleting
-		if current_room != null and is_instance_valid(current_room):
-			var old_room_name = current_room.name
-			if current_room.has_method("save_state"):
-				var saved_state = current_room.save_state()
-				game_state.save_room_state(old_room_name, saved_state)
-			current_room.queue_free()
+func add_room(new_scene: PackedScene) -> void:
+	if not new_scene:
+		push_warning("No scene provided to add_room()")
+		return
 
-		# Instance new room
-		current_room = new_scene.instantiate()
-		add_child(current_room)
+	# Save old room state
+	if current_room and is_instance_valid(current_room):
+		if current_room.has_method("save_state"):
+			GameState.save_room_state(current_room.room_id, current_room.save_state())
+		current_room.queue_free()
 
-		# Load saved state for new room if exists
-		var new_room_name = current_room.name
-		if current_room.has_method("load_state"):
-			var loaded_state = game_state.load_room_state(new_room_name)
-			current_room.load_state(loaded_state)
-	else:
-		print("No scene provided to add_room()")
+	# Instance new room
+	current_room = new_scene.instantiate()
+	add_child(current_room)
+	print("Added room:", current_room.room_id)
 
-func change_room(new_player_pos: Vector2, new_scene: PackedScene):
+	# Connect all doors in this room
+	for door in current_room.get_children():
+		if door.is_in_group("doors"):
+			door.request_room_change.connect(_on_door_request_room_change)
+			print("Connected door:", door.name, "in room:", current_room.room_id)
+
+	# Load saved state
+	if current_room.has_method("load_state"):
+		current_room.load_state(GameState.load_room_state(current_room.room_id))
+
+func _on_door_request_room_change(new_position: Vector2, target_scene: PackedScene) -> void:
+	if door_timer > 0:
+		print("Door cooldown active, ignoring rapid trigger")
+		return
+
+	door_timer = door_cooldown_time
+
+	print("Room change requested from room:", current_room.room_id, "to scene:", target_scene, "player pos:", new_position)
+
+	if target_scene == null:
+		push_warning("Door requested a room change but target_scene is null")
+		return
+
+	change_room(new_position, target_scene)
+
+func change_room(new_player_pos: Vector2, new_scene: PackedScene) -> void:
+	print("Changing room to:", new_scene, "with player position:", new_player_pos)
 	add_room(new_scene)
 
-	if has_node(player_path):
-		var player = get_node(player_path) as CharacterBody2D
+	var player = get_node_or_null(player_path)
+	if player:
 		player.global_position = new_player_pos
+		print("Player moved to:", player.global_position)
 	else:
-		print("Player node not found at path:", player_path)
+		push_warning("Player node not found at path: %s" % player_path)

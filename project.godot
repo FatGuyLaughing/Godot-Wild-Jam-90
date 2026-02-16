@@ -15,6 +15,11 @@ run/main_scene="res://scenes/opening/opening.tscn"
 config/features=PackedStringArray("4.6")
 config/icon="res://icon.png"
 
+[autoload]
+
+RoomManagerGlobal="*uid://2c4da5in52dq"
+GameState="*uid://dth7aye7mfvbo"
+
 [display]
 
 window/size/viewport_width=1280

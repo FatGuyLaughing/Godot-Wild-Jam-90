@@ -1,18 +1,16 @@
 extends Node
 
-# Store saved data for rooms: dictionary of room name -> saved state dict
-var rooms_data := {}
+# Dictionary: room_id -> saved state
+var rooms_data: Dictionary = {}
 
-# Save state of a room by name
-func save_room_state(room_name: String, state: Dictionary) -> void:
-	rooms_data[room_name] = state
-	print("Saved state for room: ", room_name)
+func save_room_state(room_id: String, state: Dictionary) -> void:
+	rooms_data[room_id] = state
+	print("Saved state for room:", room_id)
 
-# Load state of a room by name (returns Dictionary or empty dictionary)
-func load_room_state(room_name: String) -> Dictionary:
-	if room_name in rooms_data:
-		print("Loaded state for room: ", room_name)
-		return rooms_data[room_name]
+func load_room_state(room_id: String) -> Dictionary:
+	if rooms_data.has(room_id):
+		print("Loaded state for room:", room_id)
+		return rooms_data[room_id]
 	else:
-		print("No saved state for room: ", room_name)
+		print("No saved state for room:", room_id)
 		return {}

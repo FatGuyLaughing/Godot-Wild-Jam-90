@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://divvu0d75iort"]
 
-[ext_resource type="Texture2D" uid="uid://dc4ylgo3o4k54" path="res://assets/test assets/ground1.jpg" id="1_67l0m"]
+[ext_resource type="Texture2D" uid="uid://344ngldhaqwf" path="res://assets/test_assets/ground1.jpg" id="1_67l0m"]
 [ext_resource type="Script" uid="uid://b2wbht33d0j73" path="res://scenes/game_scene/MainLevel/Rooms/character_body_2d.gd" id="1_ht2dh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ht2dh"]
