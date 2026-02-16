@@ -1,0 +1,65 @@
+[gd_resource type="TileSet" format=3 uid="uid://cg7707aehbsfm"]
+
+[ext_resource type="Texture2D" uid="uid://b011aj5na5ktm" path="res://components/vfx/steam_wall_tileset/steam_wall_sheet.png" id="1_wgxhx"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wgxhx"]
+texture = ExtResource("1_wgxhx")
+texture_region_size = Vector2i(64, 64)
+0:0/animation_columns = 50
+0:0/animation_speed = 8.0
+0:0/animation_mode = 1
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/animation_frame_2/duration = 1.0
+0:0/animation_frame_3/duration = 1.0
+0:0/animation_frame_4/duration = 1.0
+0:0/animation_frame_5/duration = 1.0
+0:0/animation_frame_6/duration = 1.0
+0:0/animation_frame_7/duration = 1.0
+0:0/animation_frame_8/duration = 1.0
+0:0/animation_frame_9/duration = 1.0
+0:0/animation_frame_10/duration = 1.0
+0:0/animation_frame_11/duration = 1.0
+0:0/animation_frame_12/duration = 1.0
+0:0/animation_frame_13/duration = 1.0
+0:0/animation_frame_14/duration = 1.0
+0:0/animation_frame_15/duration = 1.0
+0:0/animation_frame_16/duration = 1.0
+0:0/animation_frame_17/duration = 1.0
+0:0/animation_frame_18/duration = 1.0
+0:0/animation_frame_19/duration = 1.0
+0:0/animation_frame_20/duration = 1.0
+0:0/animation_frame_21/duration = 1.0
+0:0/animation_frame_22/duration = 1.0
+0:0/animation_frame_23/duration = 1.0
+0:0/animation_frame_24/duration = 1.0
+0:0/animation_frame_25/duration = 1.0
+0:0/animation_frame_26/duration = 1.0
+0:0/animation_frame_27/duration = 1.0
+0:0/animation_frame_28/duration = 1.0
+0:0/animation_frame_29/duration = 1.0
+0:0/animation_frame_30/duration = 1.0
+0:0/animation_frame_31/duration = 1.0
+0:0/animation_frame_32/duration = 1.0
+0:0/animation_frame_33/duration = 1.0
+0:0/animation_frame_34/duration = 1.0
+0:0/animation_frame_35/duration = 1.0
+0:0/animation_frame_36/duration = 1.0
+0:0/animation_frame_37/duration = 1.0
+0:0/animation_frame_38/duration = 1.0
+0:0/animation_frame_39/duration = 1.0
+0:0/animation_frame_40/duration = 1.0
+0:0/animation_frame_41/duration = 1.0
+0:0/animation_frame_42/duration = 1.0
+0:0/animation_frame_43/duration = 1.0
+0:0/animation_frame_44/duration = 1.0
+0:0/animation_frame_45/duration = 1.0
+0:0/animation_frame_46/duration = 1.0
+0:0/animation_frame_47/duration = 1.0
+0:0/animation_frame_48/duration = 1.0
+0:0/animation_frame_49/duration = 1.0
+0:0/0 = 0
+
+[resource]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_wgxhx")
