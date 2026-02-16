@@ -1,7 +1,7 @@
-## Player attack state. Active when the player initiates an attack.
+## Player melee attack state. Active when the player initiates a melee attack.
 ## The AnimationPlayer drives the hitbox enable/disable via keyframes.
-## Transitions to Move or Idle when the attack animation finishes.
-class_name PlayerAttackState
+## Transitions to RangedAttack, Move, or Idle when the animation finishes.
+class_name PlayerMeleeAttackState
 extends State
 
 @onready var _animation_player: AnimationPlayer = %AnimationPlayer
@@ -16,9 +16,13 @@ func exit() -> void:
 	_animation_player.animation_finished.disconnect(_on_animation_finished)
 
 
-## Checks for directional input after the attack to determine
-## whether to transition to Move or Idle.
+## Checks for attack chaining first, then directional input, to determine
+## the next state after the melee animation finishes.
 func _on_animation_finished(_animation_name: String) -> void:
+	if Input.is_action_just_pressed("ranged_attack"):
+		transition_to("RangedAttack")
+		return
+
 	var direction: Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 
 	if direction != Vector2.ZERO:

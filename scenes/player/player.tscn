@@ -11,8 +11,9 @@
 [ext_resource type="Script" uid="uid://bkgel2ay0al2c" path="res://components/state_machine/state_machine.gd" id="8_5gtgg"]
 [ext_resource type="Script" uid="uid://cehq1sya56ppb" path="res://scenes/player/states/idle.gd" id="9_je7p5"]
 [ext_resource type="Script" uid="uid://dqmyvdw28a50a" path="res://scenes/player/states/move.gd" id="10_je7p5"]
-[ext_resource type="Script" uid="uid://b6ai11yyht4k2" path="res://scenes/player/states/attack.gd" id="11_fm80t"]
+[ext_resource type="Script" uid="uid://b6ai11yyht4k2" path="res://scenes/player/states/melee_attack.gd" id="11_fm80t"]
 [ext_resource type="Script" uid="uid://dltcdnhoxux0p" path="res://scenes/player/states/hurt.gd" id="12_gx1jg"]
+[ext_resource type="Script" uid="uid://dokrxgwm5tmva" path="res://scenes/player/states/ranged_attack.gd" id="12_ugbui"]
 [ext_resource type="Script" uid="uid://dmwbgu6ur28mf" path="res://scenes/player/states/dead.gd" id="13_gx1jg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fcs02"]
@@ -180,8 +181,12 @@ metadata/_custom_type_script = "uid://cj2s51e6wd4tp"
 script = ExtResource("10_je7p5")
 metadata/_custom_type_script = "uid://cj2s51e6wd4tp"
 
-[node name="Attack" type="Node" parent="StateMachine" unique_id=15784285]
+[node name="MeleeAttack" type="Node" parent="StateMachine" unique_id=15784285]
 script = ExtResource("11_fm80t")
+metadata/_custom_type_script = "uid://cj2s51e6wd4tp"
+
+[node name="RangedAttack" type="Node" parent="StateMachine" unique_id=195741915]
+script = ExtResource("12_ugbui")
 metadata/_custom_type_script = "uid://cj2s51e6wd4tp"
 
 [node name="Hurt" type="Node" parent="StateMachine" unique_id=60577208]
