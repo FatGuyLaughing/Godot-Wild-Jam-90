@@ -221,4 +221,8 @@ metadata/_custom_type_script = "uid://cj2s51e6wd4tp"
 script = ExtResource("13_gx1jg")
 metadata/_custom_type_script = "uid://cj2s51e6wd4tp"
 
+[node name="ProjectileSpawnPoint" type="Marker2D" parent="." unique_id=1120945987]
+unique_name_in_owner = true
+position = Vector2(2, 0)
+
 [editable path="HurtboxComponent"]

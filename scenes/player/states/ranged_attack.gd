@@ -22,6 +22,7 @@ var _cooldown_remaining: float = 0.0
 @onready var _animation_player: AnimationPlayer = %AnimationPlayer
 @onready var _health: HealthComponent = %HealthComponent
 @onready var _movement: MovementComponent = %MovementComponent
+@onready var _spawn_point: Marker2D = %ProjectileSpawnPoint
 
 
 func enter() -> void:
@@ -57,9 +58,10 @@ func can_attack() -> bool:
 ## The projectile is added to the current scene so it persists independently.
 func _spawn_projectile() -> void:
 	var projectile: Node2D = projectile_scene.instantiate()
-	projectile.global_position = entity.global_position
-	projectile.direction = entity.global_position.direction_to(entity.get_global_mouse_position())
+	projectile.direction = _spawn_point.global_position.direction_to(entity.get_global_mouse_position())
 	entity.get_tree().current_scene.add_child(projectile)
+	projectile.global_position = _spawn_point.global_position
+	projectile.rotation = projectile.direction.angle()
 
 
 ## Handles the case where the player stopped pressing ranged attack.

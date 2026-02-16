@@ -22,8 +22,6 @@ func _ready() -> void:
 	_lifetime_timer.one_shot = true
 	_lifetime_timer.start()
 	_lifetime_timer.timeout.connect(_on_lifetime_timeout)
-	# Rotate sprite to face the travel direction
-	rotation = direction.angle()
 
 
 func _physics_process(_delta: float) -> void:
