@@ -24,7 +24,9 @@ func physics_process(_delta: float) -> void:
 		return
 
 	if Input.is_action_just_pressed("ranged_attack"):
-		transition_to("RangedAttack")
+		var ranged_state: PlayerRangedAttackState = state_machine.get_node("RangedAttack")
+		if ranged_state.can_attack():
+			transition_to("RangedAttack")
 		return
 
 	# Only apply movement if we're not transitioning out
