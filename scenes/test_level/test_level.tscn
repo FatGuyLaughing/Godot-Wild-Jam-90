@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://dvlr1ck67avc3"]
+
+[ext_resource type="PackedScene" uid="uid://haj0s8e6d10f" path="res://scenes/player/player.tscn" id="1_62xr1"]
+[ext_resource type="PackedScene" uid="uid://7k7sd5u8xvg7" path="res://components/blockout/blockout_empty_room.tscn" id="2_vxsof"]
+[ext_resource type="PackedScene" uid="uid://durh24oy4tibk" path="res://components/hurtbox/hurtbox.tscn" id="3_yetkn"]
+[ext_resource type="PackedScene" uid="uid://b3qijgyqfxb88" path="res://components/health/health.tscn" id="4_q0l7r"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_q2iya"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oeshv"]
+size = Vector2(29, 36)
+
+[node name="TestLevel" type="Node2D" unique_id=2092852973]
+
+[node name="PlayerCharacter" parent="." unique_id=44599593 instance=ExtResource("1_62xr1")]
+position = Vector2(302, 221)
+
+[node name="TileMapLayer" parent="." unique_id=920795053 instance=ExtResource("2_vxsof")]
+
+[node name="TestEnemy" type="StaticBody2D" parent="." unique_id=1464544566]
+
+[node name="Sprite2D" type="Sprite2D" parent="TestEnemy" unique_id=416298506]
+position = Vector2(557, 212)
+scale = Vector2(28.000027, 35.999992)
+texture = SubResource("PlaceholderTexture2D_q2iya")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestEnemy" unique_id=1927249567]
+
+[node name="HurtboxComponent" parent="TestEnemy" unique_id=1179701126 instance=ExtResource("3_yetkn")]
+position = Vector2(571, 230)
+entity_type = 1
+enabled = true
+
+[node name="CollisionShape2D" parent="TestEnemy/HurtboxComponent" index="0" unique_id=1354527137]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_oeshv")
+
+[node name="HealthComponent" parent="TestEnemy" unique_id=634366022 node_paths=PackedStringArray("hurtbox") instance=ExtResource("4_q0l7r")]
+max_health = 20.0
+hurtbox = NodePath("../HurtboxComponent")
+
+[editable path="TestEnemy/HurtboxComponent"]
