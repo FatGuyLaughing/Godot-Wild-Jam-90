@@ -1,6 +1,6 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://cg7707aehbsfm"]
+[gd_resource type="TileSet" format=3 uid="uid://cg7707aehbsfm"]
 
-[ext_resource type="Texture2D" uid="uid://b011aj5na5ktm" path="res://vfx/2d/smoke_wall/steam_wall_sheet.png" id="1_wgxhx"]
+[ext_resource type="Texture2D" uid="uid://b011aj5na5ktm" path="res://components/vfx/steam_wall_tileset/steam_wall_sheet.png" id="1_wgxhx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wgxhx"]
 texture = ExtResource("1_wgxhx")
