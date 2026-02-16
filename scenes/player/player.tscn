@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dbjw3he336jxs" path="res://scenes/player/player.gd" id="1_75vfm"]
 [ext_resource type="PackedScene" uid="uid://durh24oy4tibk" path="res://components/hurtbox/hurtbox.tscn" id="2_p47bc"]
-[ext_resource type="Shader" path="res://scenes/player/glow_outline.gdshader" id="2_ugbui"]
+[ext_resource type="Shader" uid="uid://70awdshy8ls0" path="res://scenes/player/glow_outline.gdshader" id="2_ugbui"]
 [ext_resource type="PackedScene" uid="uid://boq4mravejikc" path="res://components/hitbox/hitbox.tscn" id="3_75vfm"]
 [ext_resource type="Texture2D" uid="uid://brtonoqaq2xtw" path="res://assets/player/Valka the Fallen.png" id="3_fcs02"]
 [ext_resource type="PackedScene" uid="uid://b3qijgyqfxb88" path="res://components/health/health.tscn" id="4_p47bc"]
@@ -19,10 +19,10 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fcs02"]
 shader = ExtResource("2_ugbui")
-shader_parameter/max_line_width = 20.0
-shader_parameter/min_line_width = 10.0
+shader_parameter/max_line_width = 4.0
+shader_parameter/min_line_width = 2.0
 shader_parameter/freq = 0.0
-shader_parameter/block_size = 10.0
+shader_parameter/block_size = 20.0
 shader_parameter/starting_colour = Color(1, 1, 0, 1)
 shader_parameter/ending_colour = Color(1, 1, 0, 0)
 
