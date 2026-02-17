@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://dvlr1ck67avc3"]
+
+[ext_resource type="PackedScene" uid="uid://haj0s8e6d10f" path="res://scenes/player/player.tscn" id="1_62xr1"]
+[ext_resource type="PackedScene" uid="uid://7k7sd5u8xvg7" path="res://components/blockout/blockout_empty_room.tscn" id="2_vxsof"]
+[ext_resource type="PackedScene" uid="uid://durh24oy4tibk" path="res://components/hurtbox/hurtbox.tscn" id="3_yetkn"]
+[ext_resource type="PackedScene" uid="uid://b3qijgyqfxb88" path="res://components/health/health.tscn" id="4_q0l7r"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_q2iya"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yetkn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yetkn"]
+size = Vector2(28, 36)
+
+[node name="TestLevel" type="Node2D" unique_id=2092852973]
+
+[node name="PlayerCharacter" parent="." unique_id=44599593 instance=ExtResource("1_62xr1")]
+position = Vector2(302, 221)
+
+[node name="TileMapLayer" parent="." unique_id=920795053 instance=ExtResource("2_vxsof")]
+
+[node name="TestEnemy" type="StaticBody2D" parent="." unique_id=1464544566]
+position = Vector2(444, 224)
+collision_layer = 16
+
+[node name="Sprite2D" type="Sprite2D" parent="TestEnemy" unique_id=416298506]
+position = Vector2(-13, -18)
+scale = Vector2(27.999998, 36)
+texture = SubResource("PlaceholderTexture2D_q2iya")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestEnemy" unique_id=1927249567]
+shape = SubResource("CircleShape2D_yetkn")
+metadata/_edit_lock_ = true
+
+[node name="HurtboxComponent" parent="TestEnemy" unique_id=1179701126 instance=ExtResource("3_yetkn")]
+entity_type = 1
+enabled = true
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" parent="TestEnemy/HurtboxComponent" index="0" unique_id=1354527137]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_yetkn")
+metadata/_edit_lock_ = true
+
+[node name="HealthComponent" parent="TestEnemy" unique_id=634366022 node_paths=PackedStringArray("hurtbox") instance=ExtResource("4_q0l7r")]
+max_health = 20.0
+hurtbox = NodePath("../HurtboxComponent")
+
+[editable path="TestEnemy/HurtboxComponent"]
