@@ -18,12 +18,12 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fcs02"]
 shader = ExtResource("2_ugbui")
-shader_parameter/max_line_width = 3.0
-shader_parameter/min_line_width = 1.0
+shader_parameter/max_line_width = 10.0
+shader_parameter/min_line_width = 5.0
 shader_parameter/freq = 0.0
 shader_parameter/block_size = 1.0
-shader_parameter/starting_colour = Color(1, 1, 0, 1)
-shader_parameter/ending_colour = Color(1, 1, 0, 0)
+shader_parameter/starting_colour = Color(1, 0, 0, 1)
+shader_parameter/ending_colour = Color(1, 0, 0, 0)
 
 [sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_myrg7"]
 _data = PackedByteArray("AAADAAUAAAABAAAAIAEAAMAAAAA0AgAAUklGRiwCAABXRUJQVlA4TB8CAAAvH8EvEEdgJgIhPcwiGOlfxfz3XQgCIHwYMCHPoQkVDEW28f9HAjHcjCL6B3DWYP4DAL1en7WK9gnbiQeZIMe2bbdtjsL7jy2lGWgEcQAcwmsAsPwN/kL5mt87YuAk5czrbEf0n4HbRoqyTAc5fAP/lA0ph5DjLeR4Cy3HmQdcCnGg4KQOb8ZUMEyEN4dex1YsTYS3MGLdr/sSMrxNpRkWy4wMb/PGsYxCuARvMBZw5iVMg7dp3nQAr12Ft+gv/anwtgK7K2CBb97bF+T54YhL8JatDb572l7BcAh+7t5yOAS4395d5NCaS/CWK3B7o8bb/QWwIMEb1Jf3uQGcuzeAqeTJll6NHQnewtaRhDqjwVsa1TzIVyMqvDGuFkSrXYU3rL5f3i9GmAZvhEdtc5kgJXiDIKidQIY3J6kGhgxvQBo4iPAGvDypb93bF+cMvH15tByny4Ez8KYmuBz47z///ef7Q8ohfq7IA66mNwquZGPGVDBMBA69jq1YqiCMWPfrvujYwFSaYbHMyAjzxrGMomM/YwFnXsJEtOdNB/DaUTGxv9ydClZgdwUsSnh+OOISyNYG3z1tr2A4hLPvyOEQ4H57d5FDayKKFbi9UdN9f6GE+nJDpuO7mSdbejV2Ff8V60hCndEQ0qjmQb4akRHG1YJotcvA6vvl/WKEionhUdtcJkgVENROICM4STUwlIQ0cClgwM8VLgf++8+/UAAA")
@@ -290,6 +290,7 @@ radius = 9.0
 height = 48.0
 
 [node name="PlayerCharacter" type="CharacterBody2D" unique_id=44599593]
+y_sort_enabled = true
 collision_layer = 2
 script = ExtResource("1_75vfm")
 

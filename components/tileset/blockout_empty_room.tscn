@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://7k7sd5u8xvg7"]
 
-[ext_resource type="TileSet" uid="uid://cntqsyy6h7vv" path="res://components/blockout/blockout_32x32.tres" id="1_wnq1r"]
+[ext_resource type="TileSet" uid="uid://cntqsyy6h7vv" path="res://components/tileset/tileset_32x32.tres" id="1_wnq1r"]
 
 [node name="TileMapLayer" type="TileMapLayer" unique_id=920795053]
 scale = Vector2(2, 2)
