@@ -50,7 +50,6 @@ var _is_invincible: bool = false
 func _ready() -> void:
 	_apply_physics_layer()
 	_configure_timer()
-	area_entered.connect(_on_area_entered)
 
 
 ## Sets collision_layer based on entity_type. Mask is always 0 because
@@ -69,12 +68,10 @@ func _configure_timer() -> void:
 	_invincibility_timer.timeout.connect(_on_invincibility_timer_timeout)
 
 
-## Handles overlap from any Area2D. Ignores non-HitboxComponent areas.
-func _on_area_entered(hitbox: Area2D) -> void:
+## Called by a HitboxComponent when it detects overlap with this hurtbox.
+## Emits the hit signal and starts invincibility frames if configured.
+func receive_hit(hitbox: HitboxComponent) -> void:
 	if not enabled or _is_invincible:
-		return
-
-	if not hitbox is HitboxComponent:
 		return
 
 	hit.emit(hitbox, hitbox.damage)

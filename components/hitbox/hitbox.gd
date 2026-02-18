@@ -53,6 +53,7 @@ func _apply_physics_layer() -> void:
 
 
 ## Handles overlap from any Area2D. Ignores non-HurtboxComponent areas.
+## Notifies the hurtbox directly since it has mask=0 and can't detect us.
 func _on_area_entered(hurtbox: Area2D) -> void:
 	if not enabled:
 		return
@@ -61,3 +62,4 @@ func _on_area_entered(hurtbox: Area2D) -> void:
 		return
 
 	hit.emit(hurtbox)
+	hurtbox.receive_hit(self)
