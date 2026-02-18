@@ -4,11 +4,17 @@ class_name PlayerHurtState
 extends State
 
 @onready var _animation_player: AnimationPlayer = %AnimationPlayer
+@onready var _movement: MovementComponent = %MovementComponent
 
 
 func enter() -> void:
 	_animation_player.play("hurt")
 	_animation_player.animation_finished.connect(_on_animation_finished)
+
+
+func physics_process(_delta: float) -> void:
+	var direction: Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	_movement.apply_movement(entity, direction)
 
 
 func exit() -> void:

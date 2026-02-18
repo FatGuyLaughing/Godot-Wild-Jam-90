@@ -1,10 +1,9 @@
-[gd_scene format=3 uid="uid://haj0s8e6d10f"]
+[gd_scene format=4 uid="uid://haj0s8e6d10f"]
 
 [ext_resource type="Script" uid="uid://dbjw3he336jxs" path="res://scenes/player/player.gd" id="1_75vfm"]
 [ext_resource type="PackedScene" uid="uid://durh24oy4tibk" path="res://components/hurtbox/hurtbox.tscn" id="2_p47bc"]
-[ext_resource type="Shader" uid="uid://70awdshy8ls0" path="res://scenes/player/glow_outline.gdshader" id="2_ugbui"]
+[ext_resource type="Shader" path="res://scenes/player/glow_outline.gdshader" id="2_ugbui"]
 [ext_resource type="PackedScene" uid="uid://boq4mravejikc" path="res://components/hitbox/hitbox.tscn" id="3_75vfm"]
-[ext_resource type="Texture2D" uid="uid://brtonoqaq2xtw" path="res://assets/player/Valka the Fallen.png" id="3_fcs02"]
 [ext_resource type="PackedScene" uid="uid://b3qijgyqfxb88" path="res://components/health/health.tscn" id="4_p47bc"]
 [ext_resource type="PackedScene" uid="uid://dibptag8uqy1v" path="res://components/knockback/knockback.tscn" id="5_75vfm"]
 [ext_resource type="PackedScene" uid="uid://4jii8umru44f" path="res://components/movement/movement.tscn" id="7_0owmy"]
@@ -19,127 +18,271 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fcs02"]
 shader = ExtResource("2_ugbui")
-shader_parameter/max_line_width = 4.0
-shader_parameter/min_line_width = 2.0
+shader_parameter/max_line_width = 10.0
+shader_parameter/min_line_width = 5.0
 shader_parameter/freq = 0.0
-shader_parameter/block_size = 20.0
-shader_parameter/starting_colour = Color(1, 1, 0, 1)
-shader_parameter/ending_colour = Color(1, 1, 0, 0)
+shader_parameter/block_size = 1.0
+shader_parameter/starting_colour = Color(1, 0, 0, 1)
+shader_parameter/ending_colour = Color(1, 0, 0, 0)
 
-[sub_resource type="Animation" id="Animation_je7p5"]
-length = 0.001
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_myrg7"]
+_data = PackedByteArray("AAADAAUAAAABAAAAIAEAAMAAAAA0AgAAUklGRiwCAABXRUJQVlA4TB8CAAAvH8EvEEdgJgIhPcwiGOlfxfz3XQgCIHwYMCHPoQkVDEW28f9HAjHcjCL6B3DWYP4DAL1en7WK9gnbiQeZIMe2bbdtjsL7jy2lGWgEcQAcwmsAsPwN/kL5mt87YuAk5czrbEf0n4HbRoqyTAc5fAP/lA0ph5DjLeR4Cy3HmQdcCnGg4KQOb8ZUMEyEN4dex1YsTYS3MGLdr/sSMrxNpRkWy4wMb/PGsYxCuARvMBZw5iVMg7dp3nQAr12Ft+gv/anwtgK7K2CBb97bF+T54YhL8JatDb572l7BcAh+7t5yOAS4395d5NCaS/CWK3B7o8bb/QWwIMEb1Jf3uQGcuzeAqeTJll6NHQnewtaRhDqjwVsa1TzIVyMqvDGuFkSrXYU3rL5f3i9GmAZvhEdtc5kgJXiDIKidQIY3J6kGhgxvQBo4iPAGvDypb93bF+cMvH15tByny4Ez8KYmuBz47z///ef7Q8ohfq7IA66mNwquZGPGVDBMBA69jq1YqiCMWPfrvujYwFSaYbHMyAjzxrGMomM/YwFnXsJEtOdNB/DaUTGxv9ydClZgdwUsSnh+OOISyNYG3z1tr2A4hLPvyOEQ4H57d5FDayKKFbi9UdN9f6GE+nJDpuO7mSdbejV2Ff8V60hCndEQ0qjmQb4akRHG1YJotcvA6vvl/WKEionhUdtcJkgVENROICM4STUwlIQ0cClgwM8VLgf++8+/UAAA")
+size_override = Vector2(288, 192)
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_fcs02"]
+_data = PackedByteArray("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")
+size_override = Vector2(288, 288)
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_kvlxm"]
+_data = PackedByteArray("AAADAAUAAAABAAAAwAAAAGAAAABOAAAAUklGRkYAAABXRUJQVlA4TDkAAAAvv8AXEA8wDuMwEgMY8FDUtpFUBgNpoC3VgbF3vnu9VxH9nwD9CU4WBdiaDL6mQ1qTwdcE2BpN9G4A")
+size_override = Vector2(192, 96)
+
+[sub_resource type="Animation" id="Animation_kvlxm"]
+length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture")
+tracks/0/path = NodePath("../Halo:frame")
 tracks/0/interp = 1
-tracks/0/loop_wrap = true
+tracks/0/loop_wrap = false
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_fcs02")]
+"values": [3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Shadow:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = false
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
 }
 
-[sub_resource type="Animation" id="Animation_fm80t"]
-resource_name = "attack"
+[sub_resource type="Animation" id="Animation_uf5tr"]
+length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture")
+tracks/0/path = NodePath("../Halo:frame")
 tracks/0/interp = 1
-tracks/0/loop_wrap = true
+tracks/0/loop_wrap = false
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_fcs02")]
+"values": [3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Shadow:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = false
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
 }
 
-[sub_resource type="Animation" id="Animation_gx1jg"]
-resource_name = "dead"
+[sub_resource type="Animation" id="Animation_lgqa7"]
+length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture")
+tracks/0/path = NodePath("../Halo:frame")
 tracks/0/interp = 1
-tracks/0/loop_wrap = true
+tracks/0/loop_wrap = false
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_fcs02")]
+"values": [3]
 }
-
-[sub_resource type="Animation" id="Animation_ugbui"]
-resource_name = "hurt"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_fcs02")]
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Shadow:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = false
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_fcs02"]
-resource_name = "idle"
+resource_name = "move"
+length = 1.2
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture")
+tracks/0/path = NodePath("../Halo:frame")
 tracks/0/interp = 1
-tracks/0/loop_wrap = true
+tracks/0/loop_wrap = false
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("3_fcs02")]
+"values": [0, 0, 1, 1, 2, 2, 1, 1, 0, 0, 3, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 2, 6, 7, 0, 0, 0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Shadow:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = false
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 }
 
 [sub_resource type="Animation" id="Animation_myrg7"]
 resource_name = "move"
+length = 0.1
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture")
+tracks/0/path = NodePath("../Halo:frame")
 tracks/0/interp = 1
-tracks/0/loop_wrap = true
+tracks/0/loop_wrap = false
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_fcs02")]
+"values": [3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Shadow:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = false
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
 }
 
-[sub_resource type="Animation" id="Animation_kvlxm"]
-resource_name = "ranged_attack"
+[sub_resource type="Animation" id="Animation_8ydkj"]
+length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture")
+tracks/0/path = NodePath("../Halo:frame")
 tracks/0/interp = 1
-tracks/0/loop_wrap = true
+tracks/0/loop_wrap = false
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_fcs02")]
+"values": [3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Shadow:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = false
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kvlxm"]
 _data = {
-&"RESET": SubResource("Animation_je7p5"),
-&"attack": SubResource("Animation_fm80t"),
-&"dead": SubResource("Animation_gx1jg"),
-&"hurt": SubResource("Animation_ugbui"),
+&"attack": SubResource("Animation_kvlxm"),
+&"dead": SubResource("Animation_uf5tr"),
+&"hurt": SubResource("Animation_lgqa7"),
 &"idle": SubResource("Animation_fcs02"),
 &"move": SubResource("Animation_myrg7"),
-&"ranged_attack": SubResource("Animation_kvlxm")
+&"ranged_attack": SubResource("Animation_8ydkj")
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fcs02"]
@@ -147,26 +290,126 @@ radius = 9.0
 height = 48.0
 
 [node name="PlayerCharacter" type="CharacterBody2D" unique_id=44599593]
+y_sort_enabled = true
 collision_layer = 2
 script = ExtResource("1_75vfm")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=79515036]
+[node name="Halo" type="Sprite2D" parent="." unique_id=1332789753]
 unique_name_in_owner = true
+y_sort_enabled = true
+texture_filter = 1
 material = SubResource("ShaderMaterial_fcs02")
-texture = ExtResource("3_fcs02")
+texture = SubResource("PortableCompressedTexture2D_myrg7")
+offset = Vector2(0, -41)
+hframes = 3
+vframes = 2
+frame = 3
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": true,
+"layer_section": true,
+"output_section": false,
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": true,
+"i_mode": 0,
+"keep_anim_length": false,
+"layers": ["halo"],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "AnimationPlayer",
+"scale": "1.0",
+"slice": "",
+"source": "res://assets/player/Valka the Fallen - 6.aseprite",
+"source_uid": 6726556467926159157
+}
+metadata/_aseprite_wizard_source_file_hash_ = "3f438b72f1c631d055054893ae2551be"
+
+[node name="Body" type="Sprite2D" parent="." unique_id=79515036]
+unique_name_in_owner = true
+y_sort_enabled = true
+texture_filter = 1
+texture = SubResource("PortableCompressedTexture2D_fcs02")
+offset = Vector2(0, -41)
+hframes = 3
+vframes = 3
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": true,
+"layer_section": true,
+"output_section": false,
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": true,
+"i_mode": 0,
+"keep_anim_length": false,
+"layers": ["front/hair (back)", "front/main body", "front/boobs", "front/feather blades/feather (left)", "front/feather blades/feather (right)", "front/head", "wings/left wing", "wings/right wing"],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "AnimationPlayer",
+"scale": "1.0",
+"slice": "",
+"source": "res://assets/player/Valka the Fallen - 6.aseprite",
+"source_uid": 6726556467926159157
+}
+metadata/_aseprite_wizard_source_file_hash_ = "3f438b72f1c631d055054893ae2551be"
+
+[node name="Shadow" type="Sprite2D" parent="." unique_id=937884830]
+unique_name_in_owner = true
+z_index = -1
+y_sort_enabled = true
+texture_filter = 1
+texture = SubResource("PortableCompressedTexture2D_kvlxm")
+offset = Vector2(0, -41)
+hframes = 2
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": true,
+"layer_section": true,
+"output_section": false,
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": true,
+"i_mode": 0,
+"keep_anim_length": false,
+"layers": ["shadow"],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "AnimationPlayer",
+"scale": "1.0",
+"slice": "",
+"source": "res://assets/player/Valka the Fallen - 6.aseprite",
+"source_uid": 6726556467926159157
+}
+metadata/_aseprite_wizard_source_file_hash_ = "3f438b72f1c631d055054893ae2551be"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1061781762]
 unique_name_in_owner = true
-root_node = NodePath("../Sprite2D")
+root_node = NodePath("../Body")
 libraries/ = SubResource("AnimationLibrary_kvlxm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1178236850]
-position = Vector2(2, 2)
+position = Vector2(2, -20)
 shape = SubResource("CapsuleShape2D_fcs02")
 
 [node name="HurtboxComponent" parent="." unique_id=1179701126 instance=ExtResource("2_p47bc")]
 unique_name_in_owner = true
-position = Vector2(2, 0)
+position = Vector2(2, -36)
 entity_type = 0
 
 [node name="CollisionShape2D" parent="HurtboxComponent" index="0" unique_id=1354527137]
@@ -223,6 +466,6 @@ metadata/_custom_type_script = "uid://cj2s51e6wd4tp"
 
 [node name="ProjectileSpawnPoint" type="Marker2D" parent="." unique_id=1120945987]
 unique_name_in_owner = true
-position = Vector2(2, 0)
+position = Vector2(2, -30)
 
 [editable path="HurtboxComponent"]

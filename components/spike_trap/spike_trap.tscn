@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://wup70qs62hy0"]
+
+[ext_resource type="Script" uid="uid://cg3hfvjb4uhyi" path="res://components/spike_trap/spike_trap.gd" id="1_spike"]
+[ext_resource type="PackedScene" uid="uid://boq4mravejikc" path="res://components/hitbox/hitbox.tscn" id="2_hitbox"]
+[ext_resource type="Texture2D" uid="uid://cf5ccqiu3sfox" path="res://assets/tilesets/badlands_tiles.png" id="2_uby7b"]
+
+[sub_resource type="Animation" id="Animation_uby7b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_activate"]
+resource_name = "activate"
+length = 0.6
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HitboxComponent:enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4, 5, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_spike"]
+_data = {
+&"RESET": SubResource("Animation_uby7b"),
+&"activate": SubResource("Animation_activate")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_trigger"]
+size = Vector2(20, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hitbox"]
+size = Vector2(20, 16)
+
+[node name="SpikeTrap" type="Area2D" unique_id=1462403656]
+collision_layer = 256
+collision_mask = 2
+script = ExtResource("1_spike")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=753399754]
+texture = ExtResource("2_uby7b")
+hframes = 16
+vframes = 8
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1578749073]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_spike")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2038149050]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_trigger")
+
+[node name="HitboxComponent" parent="." unique_id=1094290482 instance=ExtResource("2_hitbox")]
+unique_name_in_owner = true
+collision_layer = 32
+collision_mask = 8
+entity_type = 1
+enabled = false
+
+[node name="CollisionShape2D" parent="HitboxComponent" index="0" unique_id=1533460143]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_hitbox")
+
+[node name="CooldownTimer" type="Timer" parent="." unique_id=928726025]
+unique_name_in_owner = true
+one_shot = true
+
+[editable path="HitboxComponent"]
