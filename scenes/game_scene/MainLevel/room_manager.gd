@@ -7,6 +7,7 @@ extends Node2D
 var current_room: Node = null
 var door_timer: float = 0.0
 
+
 func _physics_process(delta: float) -> void:
 	if door_timer > 0:
 		door_timer -= delta

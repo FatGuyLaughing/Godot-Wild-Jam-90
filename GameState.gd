@@ -1,6 +1,5 @@
 extends Node
 
-# Dictionary: room_id -> saved state
 var rooms_data: Dictionary = {}
 
 func save_room_state(room_id: String, state: Dictionary) -> void:
