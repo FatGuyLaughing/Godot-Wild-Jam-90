@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8lgbltst8n7q"
-path="res://.godot/imported/blockout_tiles_32x32.png-f1817b63893dde4aae8331a461fc4293.ctex"
+uid="uid://cf5ccqiu3sfox"
+path="res://.godot/imported/badlands_tiles.png-09277401859c88b9c3394b8626087846.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://components/blockout/blockout_tiles_32x32.png"
-dest_files=["res://.godot/imported/blockout_tiles_32x32.png-f1817b63893dde4aae8331a461fc4293.ctex"]
+source_file="res://assets/tilesets/badlands_tiles.png"
+dest_files=["res://.godot/imported/badlands_tiles.png-09277401859c88b9c3394b8626087846.ctex"]
 
 [params]
 
