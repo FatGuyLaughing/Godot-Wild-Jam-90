@@ -20,9 +20,6 @@ script = ExtResource("1_qty17")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1183595025]
 unique_name_in_owner = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1991470636]
-unique_name_in_owner = true
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1771161155]
 shape = SubResource("CapsuleShape2D_qkgnu")
 

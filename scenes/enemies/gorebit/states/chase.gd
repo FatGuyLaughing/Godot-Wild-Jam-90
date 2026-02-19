@@ -8,7 +8,7 @@ extends State
 
 
 func enter() -> void:
-	_animation_player.play("chase")
+	_animation_player.play("move")
 
 
 func physics_process(_delta: float) -> void:
