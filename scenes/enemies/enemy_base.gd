@@ -5,11 +5,13 @@ signal died()
 
 var player_ref: PlayerCharacter = null
 var player_in_range: bool = false
+var player_in_sight: bool = false
 
 @onready var _sprite: Sprite2D = %Sprite2D
 @onready var _hurtbox: HurtboxComponent = %HurtboxComponent
 @onready var _hitbox: HitboxComponent = %HitboxComponent
 @onready var _health: HealthComponent = %HealthComponent
+@onready var _line_of_sight: LineOfSightComponent = $LineOfSightComponent
 @onready var _state_machine: StateMachine = %StateMachine
 @onready var _detection_zone: Area2D = %DetectionZone
 
@@ -21,6 +23,11 @@ func _ready() -> void:
 	_hitbox.enabled = false
 	_detection_zone.body_entered.connect(_on_detection_zone_body_entered)
 	_detection_zone.body_exited.connect(_on_detection_zone_body_exited)
+
+
+func _physics_process(_delta: float) -> void:
+	if is_instance_valid(player_ref):
+		player_in_sight = _line_of_sight.check(player_ref)
 
 
 func _on_died() -> void:
