@@ -1,7 +1,7 @@
 class_name EnemyGorebitIdleState
 extends State
 
-@onready var _animation_player: AnimationPlayer = %AnimationPolayer
+@onready var _animation_player: AnimationPlayer = %AnimationPlayer
 
 
 func enter() -> void:
