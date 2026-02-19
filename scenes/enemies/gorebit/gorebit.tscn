@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://c6jdvemwg3ey1"]
+
+[ext_resource type="PackedScene" uid="uid://2pssxf5l8v6p" path="res://scenes/enemies/enemy_base.tscn" id="1_jp2f0"]
+[ext_resource type="Script" uid="uid://cayucdk6ojqa6" path="res://scenes/enemies/gorebit/gorebit.gd" id="2_ofxg8"]
+[ext_resource type="Texture2D" uid="uid://bx3h3n1qf0d4h" path="res://assets/concept art/skully.png" id="3_qsaxs"]
+[ext_resource type="Script" uid="uid://bbgtcjc7y57ch" path="res://scenes/enemies/gorebit/states/idle.gd" id="4_jhdjw"]
+[ext_resource type="Script" uid="uid://b2ubontvyauin" path="res://scenes/enemies/gorebit/states/chase.gd" id="5_rjfqj"]
+[ext_resource type="Script" uid="uid://b3v8iregm07s7" path="res://scenes/enemies/gorebit/states/attack.gd" id="6_oarpa"]
+[ext_resource type="Script" uid="uid://bcumpvchglu6r" path="res://scenes/enemies/gorebit/states/hurt.gd" id="7_g643m"]
+[ext_resource type="Script" uid="uid://do4wl4wtm2qy7" path="res://scenes/enemies/gorebit/states/dead.gd" id="8_h412u"]
+
+[sub_resource type="Animation" id="Animation_tj12e"]
+resource_name = "attack"
+
+[sub_resource type="Animation" id="Animation_vyqmn"]
+resource_name = "chase"
+
+[sub_resource type="Animation" id="Animation_d507b"]
+resource_name = "dead"
+
+[sub_resource type="Animation" id="Animation_kqgtk"]
+resource_name = "hurt"
+
+[sub_resource type="Animation" id="Animation_ek3nj"]
+resource_name = "idle"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dy7a4"]
+_data = {
+&"attack": SubResource("Animation_tj12e"),
+&"chase": SubResource("Animation_vyqmn"),
+&"dead": SubResource("Animation_d507b"),
+&"hurt": SubResource("Animation_kqgtk"),
+&"idle": SubResource("Animation_ek3nj")
+}
+
+[node name="EnemyBase" unique_id=200550846 instance=ExtResource("1_jp2f0")]
+script = ExtResource("2_ofxg8")
+attack_range = 30.0
+
+[node name="Sprite2D" parent="." index="0" unique_id=1183595025]
+texture = ExtResource("3_qsaxs")
+
+[node name="AnimationPlayer" parent="." index="1" unique_id=1991470636]
+libraries/ = SubResource("AnimationLibrary_dy7a4")
+
+[node name="HitboxComponent" parent="." index="4" unique_id=1334252649]
+damage = 15.0
+
+[node name="HealthComponent" parent="." index="5" unique_id=634366022]
+max_health = 40.0
+
+[node name="StateMachine" parent="." index="9" unique_id=1405924420 node_paths=PackedStringArray("starting_state")]
+starting_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine" index="0" unique_id=970956696]
+script = ExtResource("4_jhdjw")
+metadata/_custom_type_script = "uid://cj2s51e6wd4tp"
+
+[node name="Chase" type="Node" parent="StateMachine" index="1" unique_id=198581040]
+script = ExtResource("5_rjfqj")
+metadata/_custom_type_script = "uid://cj2s51e6wd4tp"
+
+[node name="Attack" type="Node" parent="StateMachine" index="2" unique_id=1663040453]
+script = ExtResource("6_oarpa")
+metadata/_custom_type_script = "uid://cj2s51e6wd4tp"
+
+[node name="Hurt" type="Node" parent="StateMachine" index="3" unique_id=1172792262]
+script = ExtResource("7_g643m")
+metadata/_custom_type_script = "uid://cj2s51e6wd4tp"
+
+[node name="Dead" type="Node" parent="StateMachine" index="4" unique_id=1774832358]
+script = ExtResource("8_h412u")
+metadata/_custom_type_script = "uid://cj2s51e6wd4tp"
