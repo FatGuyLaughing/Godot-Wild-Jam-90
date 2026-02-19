@@ -52,6 +52,7 @@ move_speed = 60.0
 knockback = NodePath("../KnockbackComponent")
 
 [node name="DetectionZone" type="Area2D" parent="." unique_id=391698888]
+unique_name_in_owner = true
 collision_layer = 0
 collision_mask = 2
 monitorable = false
