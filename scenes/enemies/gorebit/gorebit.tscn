@@ -1,47 +1,138 @@
-[gd_scene format=3 uid="uid://c6jdvemwg3ey1"]
+[gd_scene format=4 uid="uid://c6jdvemwg3ey1"]
 
 [ext_resource type="PackedScene" uid="uid://2pssxf5l8v6p" path="res://scenes/enemies/enemy_base.tscn" id="1_jp2f0"]
 [ext_resource type="Script" uid="uid://cayucdk6ojqa6" path="res://scenes/enemies/gorebit/gorebit.gd" id="2_ofxg8"]
-[ext_resource type="Texture2D" uid="uid://bx3h3n1qf0d4h" path="res://assets/concept art/skully.png" id="3_qsaxs"]
 [ext_resource type="Script" uid="uid://bbgtcjc7y57ch" path="res://scenes/enemies/gorebit/states/idle.gd" id="4_jhdjw"]
 [ext_resource type="Script" uid="uid://b2ubontvyauin" path="res://scenes/enemies/gorebit/states/chase.gd" id="5_rjfqj"]
 [ext_resource type="Script" uid="uid://b3v8iregm07s7" path="res://scenes/enemies/gorebit/states/attack.gd" id="6_oarpa"]
 [ext_resource type="Script" uid="uid://bcumpvchglu6r" path="res://scenes/enemies/gorebit/states/hurt.gd" id="7_g643m"]
 [ext_resource type="Script" uid="uid://do4wl4wtm2qy7" path="res://scenes/enemies/gorebit/states/dead.gd" id="8_h412u"]
 
-[sub_resource type="Animation" id="Animation_tj12e"]
-resource_name = "attack"
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_etoiq"]
+_data = PackedByteArray("AAADAAUAAAABAAAAQAAAAEAAAABqAQAAUklGRmIBAABXRUJQVlA4TFUBAAAvP8APEG+gGADQKIg8QgoxjwCyOHf/pqE0ANCEyHf8X8mabKo0kq3mB3Iqh9LpA4vGorJj/gMAyC/ROwXJfrVk+vm9/dy63IfmJKNhyggdQLVtW61zVLmqkkkmrmQZfGDUMXwAM6a515VzT4o2+Yq4MkUVfyY9953xZEFE9J+B27aN1N5evG/Aj2Q8l+e59/Wccn0xJQ0m01e5yf3HfQPjMNIGriTlGEYK3DBYJ7uCuhTGd3KfYh3JyKzTXZSPY0iM9djeRI6mqKNAa11Ygdu8169LhUcdR1r9R02eXVFpeRrTCqjD1qBTnr0y094hgiKa41PHnCTt2vv7U/aMYw9MkgZnNEcwTS7LOdOUcxNXZuAXfzPnfc3hL6isSxRvr0rM4fWZwhKAENXrqxIicwiMskIpJUqFUmCUdRmjlEhHXAIAcYjaiGJyIc4xgIxLnVEC/0AGAAA=")
+size_override = Vector2(64, 64)
 
-[sub_resource type="Animation" id="Animation_vyqmn"]
-resource_name = "chase"
-
-[sub_resource type="Animation" id="Animation_d507b"]
-resource_name = "dead"
-
-[sub_resource type="Animation" id="Animation_kqgtk"]
-resource_name = "hurt"
-
-[sub_resource type="Animation" id="Animation_ek3nj"]
-resource_name = "idle"
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_dy7a4"]
-_data = {
-&"attack": SubResource("Animation_tj12e"),
-&"chase": SubResource("Animation_vyqmn"),
-&"dead": SubResource("Animation_d507b"),
-&"hurt": SubResource("Animation_kqgtk"),
-&"idle": SubResource("Animation_ek3nj")
+[sub_resource type="Animation" id="Animation_jhdjw"]
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
 }
 
-[node name="EnemyBase" unique_id=200550846 instance=ExtResource("1_jp2f0")]
+[sub_resource type="Animation" id="Animation_rjfqj"]
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_oarpa"]
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_g643m"]
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_h412u"]
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tj12e"]
+_data = {
+&"attack": SubResource("Animation_jhdjw"),
+&"dead": SubResource("Animation_rjfqj"),
+&"hurt": SubResource("Animation_oarpa"),
+&"idle": SubResource("Animation_g643m"),
+&"move": SubResource("Animation_h412u")
+}
+
+[node name="Gorebit" unique_id=200550846 instance=ExtResource("1_jp2f0")]
 script = ExtResource("2_ofxg8")
 attack_range = 30.0
 
 [node name="Sprite2D" parent="." index="0" unique_id=1183595025]
-texture = ExtResource("3_qsaxs")
+texture_filter = 1
+texture = SubResource("PortableCompressedTexture2D_etoiq")
+hframes = 2
+vframes = 2
+frame = 1
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": true,
+"i_mode": 0,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "AnimationPlayer",
+"scale": "1.0",
+"slice": "",
+"source": "res://assets/enemies/Gorebit.aseprite",
+"source_uid": 6188844140380409411
+}
+metadata/_aseprite_wizard_source_file_hash_ = "eb88108e4025b25f5ec455757fe3b34a"
 
-[node name="AnimationPlayer" parent="." index="1" unique_id=1991470636]
-libraries/ = SubResource("AnimationLibrary_dy7a4")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1" unique_id=986001668]
+libraries/ = SubResource("AnimationLibrary_tj12e")
 
 [node name="HitboxComponent" parent="." index="4" unique_id=1334252649]
 damage = 15.0
@@ -49,7 +140,7 @@ damage = 15.0
 [node name="HealthComponent" parent="." index="5" unique_id=634366022]
 max_health = 40.0
 
-[node name="StateMachine" parent="." index="9" unique_id=1405924420 node_paths=PackedStringArray("starting_state")]
+[node name="StateMachine" parent="." index="10" unique_id=1405924420 node_paths=PackedStringArray("starting_state")]
 starting_state = NodePath("Idle")
 
 [node name="Idle" type="Node" parent="StateMachine" index="0" unique_id=970956696]
