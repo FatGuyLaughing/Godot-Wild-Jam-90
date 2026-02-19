@@ -18,15 +18,18 @@ fill_to = Vector2(0.5, 1)
 size = Vector2(53.851646, 3)
 
 [node name="Laser" type="Line2D" unique_id=335145319]
+z_index = 3
+y_sort_enabled = true
 rotation = 0.38050637
 points = PackedVector2Array(0, 0, 53.851646, 0)
-width = 6.0
+width = 12.0
 texture = SubResource("GradientTexture2D_6fpsk")
 texture_mode = 1
 script = ExtResource("1_unu6b")
 target = Vector2(50, 20)
 
 [node name="HitboxComponent" parent="." unique_id=1334252649 instance=ExtResource("2_6fpsk")]
+z_index = 3
 entity_type = 1
 
 [node name="CollisionShape2D" parent="HitboxComponent" index="0" unique_id=1533460143]

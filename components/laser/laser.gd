@@ -1,4 +1,3 @@
-@tool
 class_name Laser extends Line2D
 
 @export var color: Color = Color("ff00ff"):
@@ -15,11 +14,20 @@ class_name Laser extends Line2D
 		var distance = global_position.distance_to(target)
 		set_point_position(1, Vector2(distance, 0))
 
-@onready var collision_shape_2d: CollisionShape2D = $HitboxComponent/CollisionShape2D
+@onready var _collision_shape_2d: CollisionShape2D = $HitboxComponent/CollisionShape2D
+@onready var _hitbox: HitboxComponent = $HitboxComponent
 
+
+func enable_hitbox() -> void:
+	_hitbox.enabled = true
+
+
+func disable_hitbox() -> void:
+	_hitbox.enabled = false
 
 
 func reset() -> void:
+	disable_hitbox()
 	set_points([Vector2.ZERO, Vector2.ZERO])
 
 
@@ -29,9 +37,8 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	var distance: float = get_point_position(1).x
-	collision_shape_2d.shape.size = Vector2(distance, width / 2.0)
-	collision_shape_2d.position = Vector2(distance / 2.0, 0)
-
+	_collision_shape_2d.shape.size = Vector2(distance, width / 2.0)
+	_collision_shape_2d.position = Vector2(distance / 2.0, 0)
 
 
 func _update_texture() -> void:
