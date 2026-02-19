@@ -54,7 +54,7 @@ func check(_target: Node2D) -> bool:
 
 	var collider: Node2D = get_collider()
 	if not collider:
-		prints("no collision")
+		#prints("no collision")
 		return false
 	if collider == target:
 		#prints(actor.name, "has line of sight to", collider.name)
