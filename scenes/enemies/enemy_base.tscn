@@ -9,9 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://4jii8umru44f" path="res://components/movement/movement.tscn" id="6_ratdf"]
 [ext_resource type="Script" uid="uid://bkgel2ay0al2c" path="res://components/state_machine/state_machine.gd" id="7_78o78"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_oansv"]
-radius = 119.01681
-
 [node name="EnemyBase" type="CharacterBody2D" unique_id=200550846]
 collision_layer = 16
 script = ExtResource("1_qty17")
@@ -58,7 +55,6 @@ collision_mask = 2
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionZone" unique_id=515830143]
-shape = SubResource("CircleShape2D_oansv")
 
 [node name="StateMachine" type="Node" parent="." unique_id=1405924420]
 unique_name_in_owner = true
