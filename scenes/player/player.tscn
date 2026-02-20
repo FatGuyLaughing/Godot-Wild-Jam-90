@@ -289,6 +289,10 @@ _data = {
 radius = 9.0
 height = 48.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_myrg7"]
+radius = 9.0
+height = 48.0
+
 [node name="PlayerCharacter" type="CharacterBody2D" unique_id=44599593]
 y_sort_enabled = true
 collision_layer = 2
@@ -413,11 +417,11 @@ position = Vector2(2, -36)
 entity_type = 0
 
 [node name="CollisionShape2D" parent="HurtboxComponent" index="0" unique_id=1354527137]
-position = Vector2(0, 2)
+position = Vector2(0, 16)
+shape = SubResource("CapsuleShape2D_myrg7")
 
 [node name="HitboxComponent" parent="." unique_id=1334252649 instance=ExtResource("3_75vfm")]
 unique_name_in_owner = true
-visible = false
 
 [node name="HealthComponent" parent="." unique_id=634366022 node_paths=PackedStringArray("hurtbox") instance=ExtResource("4_p47bc")]
 unique_name_in_owner = true
@@ -430,7 +434,7 @@ hurtbox = NodePath("../HurtboxComponent")
 
 [node name="MovementComponent" parent="." unique_id=1168461939 node_paths=PackedStringArray("knockback") instance=ExtResource("7_0owmy")]
 unique_name_in_owner = true
-move_speed = 1000.0
+move_speed = 250.0
 knockback = NodePath("../KnockbackComponent")
 
 [node name="StateMachine" type="Node" parent="." unique_id=851901206 node_paths=PackedStringArray("starting_state")]
@@ -469,3 +473,4 @@ unique_name_in_owner = true
 position = Vector2(2, -30)
 
 [editable path="HurtboxComponent"]
+[editable path="HitboxComponent"]
