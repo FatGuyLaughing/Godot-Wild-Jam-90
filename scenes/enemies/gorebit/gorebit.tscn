@@ -108,7 +108,7 @@ radius = 11.0
 radius = 7.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_oarpa"]
-radius = 70.064255
+radius = 168.19037
 
 [node name="Gorebit" unique_id=200550846 instance=ExtResource("1_jp2f0")]
 script = ExtResource("2_ofxg8")
