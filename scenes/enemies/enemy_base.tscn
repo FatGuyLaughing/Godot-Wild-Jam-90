@@ -9,8 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://4jii8umru44f" path="res://components/movement/movement.tscn" id="6_ratdf"]
 [ext_resource type="Script" uid="uid://bkgel2ay0al2c" path="res://components/state_machine/state_machine.gd" id="7_78o78"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qkgnu"]
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_oansv"]
 radius = 119.01681
 
@@ -22,7 +20,6 @@ script = ExtResource("1_qty17")
 unique_name_in_owner = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1771161155]
-shape = SubResource("CapsuleShape2D_qkgnu")
 
 [node name="HurtboxComponent" parent="." unique_id=1179701126 instance=ExtResource("2_qa0nx")]
 unique_name_in_owner = true
