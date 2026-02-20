@@ -98,6 +98,18 @@ _data = {
 &"move": SubResource("Animation_h412u")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_etoiq"]
+radius = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jhdjw"]
+radius = 11.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rjfqj"]
+radius = 7.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oarpa"]
+radius = 70.064255
+
 [node name="Gorebit" unique_id=200550846 instance=ExtResource("1_jp2f0")]
 script = ExtResource("2_ofxg8")
 attack_range = 30.0
@@ -107,7 +119,6 @@ texture_filter = 1
 texture = SubResource("PortableCompressedTexture2D_etoiq")
 hframes = 2
 vframes = 2
-frame = 1
 metadata/_aseprite_wizard_interface_config_ = {
 "pending_changes": {}
 }
@@ -132,13 +143,30 @@ metadata/_aseprite_wizard_config_ = {
 metadata/_aseprite_wizard_source_file_hash_ = "eb88108e4025b25f5ec455757fe3b34a"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1" unique_id=986001668]
+unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_tj12e")
+
+[node name="CollisionShape2D" parent="." index="2" unique_id=1771161155]
+position = Vector2(0, 7)
+shape = SubResource("CircleShape2D_etoiq")
+
+[node name="CollisionShape2D" parent="HurtboxComponent" parent_id_path=PackedInt32Array(1179701126) index="0" unique_id=1354527137]
+position = Vector2(0, 7)
+shape = SubResource("CircleShape2D_jhdjw")
 
 [node name="HitboxComponent" parent="." index="4" unique_id=1334252649]
 damage = 15.0
 
+[node name="CollisionShape2D" parent="HitboxComponent" index="0" unique_id=1533460143]
+position = Vector2(0, 7)
+shape = SubResource("CircleShape2D_rjfqj")
+
 [node name="HealthComponent" parent="." index="5" unique_id=634366022]
 max_health = 40.0
+
+[node name="CollisionShape2D" parent="DetectionZone" parent_id_path=PackedInt32Array(391698888) index="0" unique_id=515830143]
+position = Vector2(0, 7)
+shape = SubResource("CircleShape2D_oarpa")
 
 [node name="StateMachine" parent="." index="10" unique_id=1405924420 node_paths=PackedStringArray("starting_state")]
 starting_state = NodePath("Idle")
@@ -162,3 +190,6 @@ metadata/_custom_type_script = "uid://cj2s51e6wd4tp"
 [node name="Dead" type="Node" parent="StateMachine" index="4" unique_id=1774832358]
 script = ExtResource("8_h412u")
 metadata/_custom_type_script = "uid://cj2s51e6wd4tp"
+
+[editable path="HurtboxComponent"]
+[editable path="HitboxComponent"]
