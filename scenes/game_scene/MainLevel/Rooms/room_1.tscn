@@ -6,7 +6,7 @@
 [ext_resource type="TileSet" uid="uid://cg7707aehbsfm" path="res://components/vfx/steam_wall_tileset/steam_wall.tres" id="3_radi4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jqqm2"]
-size = Vector2(255, 27.25)
+size = Vector2(255, 34.5)
 
 [node name="room_1" type="Node2D" unique_id=349098036]
 script = ExtResource("1_radi4")
@@ -33,11 +33,10 @@ target_position = Vector2(647, 634)
 target_room_path = "res://scenes/game_scene/MainLevel/Rooms/room_2.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door1" unique_id=1712598854]
-position = Vector2(0, -3.625)
 shape = SubResource("RectangleShape2D_jqqm2")
 
 [node name="Door2" type="Area2D" parent="." unique_id=490608444 groups=["doors"]]
-position = Vector2(637, 720)
+position = Vector2(639, 731)
 collision_mask = 2
 script = ExtResource("2_vfht3")
 target_position = Vector2(644, 85)
