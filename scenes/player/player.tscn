@@ -434,7 +434,7 @@ hurtbox = NodePath("../HurtboxComponent")
 
 [node name="MovementComponent" parent="." unique_id=1168461939 node_paths=PackedStringArray("knockback") instance=ExtResource("7_0owmy")]
 unique_name_in_owner = true
-move_speed = 1000.0
+move_speed = 250.0
 knockback = NodePath("../KnockbackComponent")
 
 [node name="StateMachine" type="Node" parent="." unique_id=851901206 node_paths=PackedStringArray("starting_state")]
