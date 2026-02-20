@@ -37,7 +37,6 @@ func enter() -> void:
 	print("Vargazer state RangedAttack")
 	if substate != Substate.COOLDOWN:
 		substate = Substate.WAIT
-	entity.animation_player.play("attack")
 
 
 func exit() -> void:
@@ -108,6 +107,10 @@ func process_lock(delta: float) -> void:
 		laser.enable_hitbox()
 		substate = Substate.FIRE
 
+		entity.animation_player.play("attack")
+		await entity.animation_player.animation_finished
+		entity.animation_player.play("laser")
+
 
 func process_fire(delta: float) -> void:
 	countdown -= delta
@@ -117,6 +120,8 @@ func process_fire(delta: float) -> void:
 		laser.queue_free()
 		countdown = cooldown_duration
 		substate = Substate.COOLDOWN
+		# no longer attacking...
+		transition_to("Idle")
 
 
 func _update_laser_target() -> void:

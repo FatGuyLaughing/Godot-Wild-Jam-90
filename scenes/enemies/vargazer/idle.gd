@@ -4,6 +4,7 @@ extends State
 
 func enter() -> void:
 	print("Vargazer state Idle")
+	entity.animation_player.play("idle")
 
 
 func physics_process(_delta: float) -> void:
