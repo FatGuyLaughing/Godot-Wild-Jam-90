@@ -13,6 +13,9 @@ class_name LineOfSightComponent extends RayCast2D
 			actor = get_parent()
 		return actor
 
+## Lazy way to account for size of target's visual
+@export var target_offset: Vector2
+
 ## Sets exceptions (not normally needed)
 @export var ignored_collision_objects: Array[CollisionObject2D]:
 	set(v):
@@ -24,6 +27,7 @@ class_name LineOfSightComponent extends RayCast2D
 var target: Node2D
 
 
+
 func _ready() -> void:
 	# force_raycast_update() works even when raycast is disabled
 	enabled = false
@@ -33,7 +37,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	# This is just helpful for visualization in debug play
 	if OS.has_feature("debug") and is_instance_valid(target):
-		target_position = target.global_position - actor.global_position
+		target_position = target.global_position - actor.global_position + target_offset
 
 
 func check(_target: Node2D) -> bool:
@@ -48,7 +52,7 @@ func check(_target: Node2D) -> bool:
 	if not is_instance_valid(target):
 		push_warning("LineOfSightComponent.check() requires valid target")
 		return false
-	target_position = target.global_position - actor.global_position
+	target_position = target.global_position - actor.global_position + target_offset
 
 	force_raycast_update()
 
