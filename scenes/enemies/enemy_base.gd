@@ -36,7 +36,8 @@ func _on_died() -> void:
 
 
 func _on_hurtbox_hit(_incoming_hitbox: HitboxComponent, _damage: float) -> void:
-	_state_machine.transition_to("Hurt")
+	if _health.get_current_health() > 0.0:
+		_state_machine.transition_to("Hurt")
 
 
 func _on_detection_zone_body_entered(body: Node2D) -> void:

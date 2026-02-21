@@ -1,4 +1,4 @@
-class_name EnemyGorebitChaseState
+class_name EnemyGorebyteChaseState
 extends State
 
 @onready var _animation_player: AnimationPlayer = %AnimationPlayer
@@ -10,16 +10,16 @@ func enter() -> void:
 
 
 func physics_process(_delta: float) -> void:
-	var gorebit: GorebitEnemy = entity as GorebitEnemy
+	var gorebyte: GorebyteEnemy = entity as GorebyteEnemy
 
-	if not gorebit.player_in_range:
+	if not gorebyte.player_in_range:
 		transition_to("Idle")
 		return
 
-	if gorebit.get_distance_to_player() <= gorebit.attack_range:
+	if gorebyte.get_distance_to_player() <= gorebyte.attack_range:
 		transition_to("Attack")
 		return
 
-	var direction: Vector2 = gorebit.get_direction_to_player()
-	gorebit.face_direction(direction)
+	var direction: Vector2 = gorebyte.get_direction_to_player()
+	gorebyte.face_direction(direction)
 	_movement.apply_movement(entity, direction)
