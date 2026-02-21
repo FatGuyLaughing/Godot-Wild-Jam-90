@@ -1,8 +1,6 @@
 class_name EnemyGorebitChaseState
 extends State
 
-@export var leash_distance: float = 200.0
-
 @onready var _animation_player: AnimationPlayer = %AnimationPlayer
 @onready var _movement: MovementComponent = %MovementComponent
 
@@ -13,13 +11,12 @@ func enter() -> void:
 
 func physics_process(_delta: float) -> void:
 	var gorebit: GorebitEnemy = entity as GorebitEnemy
-	var distance: float = gorebit.get_distance_to_player()
 
-	if distance > leash_distance:
+	if not gorebit.player_in_range:
 		transition_to("Idle")
 		return
 
-	if distance <= gorebit.attack_range:
+	if gorebit.get_distance_to_player() <= gorebit.attack_range:
 		transition_to("Attack")
 		return
 
