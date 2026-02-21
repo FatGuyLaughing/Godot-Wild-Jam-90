@@ -72,3 +72,6 @@ metadata/_custom_type_script = "uid://bkgel2ay0al2c"
 [node name="HitFlashComponent" parent="." unique_id=2072386929 node_paths=PackedStringArray("hurtbox", "sprite") instance=ExtResource("10_6flps")]
 hurtbox = NodePath("../HurtboxComponent")
 sprite = NodePath("../Sprite2D")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=609323558]
+unique_name_in_owner = true
