@@ -9,7 +9,7 @@ extends State
 
 
 func enter() -> void:
-	_animation_player.play("attack")
+	_animation_player.play("slash")
 	_animation_player.animation_finished.connect(_on_animation_finished)
 
 

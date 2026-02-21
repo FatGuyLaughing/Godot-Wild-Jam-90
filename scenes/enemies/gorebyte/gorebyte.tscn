@@ -1,10 +1,38 @@
 [gd_scene format=4 uid="uid://co0kexpfb0g2w"]
 
 [ext_resource type="PackedScene" uid="uid://2pssxf5l8v6p" path="res://scenes/enemies/enemy_base.tscn" id="1_kcs38"]
+[ext_resource type="AudioStream" uid="uid://b3idv1wonajiu" path="res://assets/audio/sfx/gorebyte_attack.wav" id="2_1g4rg"]
 
 [sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_kcs38"]
 _data = PackedByteArray("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")
 size_override = Vector2(144, 144)
+
+[sub_resource type="Animation" id="Animation_d2jyr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer2D:stream")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_1g4rg"]
 length = 0.8
@@ -19,6 +47,30 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [1, 1, 2, 2, 3, 3, 4, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer2D:stream")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_1g4rg")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_s7r3n"]
@@ -85,6 +137,7 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_d2jyr"]
 _data = {
+&"RESET": SubResource("Animation_d2jyr"),
 &"attack": SubResource("Animation_1g4rg"),
 &"dead": SubResource("Animation_s7r3n"),
 &"hurt": SubResource("Animation_2h1ua"),
@@ -101,6 +154,7 @@ texture_filter = 1
 texture = SubResource("PortableCompressedTexture2D_kcs38")
 hframes = 3
 vframes = 3
+frame = 1
 metadata/_aseprite_wizard_interface_config_ = {
 "pending_changes": {}
 }
