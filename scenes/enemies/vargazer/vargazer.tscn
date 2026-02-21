@@ -1,0 +1,210 @@
+[gd_scene format=4 uid="uid://eqs160etgllm"]
+
+[ext_resource type="PackedScene" uid="uid://2pssxf5l8v6p" path="res://scenes/enemies/enemy_base.tscn" id="1_g024v"]
+[ext_resource type="Script" uid="uid://dwikrkjns0hkf" path="res://scenes/enemies/vargazer/ranged_attack.gd" id="2_5nfpl"]
+[ext_resource type="Script" uid="uid://b4hevw6oo1etu" path="res://scenes/enemies/vargazer/vargazer.gd" id="2_leacr"]
+[ext_resource type="Script" uid="uid://bcj0dec8gev21" path="res://scenes/enemies/vargazer/idle.gd" id="2_sbvp3"]
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_leacr"]
+_data = PackedByteArray("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")
+size_override = Vector2(256, 256)
+
+[sub_resource type="Animation" id="Animation_2ypyx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LaserOrigin:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, -3)]
+}
+
+[sub_resource type="Animation" id="Animation_5nfpl"]
+length = 0.9
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LaserOrigin:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.20052911, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(1, 0), Vector2(1, 3), Vector2(1, -3), Vector2(1, -3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 8, 9, 10, 11, 12, 13, 11, 14]
+}
+
+[sub_resource type="Animation" id="Animation_sbvp3"]
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 8, 9]
+}
+
+[sub_resource type="Animation" id="Animation_leacr"]
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 8, 9]
+}
+
+[sub_resource type="Animation" id="Animation_ydgli"]
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 8, 9]
+}
+
+[sub_resource type="Animation" id="Animation_lqjqy"]
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [13, 15, 12]
+}
+
+[sub_resource type="Animation" id="Animation_urc1a"]
+length = 0.7
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2ypyx"]
+_data = {
+&"RESET": SubResource("Animation_2ypyx"),
+&"attack": SubResource("Animation_5nfpl"),
+&"dead": SubResource("Animation_sbvp3"),
+&"hurt": SubResource("Animation_leacr"),
+&"idle": SubResource("Animation_ydgli"),
+&"laser": SubResource("Animation_lqjqy"),
+&"move": SubResource("Animation_urc1a")
+}
+
+[node name="Vargazer" unique_id=200550846 instance=ExtResource("1_g024v")]
+script = ExtResource("2_leacr")
+
+[node name="Sprite2D" parent="." index="0" unique_id=1183595025]
+texture_filter = 1
+texture = SubResource("PortableCompressedTexture2D_leacr")
+hframes = 4
+vframes = 4
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": true,
+"layer_section": true,
+"output_section": true,
+"pending_changes": {},
+"slice_section": true
+}
+metadata/_aseprite_wizard_config_ = {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": true,
+"i_mode": 0,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "AnimationPlayer",
+"scale": "1.0",
+"slice": "",
+"source": "res://assets/enemies/Vargazer.aseprite",
+"source_uid": 5990250516184517699
+}
+metadata/_aseprite_wizard_source_file_hash_ = "7bfdcbde169e29489bfacd4de8f8442d"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1" unique_id=521311464]
+libraries/ = SubResource("AnimationLibrary_2ypyx")
+
+[node name="CollisionShape2D" parent="." index="2" unique_id=1771161155]
+visible = false
+
+[node name="HurtboxComponent" parent="." index="3" unique_id=1179701126]
+visible = false
+
+[node name="HitboxComponent" parent="." index="4" unique_id=1334252649]
+visible = false
+
+[node name="LineOfSightComponent" parent="." index="7" unique_id=1328130605]
+target_offset = Vector2(0, -32)
+
+[node name="DetectionZone" parent="." index="9" unique_id=391698888]
+visible = false
+
+[node name="LaserOrigin" type="Marker2D" parent="." index="10" unique_id=738812100]
+unique_name_in_owner = true
+y_sort_enabled = true
+position = Vector2(1, -3)
+
+[node name="StateMachine" parent="." index="11" unique_id=1405924420 node_paths=PackedStringArray("starting_state")]
+starting_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine" index="0" unique_id=2039834520]
+script = ExtResource("2_sbvp3")
+metadata/_custom_type_script = "uid://cj2s51e6wd4tp"
+
+[node name="RangedAttack" type="Node" parent="StateMachine" index="1" unique_id=1090587486]
+script = ExtResource("2_5nfpl")
+metadata/_custom_type_script = "uid://cj2s51e6wd4tp"
