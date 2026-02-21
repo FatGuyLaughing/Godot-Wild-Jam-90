@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://2pssxf5l8v6p"]
 
 [ext_resource type="Script" uid="uid://cfbjyrv6xk7pl" path="res://scenes/enemies/enemy_base.gd" id="1_qty17"]
+[ext_resource type="Shader" uid="uid://dx16ip8jxqw1r" path="res://components/vfx/hit_flash/hit_flash.gdshader" id="2_oansv"]
 [ext_resource type="PackedScene" uid="uid://durh24oy4tibk" path="res://components/hurtbox/hurtbox.tscn" id="2_qa0nx"]
 [ext_resource type="PackedScene" uid="uid://boq4mravejikc" path="res://components/hitbox/hitbox.tscn" id="3_xdb20"]
 [ext_resource type="PackedScene" uid="uid://b3qijgyqfxb88" path="res://components/health/health.tscn" id="4_evjv1"]
@@ -8,6 +9,12 @@
 [ext_resource type="PackedScene" uid="uid://dibptag8uqy1v" path="res://components/knockback/knockback.tscn" id="5_qkgnu"]
 [ext_resource type="PackedScene" uid="uid://4jii8umru44f" path="res://components/movement/movement.tscn" id="6_ratdf"]
 [ext_resource type="Script" uid="uid://bkgel2ay0al2c" path="res://components/state_machine/state_machine.gd" id="7_78o78"]
+[ext_resource type="PackedScene" path="res://components/vfx/hit_flash/hit_flash.tscn" id="10_6flps"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oansv"]
+shader = ExtResource("2_oansv")
+shader_parameter/flash_intensity = 0.0
+shader_parameter/flash_color = Color(1, 1, 1, 1)
 
 [node name="EnemyBase" type="CharacterBody2D" unique_id=200550846]
 collision_layer = 16
@@ -15,6 +22,7 @@ script = ExtResource("1_qty17")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1183595025]
 unique_name_in_owner = true
+material = SubResource("ShaderMaterial_oansv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1771161155]
 
@@ -60,3 +68,10 @@ monitorable = false
 unique_name_in_owner = true
 script = ExtResource("7_78o78")
 metadata/_custom_type_script = "uid://bkgel2ay0al2c"
+
+[node name="HitFlashComponent" parent="." unique_id=2072386929 node_paths=PackedStringArray("hurtbox", "sprite") instance=ExtResource("10_6flps")]
+hurtbox = NodePath("../HurtboxComponent")
+sprite = NodePath("../Sprite2D")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=609323558]
+unique_name_in_owner = true
