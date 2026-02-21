@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://2pssxf5l8v6p" path="res://scenes/enemies/enemy_base.tscn" id="1_jp2f0"]
 [ext_resource type="Script" uid="uid://cayucdk6ojqa6" path="res://scenes/enemies/gorebit/gorebit.gd" id="2_ofxg8"]
+[ext_resource type="AudioStream" uid="uid://clu178ws7d0yh" path="res://assets/audio/sfx/gorebit_attack.wav" id="3_jhdjw"]
 [ext_resource type="Script" uid="uid://bbgtcjc7y57ch" path="res://scenes/enemies/gorebit/states/idle.gd" id="4_jhdjw"]
 [ext_resource type="Script" uid="uid://b2ubontvyauin" path="res://scenes/enemies/gorebit/states/chase.gd" id="5_rjfqj"]
 [ext_resource type="Script" uid="uid://b3v8iregm07s7" path="res://scenes/enemies/gorebit/states/attack.gd" id="6_oarpa"]
@@ -11,6 +12,33 @@
 [sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_etoiq"]
 _data = PackedByteArray("AAADAAUAAAABAAAAYAAAAEAAAADGAgAAUklGRr4CAABXRUJQVlA4TLECAAAvX8APEG+gGADQKIg8QgoxjwCyOHf/pqE0ANCEyHf8X8mabKo0kq3mB3Iqh9LpA4vGorJj/gMAyC/ROwXJfrVk+vm9/dy63IfmJKNhyggdyLW2vW0bOJXyCaeMVYfHozilru7M5gba3jrDtM007fRG8cfmphBQ6ipuvgNt6QkPJzdeTChAApieKaL/DNy2bcTk9nLv7hXov1QlesFrWZKqyjpoGqaiTDc7jfuzobhRSY1OmqrbzUraObmu2p3HXU7RYlVtV8dczblle0DruFDKNQMLgzhwFLh8rmOCRzARTV5Yt+RXIeBz1QRWrSfAJ09NBLIeTUR8LqwJwwzwfe9KL0SaLDvkc/mEs4Y3Nlzs2fjqNUnTnpArWuIOE980ie+8M6OwJGVtJRRyhas095bB7g4Fn71/RVm3jDqjOzsUIM8FrJGrE0IYoYwAa0h5GzNCGF9xK1dcZ0I1YiRXcZsSkwvVjf4OKitakhbO0AvelxXNTIveqBgtVShOs5JvjDjYbfcilTtfjAxNwJDGOZEgXbU/G/riIK5NBVw3kZ57pHjOnDN4cX0Ah4IMIaSp7XqygAe2e1cov5klnGMKZsBavbj9DEp86iThNmdUFlVv6uL5AXpIkOkjqqyxwLMg4aGDLENHkTajsAm1nvsBmKgNUz+KACmwavh2iMptPlNq6HgGkKMgmPK0cpsfqllJ0chMVZO3FoxtuKGJygkT/zTdXqy6TkkWCU2T+AAmC0ucR5U0Bwr8FuedGYnezy3bA+A8l/SWwe4OBZ+9f0VZdwu4sDCIg+80SXVCCCOUEWCNlkcQTESTF9atmjTGF6E8Yof4vnelF3xyTK5jsVkjRrlpb2PDxZ6NoyVJb2N+pRHHreXaSii893CVItkWiju7zujODgVg718Ba6BCKm5T6BcsBAA=")
 size_override = Vector2(96, 64)
+
+[sub_resource type="Animation" id="Animation_tj12e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer2D:stream")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_jhdjw"]
 length = 0.6
@@ -25,6 +53,30 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 3, 3, 4, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer2D:stream")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_jhdjw")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_rjfqj"]
@@ -91,6 +143,7 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tj12e"]
 _data = {
+&"RESET": SubResource("Animation_tj12e"),
 &"attack": SubResource("Animation_jhdjw"),
 &"dead": SubResource("Animation_rjfqj"),
 &"hurt": SubResource("Animation_oarpa"),
