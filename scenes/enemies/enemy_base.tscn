@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://2pssxf5l8v6p"]
+
+[ext_resource type="Script" uid="uid://cfbjyrv6xk7pl" path="res://scenes/enemies/enemy_base.gd" id="1_qty17"]
+[ext_resource type="Shader" uid="uid://dx16ip8jxqw1r" path="res://components/vfx/hit_flash/hit_flash.gdshader" id="2_oansv"]
+[ext_resource type="PackedScene" uid="uid://durh24oy4tibk" path="res://components/hurtbox/hurtbox.tscn" id="2_qa0nx"]
+[ext_resource type="PackedScene" uid="uid://boq4mravejikc" path="res://components/hitbox/hitbox.tscn" id="3_xdb20"]
+[ext_resource type="PackedScene" uid="uid://b3qijgyqfxb88" path="res://components/health/health.tscn" id="4_evjv1"]
+[ext_resource type="Script" uid="uid://cfso3nap0366r" path="res://components/line_of_sight/line_of_sight.gd" id="4_ratdf"]
+[ext_resource type="PackedScene" uid="uid://dibptag8uqy1v" path="res://components/knockback/knockback.tscn" id="5_qkgnu"]
+[ext_resource type="PackedScene" uid="uid://4jii8umru44f" path="res://components/movement/movement.tscn" id="6_ratdf"]
+[ext_resource type="Script" uid="uid://bkgel2ay0al2c" path="res://components/state_machine/state_machine.gd" id="7_78o78"]
+[ext_resource type="PackedScene" path="res://components/vfx/hit_flash/hit_flash.tscn" id="10_6flps"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oansv"]
+shader = ExtResource("2_oansv")
+shader_parameter/flash_intensity = 0.0
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+
+[node name="EnemyBase" type="CharacterBody2D" unique_id=200550846]
+collision_layer = 16
+script = ExtResource("1_qty17")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1183595025]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_oansv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1771161155]
+
+[node name="HurtboxComponent" parent="." unique_id=1179701126 instance=ExtResource("2_qa0nx")]
+unique_name_in_owner = true
+entity_type = 1
+invincibility_duration = 0.5
+
+[node name="HitboxComponent" parent="." unique_id=1334252649 instance=ExtResource("3_xdb20")]
+unique_name_in_owner = true
+entity_type = 1
+enabled = false
+
+[node name="HealthComponent" parent="." unique_id=634366022 node_paths=PackedStringArray("hurtbox") instance=ExtResource("4_evjv1")]
+unique_name_in_owner = true
+max_health = 50.0
+hurtbox = NodePath("../HurtboxComponent")
+
+[node name="KnockbackComponent" parent="." unique_id=184767056 node_paths=PackedStringArray("hurtbox") instance=ExtResource("5_qkgnu")]
+unique_name_in_owner = true
+hurtbox = NodePath("../HurtboxComponent")
+knockback_strength = 150.0
+
+[node name="LineOfSightComponent" type="RayCast2D" parent="." unique_id=1328130605]
+collision_mask = 11
+script = ExtResource("4_ratdf")
+metadata/_custom_type_script = "uid://cfso3nap0366r"
+
+[node name="MovementComponent" parent="." unique_id=1168461939 node_paths=PackedStringArray("knockback") instance=ExtResource("6_ratdf")]
+unique_name_in_owner = true
+move_speed = 60.0
+knockback = NodePath("../KnockbackComponent")
+
+[node name="DetectionZone" type="Area2D" parent="." unique_id=391698888]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionZone" unique_id=515830143]
+
+[node name="StateMachine" type="Node" parent="." unique_id=1405924420]
+unique_name_in_owner = true
+script = ExtResource("7_78o78")
+metadata/_custom_type_script = "uid://bkgel2ay0al2c"
+
+[node name="HitFlashComponent" parent="." unique_id=2072386929 node_paths=PackedStringArray("hurtbox", "sprite") instance=ExtResource("10_6flps")]
+hurtbox = NodePath("../HurtboxComponent")
+sprite = NodePath("../Sprite2D")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=609323558]
+unique_name_in_owner = true

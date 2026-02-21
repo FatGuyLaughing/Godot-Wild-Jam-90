@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://d4g8b4uf8onfx" path="res://scenes/projectiles/feather/feather.gd" id="1_6refw"]
 [ext_resource type="Texture2D" uid="uid://dkbecn2g3sy5y" path="res://assets/player/Projectile feather.png" id="2_3i5e3"]
 [ext_resource type="PackedScene" uid="uid://boq4mravejikc" path="res://components/hitbox/hitbox.tscn" id="3_t1x6e"]
+[ext_resource type="AudioStream" uid="uid://cmgk0w6h2bapy" path="res://assets/audio/sfx/feather_projectile.wav" id="4_t1x6e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3i5e3"]
 size = Vector2(20, 6)
@@ -30,5 +31,9 @@ shape = SubResource("RectangleShape2D_t1x6e")
 [node name="LifetimeTimer" type="Timer" parent="." unique_id=1273926476]
 unique_name_in_owner = true
 one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=937199962]
+stream = ExtResource("4_t1x6e")
+autoplay = true
 
 [editable path="HitboxComponent"]

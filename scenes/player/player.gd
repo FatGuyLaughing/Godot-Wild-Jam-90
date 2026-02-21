@@ -8,7 +8,10 @@ extends CharacterBody2D
 ## should connect to this to handle game over.
 signal died()
 
-@onready var _sprite: Sprite2D = %Sprite2D
+# We declare health_ui here but initialize it in _ready()
+var health_ui: Control = null
+
+@onready var _sprite: Sprite2D = %Body
 @onready var _hurtbox: HurtboxComponent = %HurtboxComponent
 @onready var _hitbox: HitboxComponent = %HitboxComponent
 @onready var _health: HealthComponent = %HealthComponent
@@ -16,8 +19,20 @@ signal died()
 
 
 func _ready() -> void:
-	_hurtbox.hit.connect(_on_hurtbox_hit)
+	add_to_group("player")
+	
+	# Connect signals
+	_health.health_changed.connect(_on_health_changed)
 	_health.died.connect(_on_died)
+	
+	# Find and setup health UI
+	health_ui = get_health_ui()
+	if health_ui:
+		health_ui.set_max_health(_health.max_health)
+		health_ui.set_health(_health.get_current_health())
+	else:
+		push_warning("HealthUI node not found!")
+	
 	_hitbox.enabled = false
 
 
@@ -28,7 +43,7 @@ func _process(_delta: float) -> void:
 ## Flips the sprite horizontally so the player always faces the mouse.
 ## Runs every frame regardless of state to support kiting while attacking.
 func _face_mouse() -> void:
-	_sprite.flip_h = get_global_mouse_position().x < global_position.x
+	_sprite.flip_h = get_global_mouse_position().x > global_position.x
 
 
 ## Forces transition to Dead state and emits died signal.
@@ -37,6 +52,26 @@ func _on_died() -> void:
 	died.emit()
 
 
-## Forces transition to Hurt state from any active state.
-func _on_hurtbox_hit(_incoming_hitbox: HitboxComponent, _damage: float) -> void:
-	_state_machine.transition_to("Hurt")
+## Updates the UI whenever health changes.
+func _on_health_changed(old_value: float, new_value: float) -> void:
+	if health_ui != null:
+		print("Health changed to: ", new_value)   # DEBUG
+		health_ui.set_health(new_value)
+
+
+## Helper function to find HealthUI node in the scene tree.
+## Adjust the node path inside this function if your UI node is elsewhere.
+func get_health_ui() -> Control:
+	var root = get_tree().get_current_scene()
+
+	# Example path if HealthUI is under CanvasLayer:
+	if root.has_node("res://components/healthUI/health_ui.tscn"):
+		return root.get_node("res://components/healthUI/health_ui.tscn")
+
+	# Try root-level HealthUI node as fallback:
+	if root.has_node("HealthUI"):
+		return root.get_node("HealthUI")
+
+	# Add other fallback paths here if needed
+
+	return null

@@ -1,0 +1,84 @@
+[gd_scene format=4 uid="uid://bg4130ey7prn6"]
+
+[ext_resource type="Script" uid="uid://bcqba8js1qr3y" path="res://components/obelisk/obelisk.gd" id="1_s7st3"]
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_d3gbn"]
+_data = PackedByteArray("AAADAAUAAAABAAAAQAAAAEAAAAAqAgAAUklGRiICAABXRUJQVlA4TBUCAAAvP8APEH+gNpLUhtC7kIj+i6IMIo36UBRJUrPPywruAC28cIylZEJpIynQSX5Q13+NeML8BwBmZ8V45xzW/68X1SNOIUPtTOyOWBArJOGRIEf+/8Rutg4zdq5CHVOVSWWX4aTn9HwAvADHDD/JnjDoLzP7/Xd8AI2u8PcF3oyK3X0rhcuI/jNy2zYSu86cNJhfZP+OwWsSOzgsJ3VMcAiBEzommiEEkTXxHc0QVkRkdXTHRBEpMrIquuM9icgYjIrucJ6EnKaUDk/ea5PSwc7nGgkd+bzz3Lpjoa6D513ObrhVx0LrjveNR9az9RbVjud1HQfnLbPLT6mKtoVSxwFVcXJaMzfmbU/F/qmiY8F2l9GnHjAv3T1aQR+7i47HeypO0hWwNo9sX9l+ai86ntveCoXCSX1+VVm5Y78+U+4gBTRgDqq+mo421VvyngBDAJ1FXcdptKRAV6/UdXS0l3QCICKYq311HR3lh6yzRAHIojqqqcVH1nb8Zwxek7rCcpIJDiFwymqGEETWxGuGsCIiq+PPEERERlZFe08iMgajojlPQk5TCk/ea5OCnc81EuSLznMSXnQ5u+Fo7xuvrWfrLaJdW7TMLr+jot2e08yNRdsfi772g3npxc1ot2kXWJvXtiuaQuG23rgq9kEBDZhrqivSewIMAbQNSRRo965InQCICGZ37EPWWaKA0n+Lf4lV2W85MgA=")
+size_override = Vector2(64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s7st3"]
+atlas = SubResource("PortableCompressedTexture2D_d3gbn")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5lmkp"]
+atlas = SubResource("PortableCompressedTexture2D_d3gbn")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ql0wd"]
+atlas = SubResource("PortableCompressedTexture2D_d3gbn")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ltdrj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s7st3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s7st3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s7st3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5lmkp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5lmkp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ql0wd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ql0wd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ql0wd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5lmkp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5lmkp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Obelisk" type="Node2D" unique_id=1441394448]
+script = ExtResource("1_s7st3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1266973230]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_ltdrj")
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": true,
+"layer_section": true,
+"pending_changes": {},
+"slice_section": true
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"scale": "1.0",
+"should_round_fps": true,
+"slice": "",
+"source": "res://assets/tilesets/Obelisk.aseprite",
+"source_uid": 7941603341179736851
+}
+metadata/_aseprite_wizard_source_file_hash_ = "48ac39396f1879bf95dfe8dbb3843ac9"

@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://5cb7yucynbdj"]
+
+[ext_resource type="Script" uid="uid://bdsdtx0kx6n0e" path="res://components/laser/laser.gd" id="1_unu6b"]
+[ext_resource type="PackedScene" uid="uid://boq4mravejikc" path="res://components/hitbox/hitbox.tscn" id="2_6fpsk"]
+
+[sub_resource type="Gradient" id="Gradient_unu6b"]
+offsets = PackedFloat32Array(0, 0.4, 0.5, 0.6, 1)
+colors = PackedColorArray(1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6fpsk"]
+gradient = SubResource("Gradient_unu6b")
+width = 32
+height = 32
+fill_from = Vector2(0.5, 0)
+fill_to = Vector2(0.5, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_20c6v"]
+size = Vector2(53.851646, 3)
+
+[node name="Laser" type="Line2D" unique_id=335145319]
+z_index = 3
+y_sort_enabled = true
+rotation = 0.38050637
+points = PackedVector2Array(0, 0, 53.851646, 0)
+width = 12.0
+texture = SubResource("GradientTexture2D_6fpsk")
+texture_mode = 1
+script = ExtResource("1_unu6b")
+target = Vector2(50, 20)
+
+[node name="HitboxComponent" parent="." unique_id=1334252649 instance=ExtResource("2_6fpsk")]
+z_index = 3
+entity_type = 1
+
+[node name="CollisionShape2D" parent="HitboxComponent" index="0" unique_id=1533460143]
+position = Vector2(26.925823, 0)
+shape = SubResource("RectangleShape2D_20c6v")
+
+[editable path="HitboxComponent"]

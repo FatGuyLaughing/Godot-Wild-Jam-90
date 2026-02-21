@@ -19,7 +19,7 @@ func _on_area_entered(area):
 	print("Player overlapped area:", area)
 	emit_signal("entrandopuerta")
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	# Get player input direction
 	var direction_x = Input.get_axis("move_left", "move_right")
 	var direction_y = Input.get_axis("move_up", "move_down")
