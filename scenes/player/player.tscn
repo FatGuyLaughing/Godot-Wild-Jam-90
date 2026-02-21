@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://boq4mravejikc" path="res://components/hitbox/hitbox.tscn" id="3_75vfm"]
 [ext_resource type="Shader" uid="uid://dx16ip8jxqw1r" path="res://components/vfx/hit_flash/hit_flash.gdshader" id="3_kvlxm"]
 [ext_resource type="PackedScene" uid="uid://b3qijgyqfxb88" path="res://components/health/health.tscn" id="4_p47bc"]
+[ext_resource type="AudioStream" uid="uid://dk7r0fn1d3rgw" path="res://assets/audio/sfx/player_melee.wav" id="4_uf5tr"]
 [ext_resource type="PackedScene" uid="uid://dibptag8uqy1v" path="res://components/knockback/knockback.tscn" id="5_75vfm"]
 [ext_resource type="PackedScene" uid="uid://4jii8umru44f" path="res://components/movement/movement.tscn" id="7_0owmy"]
 [ext_resource type="Script" uid="uid://bkgel2ay0al2c" path="res://components/state_machine/state_machine.gd" id="8_5gtgg"]
@@ -26,8 +27,6 @@ shader_parameter/freq = 0.0
 shader_parameter/block_size = 1.0
 shader_parameter/starting_colour = Color(1, 0, 0, 1)
 shader_parameter/ending_colour = Color(1, 0, 0, 0)
-shader_parameter/flash_intensity = 0.0
-shader_parameter/flash_color = Color(1, 1, 1, 1)
 
 [sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_myrg7"]
 _data = PackedByteArray("AAADAAUAAAABAAAAIAEAAMAAAAA0AgAAUklGRiwCAABXRUJQVlA4TB8CAAAvH8EvEEdgJgIhPcwiGOlfxfz3XQgCIHwYMCHPoQkVDEW28f9HAjHcjCL6B3DWYP4DAL1en7WK9gnbiQeZIMe2bbdtjsL7jy2lGWgEcQAcwmsAsPwN/kL5mt87YuAk5czrbEf0n4HbRoqyTAc5fAP/lA0ph5DjLeR4Cy3HmQdcCnGg4KQOb8ZUMEyEN4dex1YsTYS3MGLdr/sSMrxNpRkWy4wMb/PGsYxCuARvMBZw5iVMg7dp3nQAr12Ft+gv/anwtgK7K2CBb97bF+T54YhL8JatDb572l7BcAh+7t5yOAS4395d5NCaS/CWK3B7o8bb/QWwIMEb1Jf3uQGcuzeAqeTJll6NHQnewtaRhDqjwVsa1TzIVyMqvDGuFkSrXYU3rL5f3i9GmAZvhEdtc5kgJXiDIKidQIY3J6kGhgxvQBo4iPAGvDypb93bF+cMvH15tByny4Ez8KYmuBz47z///ef7Q8ohfq7IA66mNwquZGPGVDBMBA69jq1YqiCMWPfrvujYwFSaYbHMyAjzxrGMomM/YwFnXsJEtOdNB/DaUTGxv9ydClZgdwUsSnh+OOISyNYG3z1tr2A4hLPvyOEQ4H57d5FDayKKFbi9UdN9f6GE+nJDpuO7mSdbejV2Ff8V60hCndEQ0qjmQb4akRHG1YJotcvA6vvl/WKEionhUdtcJkgVENROICM4STUwlIQ0cClgwM8VLgf++8+/UAAA")
@@ -46,8 +45,23 @@ size_override = Vector2(288, 288)
 _data = PackedByteArray("AAADAAUAAAABAAAAwAAAAGAAAABOAAAAUklGRkYAAABXRUJQVlA4TDkAAAAvv8AXEA8wDuMwEgMY8FDUtpFUBgNpoC3VgbF3vnu9VxH9nwD9CU4WBdiaDL6mQ1qTwdcE2BpN9G4A")
 size_override = Vector2(192, 96)
 
+[sub_resource type="Animation" id="Animation_3j4b4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%Body/../AudioStreamPlayer2D:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="Animation" id="Animation_kvlxm"]
-length = 0.1
+length = 0.8
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -83,6 +97,30 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("%Body/../AudioStreamPlayer2D:stream")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_uf5tr")]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("%Body/../AudioStreamPlayer2D:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_uf5tr"]
@@ -286,6 +324,7 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kvlxm"]
 _data = {
+&"RESET": SubResource("Animation_3j4b4"),
 &"attack": SubResource("Animation_kvlxm"),
 &"dead": SubResource("Animation_uf5tr"),
 &"hurt": SubResource("Animation_lgqa7"),
@@ -485,6 +524,9 @@ position = Vector2(2, -30)
 [node name="HitFlashComponent" parent="." unique_id=1397955182 node_paths=PackedStringArray("hurtbox", "sprite") instance=ExtResource("16_myrg7")]
 hurtbox = NodePath("../HurtboxComponent")
 sprite = NodePath("../Body")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1932195895]
+stream = ExtResource("4_uf5tr")
 
 [editable path="HurtboxComponent"]
 [editable path="HitboxComponent"]
