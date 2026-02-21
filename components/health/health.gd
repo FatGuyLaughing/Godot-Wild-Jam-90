@@ -39,6 +39,7 @@ func take_damage(damage: float) -> void:
 	_current_health = maxf(_current_health - damage, 0.0)
 
 	if _current_health != old_health:
+		print("Health changed from", old_health, "to", _current_health)  # DEBUG
 		health_changed.emit(old_health, _current_health)
 
 	if _current_health <= 0.0:
@@ -65,7 +66,7 @@ func get_current_health() -> float:
 
 ## Returns health as a ratio from 0.0 to 1.0. Useful for health bar fill.
 func get_health_percent() -> float:
-	return _current_health / max_health
+	return clampf(_current_health / max_health, 0.0, 1.0)
 
 
 ## Adapts the hurtbox hit signal to take_damage.
