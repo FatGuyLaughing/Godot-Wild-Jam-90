@@ -9,7 +9,7 @@ extends State
 
 
 func enter() -> void:
-	_animation_player.play("move")
+	_animation_player.play("run")
 
 
 func physics_process(_delta: float) -> void:
