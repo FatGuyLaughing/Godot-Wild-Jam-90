@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://co0kexpfb0g2w"]
 
 [ext_resource type="PackedScene" uid="uid://2pssxf5l8v6p" path="res://scenes/enemies/enemy_base.tscn" id="1_kcs38"]
+[ext_resource type="Script" uid="uid://cvumixt34fhv7" path="res://scenes/enemies/gorebyte/gorebyte.gd" id="2_0fhen"]
 [ext_resource type="AudioStream" uid="uid://b3idv1wonajiu" path="res://assets/audio/sfx/gorebyte_attack.wav" id="2_1g4rg"]
 [ext_resource type="Script" uid="uid://bspdh05iorwdb" path="res://scenes/enemies/gorebyte/states/attack.gd" id="3_d2jyr"]
 [ext_resource type="Script" uid="uid://v7m6tuo88hhk" path="res://scenes/enemies/gorebyte/states/chase.gd" id="4_0fhen"]
@@ -152,7 +153,15 @@ _data = {
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kcs38"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_0fhen"]
+radius = 28.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d2jyr"]
+radius = 241.0
+
 [node name="Gorebyte" unique_id=200550846 instance=ExtResource("1_kcs38")]
+script = ExtResource("2_0fhen")
+attack_range = 30.0
 
 [node name="Sprite2D" parent="." index="0" unique_id=1183595025]
 texture_filter = 1
@@ -184,30 +193,41 @@ metadata/_aseprite_wizard_config_ = {
 metadata/_aseprite_wizard_source_file_hash_ = "da1e7acca3088408db9f114746d36efb"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1" unique_id=278133999]
+unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_d2jyr")
 
 [node name="CollisionShape2D" parent="." index="2" unique_id=1771161155]
 shape = SubResource("CapsuleShape2D_kcs38")
 
-[node name="CollisionShape2D" parent="DetectionZone" parent_id_path=PackedInt32Array(391698888) index="0" unique_id=515830143]
-visible = false
+[node name="CollisionShape2D" parent="HurtboxComponent" parent_id_path=PackedInt32Array(1179701126) index="0" unique_id=1354527137]
+position = Vector2(0, 5)
+shape = SubResource("CircleShape2D_0fhen")
 
-[node name="Attack" type="Node" parent="StateMachine" parent_id_path=PackedInt32Array(1405924420) index="0" unique_id=487165509]
+[node name="CollisionShape2D" parent="DetectionZone" parent_id_path=PackedInt32Array(391698888) index="0" unique_id=515830143]
+shape = SubResource("CircleShape2D_d2jyr")
+
+[node name="StateMachine" parent="." index="10" unique_id=1405924420 node_paths=PackedStringArray("starting_state")]
+starting_state = NodePath("Idle")
+
+[node name="Attack" type="Node" parent="StateMachine" index="0" unique_id=487165509]
 script = ExtResource("3_d2jyr")
 metadata/_custom_type_script = "uid://cj2s51e6wd4tp"
 
-[node name="Chase" type="Node" parent="StateMachine" parent_id_path=PackedInt32Array(1405924420) index="1" unique_id=1258888528]
+[node name="Chase" type="Node" parent="StateMachine" index="1" unique_id=1258888528]
 script = ExtResource("4_0fhen")
 metadata/_custom_type_script = "uid://cj2s51e6wd4tp"
 
-[node name="Dead" type="Node" parent="StateMachine" parent_id_path=PackedInt32Array(1405924420) index="2" unique_id=1262448211]
+[node name="Dead" type="Node" parent="StateMachine" index="2" unique_id=1262448211]
 script = ExtResource("5_xvo1f")
 metadata/_custom_type_script = "uid://cj2s51e6wd4tp"
 
-[node name="Hurt" type="Node" parent="StateMachine" parent_id_path=PackedInt32Array(1405924420) index="3" unique_id=1738294441]
+[node name="Hurt" type="Node" parent="StateMachine" index="3" unique_id=1738294441]
 script = ExtResource("6_riu36")
 metadata/_custom_type_script = "uid://cj2s51e6wd4tp"
 
-[node name="Idle" type="Node" parent="StateMachine" parent_id_path=PackedInt32Array(1405924420) index="4" unique_id=1285243060]
+[node name="Idle" type="Node" parent="StateMachine" index="4" unique_id=1285243060]
 script = ExtResource("7_r282s")
 metadata/_custom_type_script = "uid://cj2s51e6wd4tp"
+
+[editable path="HurtboxComponent"]
+[editable path="HitboxComponent"]
