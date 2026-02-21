@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://cfso3nap0366r" path="res://components/line_of_sight/line_of_sight.gd" id="4_ratdf"]
 [ext_resource type="PackedScene" uid="uid://dibptag8uqy1v" path="res://components/knockback/knockback.tscn" id="5_qkgnu"]
 [ext_resource type="PackedScene" uid="uid://4jii8umru44f" path="res://components/movement/movement.tscn" id="6_ratdf"]
+[ext_resource type="PackedScene" uid="uid://dvyxophyxarsx" path="res://components/vfx/damage_dead_vfx/damage_dead_vfx.tscn" id="7_6flps"]
 [ext_resource type="Script" uid="uid://bkgel2ay0al2c" path="res://components/state_machine/state_machine.gd" id="7_78o78"]
 [ext_resource type="PackedScene" path="res://components/vfx/hit_flash/hit_flash.tscn" id="10_6flps"]
 
@@ -45,6 +46,9 @@ hurtbox = NodePath("../HurtboxComponent")
 unique_name_in_owner = true
 hurtbox = NodePath("../HurtboxComponent")
 knockback_strength = 150.0
+
+[node name="DamageDeadVfx" parent="." unique_id=788064489 node_paths=PackedStringArray("knockback_component") instance=ExtResource("7_6flps")]
+knockback_component = NodePath("../KnockbackComponent")
 
 [node name="LineOfSightComponent" type="RayCast2D" parent="." unique_id=1328130605]
 collision_mask = 11

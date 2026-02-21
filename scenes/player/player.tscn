@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dibptag8uqy1v" path="res://components/knockback/knockback.tscn" id="5_75vfm"]
 [ext_resource type="PackedScene" uid="uid://4jii8umru44f" path="res://components/movement/movement.tscn" id="7_0owmy"]
 [ext_resource type="Script" uid="uid://bkgel2ay0al2c" path="res://components/state_machine/state_machine.gd" id="8_5gtgg"]
+[ext_resource type="PackedScene" uid="uid://dvyxophyxarsx" path="res://components/vfx/damage_dead_vfx/damage_dead_vfx.tscn" id="8_lgqa7"]
 [ext_resource type="Script" uid="uid://cehq1sya56ppb" path="res://scenes/player/states/idle.gd" id="9_je7p5"]
 [ext_resource type="Script" uid="uid://dqmyvdw28a50a" path="res://scenes/player/states/move.gd" id="10_je7p5"]
 [ext_resource type="Script" uid="uid://b6ai11yyht4k2" path="res://scenes/player/states/melee_attack.gd" id="11_fm80t"]
@@ -44,123 +45,6 @@ size_override = Vector2(480, 384)
 [sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_kvlxm"]
 _data = PackedByteArray("AAADAAUAAAABAAAAwAAAAGAAAABMAAAAUklGRkQAAABXRUJQVlA4TDgAAAAvv8AXEA8wDuMwEgMY8FATSYq0GTKQgjQsI4Bi0vviq4j+T4D+BMlFBbamwdcMxJoGX1Nga0Tq3Q==")
 size_override = Vector2(192, 96)
-
-[sub_resource type="Animation" id="Animation_3j4b4"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("%Body/../AudioStreamPlayer2D:playing")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="Animation" id="Animation_kvlxm"]
-length = 0.8
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../Halo:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = false
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [3]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = false
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../Shadow:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = false
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("%Body/../AudioStreamPlayer2D:stream")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("4_uf5tr")]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("%Body/../AudioStreamPlayer2D:playing")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_uf5tr"]
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../Halo:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = false
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [3]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = false
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../Shadow:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = false
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
 
 [sub_resource type="Animation" id="Animation_lgqa7"]
 length = 0.3
@@ -350,7 +234,7 @@ texture = SubResource("PortableCompressedTexture2D_uf5tr")
 offset = Vector2(0, -41)
 hframes = 3
 vframes = 3
-frame = 5
+frame = 2
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": true,
 "layer_section": false,
@@ -386,7 +270,7 @@ texture = SubResource("PortableCompressedTexture2D_lgqa7")
 offset = Vector2(0, -41)
 hframes = 5
 vframes = 4
-frame = 11
+frame = 9
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": true,
 "layer_section": true,
@@ -476,6 +360,9 @@ hurtbox = NodePath("../HurtboxComponent")
 [node name="KnockbackComponent" parent="." unique_id=184767056 node_paths=PackedStringArray("hurtbox") instance=ExtResource("5_75vfm")]
 unique_name_in_owner = true
 hurtbox = NodePath("../HurtboxComponent")
+
+[node name="DamageDeadVfx" parent="." unique_id=788064489 node_paths=PackedStringArray("knockback_component") instance=ExtResource("8_lgqa7")]
+knockback_component = NodePath("../KnockbackComponent")
 
 [node name="MovementComponent" parent="." unique_id=1168461939 node_paths=PackedStringArray("knockback") instance=ExtResource("7_0owmy")]
 unique_name_in_owner = true
