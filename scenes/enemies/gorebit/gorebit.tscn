@@ -9,11 +9,11 @@
 [ext_resource type="Script" uid="uid://do4wl4wtm2qy7" path="res://scenes/enemies/gorebit/states/dead.gd" id="8_h412u"]
 
 [sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_etoiq"]
-_data = PackedByteArray("AAADAAUAAAABAAAAQAAAAEAAAABqAQAAUklGRmIBAABXRUJQVlA4TFUBAAAvP8APEG+gGADQKIg8QgoxjwCyOHf/pqE0ANCEyHf8X8mabKo0kq3mB3Iqh9LpA4vGorJj/gMAyC/ROwXJfrVk+vm9/dy63IfmJKNhyggdQLVtW61zVLmqkkkmrmQZfGDUMXwAM6a515VzT4o2+Yq4MkUVfyY9953xZEFE9J+B27aN1N5evG/Aj2Q8l+e59/Wccn0xJQ0m01e5yf3HfQPjMNIGriTlGEYK3DBYJ7uCuhTGd3KfYh3JyKzTXZSPY0iM9djeRI6mqKNAa11Ygdu8169LhUcdR1r9R02eXVFpeRrTCqjD1qBTnr0y094hgiKa41PHnCTt2vv7U/aMYw9MkgZnNEcwTS7LOdOUcxNXZuAXfzPnfc3hL6isSxRvr0rM4fWZwhKAENXrqxIicwiMskIpJUqFUmCUdRmjlEhHXAIAcYjaiGJyIc4xgIxLnVEC/0AGAAA=")
-size_override = Vector2(64, 64)
+_data = PackedByteArray("AAADAAUAAAABAAAAYAAAAEAAAADGAgAAUklGRr4CAABXRUJQVlA4TLECAAAvX8APEG+gGADQKIg8QgoxjwCyOHf/pqE0ANCEyHf8X8mabKo0kq3mB3Iqh9LpA4vGorJj/gMAyC/ROwXJfrVk+vm9/dy63IfmJKNhyggdyLW2vW0bOJXyCaeMVYfHozilru7M5gba3jrDtM007fRG8cfmphBQ6ipuvgNt6QkPJzdeTChAApieKaL/DNy2bcTk9nLv7hXov1QlesFrWZKqyjpoGqaiTDc7jfuzobhRSY1OmqrbzUraObmu2p3HXU7RYlVtV8dczblle0DruFDKNQMLgzhwFLh8rmOCRzARTV5Yt+RXIeBz1QRWrSfAJ09NBLIeTUR8LqwJwwzwfe9KL0SaLDvkc/mEs4Y3Nlzs2fjqNUnTnpArWuIOE980ie+8M6OwJGVtJRRyhas095bB7g4Fn71/RVm3jDqjOzsUIM8FrJGrE0IYoYwAa0h5GzNCGF9xK1dcZ0I1YiRXcZsSkwvVjf4OKitakhbO0AvelxXNTIveqBgtVShOs5JvjDjYbfcilTtfjAxNwJDGOZEgXbU/G/riIK5NBVw3kZ57pHjOnDN4cX0Ah4IMIaSp7XqygAe2e1cov5klnGMKZsBavbj9DEp86iThNmdUFlVv6uL5AXpIkOkjqqyxwLMg4aGDLENHkTajsAm1nvsBmKgNUz+KACmwavh2iMptPlNq6HgGkKMgmPK0cpsfqllJ0chMVZO3FoxtuKGJygkT/zTdXqy6TkkWCU2T+AAmC0ucR5U0Bwr8FuedGYnezy3bA+A8l/SWwe4OBZ+9f0VZdwu4sDCIg+80SXVCCCOUEWCNlkcQTESTF9atmjTGF6E8Yof4vnelF3xyTK5jsVkjRrlpb2PDxZ6NoyVJb2N+pRHHreXaSii893CVItkWiju7zujODgVg718Ba6BCKm5T6BcsBAA=")
+size_override = Vector2(96, 64)
 
 [sub_resource type="Animation" id="Animation_jhdjw"]
-length = 0.2
+length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -21,10 +21,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1]
+"values": [0, 1, 3, 3, 4, 0]
 }
 
 [sub_resource type="Animation" id="Animation_rjfqj"]
@@ -117,7 +117,7 @@ attack_range = 30.0
 [node name="Sprite2D" parent="." index="0" unique_id=1183595025]
 texture_filter = 1
 texture = SubResource("PortableCompressedTexture2D_etoiq")
-hframes = 2
+hframes = 3
 vframes = 2
 metadata/_aseprite_wizard_interface_config_ = {
 "pending_changes": {}
@@ -138,9 +138,9 @@ metadata/_aseprite_wizard_config_ = {
 "scale": "1.0",
 "slice": "",
 "source": "res://assets/enemies/Gorebit.aseprite",
-"source_uid": 6188844140380409411
+"source_uid": 5132726076798521727
 }
-metadata/_aseprite_wizard_source_file_hash_ = "eb88108e4025b25f5ec455757fe3b34a"
+metadata/_aseprite_wizard_source_file_hash_ = "36a3a8be07db0889d116494df782fcc5"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1" unique_id=986001668]
 unique_name_in_owner = true
