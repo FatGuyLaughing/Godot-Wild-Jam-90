@@ -7,9 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://wup70qs62hy0" path="res://components/spike_trap/spike_trap.tscn" id="5_7ulqd"]
 [ext_resource type="Script" uid="uid://cy6lxe66okinq" path="res://scenes/game_scene/fogtest.gd" id="6_7ulqd"]
 [ext_resource type="Script" uid="uid://doqs6h6xdjoqm" path="res://scenes/game_scene/MainLevel/Rooms/door.gd" id="7_wedpv"]
-[ext_resource type="PackedScene" uid="uid://haj0s8e6d10f" path="res://scenes/player/player.tscn" id="8_oxnsv"]
 [ext_resource type="PackedScene" uid="uid://c6jdvemwg3ey1" path="res://scenes/enemies/gorebit/gorebit.tscn" id="9_lnrhe"]
 [ext_resource type="PackedScene" uid="uid://eqs160etgllm" path="res://scenes/enemies/vargazer/vargazer.tscn" id="10_lnrhe"]
+[ext_resource type="PackedScene" uid="uid://co0kexpfb0g2w" path="res://scenes/enemies/gorebyte/gorebyte.tscn" id="11_tr8b4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o347i"]
 size = Vector2(94, 162)
@@ -68,9 +68,6 @@ target_room_path = "res://scenes/game_scene/MainLevel/Rooms/room_1.tscn"
 position = Vector2(0, -1.5)
 shape = SubResource("RectangleShape2D_7ulqd")
 
-[node name="PlayerCharacter" parent="." unique_id=44599593 instance=ExtResource("8_oxnsv")]
-position = Vector2(443, 470)
-
 [node name="Gorebit" parent="." unique_id=200550846 instance=ExtResource("9_lnrhe")]
 position = Vector2(717, 290)
 
@@ -85,5 +82,8 @@ position = Vector2(443, 196)
 
 [node name="Vargazer2" parent="." unique_id=732452170 instance=ExtResource("10_lnrhe")]
 position = Vector2(530, 171)
+
+[node name="Gorebyte" parent="." unique_id=1878878421 instance=ExtResource("11_tr8b4")]
+position = Vector2(1112, 383)
 
 [connection signal="body_entered" from="fogdeactivator" to="fogdeactivator" method="_on_body_entered"]

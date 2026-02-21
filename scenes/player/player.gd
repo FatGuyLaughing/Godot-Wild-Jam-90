@@ -8,6 +8,9 @@ extends CharacterBody2D
 ## should connect to this to handle game over.
 signal died()
 
+# We declare health_ui here but initialize it in _ready()
+var health_ui: Control = null
+
 @onready var _sprite: Sprite2D = %Body
 @onready var _hurtbox: HurtboxComponent = %HurtboxComponent
 @onready var _hitbox: HitboxComponent = %HitboxComponent
@@ -17,10 +20,20 @@ signal died()
 
 func _ready() -> void:
 	add_to_group("player")
-	_hurtbox.hit.connect(_on_hurtbox_hit)
+	
+	# Connect signals
+	_health.health_changed.connect(_on_health_changed)
 	_health.died.connect(_on_died)
+	
+	# Find and setup health UI
+	health_ui = get_health_ui()
+	if health_ui:
+		health_ui.set_max_health(_health.max_health)
+		health_ui.set_health(_health.get_current_health())
+	else:
+		push_warning("HealthUI node not found!")
+	
 	_hitbox.enabled = false
-
 
 
 func _process(_delta: float) -> void:
@@ -39,6 +52,26 @@ func _on_died() -> void:
 	died.emit()
 
 
-## Forces transition to Hurt state from any active state.
-func _on_hurtbox_hit(_incoming_hitbox: HitboxComponent, _damage: float) -> void:
-	_state_machine.transition_to("Hurt")
+## Updates the UI whenever health changes.
+func _on_health_changed(old_value: float, new_value: float) -> void:
+	if health_ui != null:
+		print("Health changed to: ", new_value)   # DEBUG
+		health_ui.set_health(new_value)
+
+
+## Helper function to find HealthUI node in the scene tree.
+## Adjust the node path inside this function if your UI node is elsewhere.
+func get_health_ui() -> Control:
+	var root = get_tree().get_current_scene()
+
+	# Example path if HealthUI is under CanvasLayer:
+	if root.has_node("res://components/healthUI/health_ui.tscn"):
+		return root.get_node("res://components/healthUI/health_ui.tscn")
+
+	# Try root-level HealthUI node as fallback:
+	if root.has_node("HealthUI"):
+		return root.get_node("HealthUI")
+
+	# Add other fallback paths here if needed
+
+	return null
