@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://haj0s8e6d10f" path="res://scenes/player/player.tscn" id="8_oxnsv"]
 [ext_resource type="PackedScene" uid="uid://c6jdvemwg3ey1" path="res://scenes/enemies/gorebit/gorebit.tscn" id="9_lnrhe"]
 [ext_resource type="PackedScene" uid="uid://eqs160etgllm" path="res://scenes/enemies/vargazer/vargazer.tscn" id="10_lnrhe"]
+[ext_resource type="PackedScene" uid="uid://co0kexpfb0g2w" path="res://scenes/enemies/gorebyte/gorebyte.tscn" id="11_tr8b4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o347i"]
 size = Vector2(94, 162)
@@ -85,5 +86,8 @@ position = Vector2(443, 196)
 
 [node name="Vargazer2" parent="." unique_id=732452170 instance=ExtResource("10_lnrhe")]
 position = Vector2(530, 171)
+
+[node name="Gorebyte" parent="." unique_id=1878878421 instance=ExtResource("11_tr8b4")]
+position = Vector2(1112, 383)
 
 [connection signal="body_entered" from="fogdeactivator" to="fogdeactivator" method="_on_body_entered"]
