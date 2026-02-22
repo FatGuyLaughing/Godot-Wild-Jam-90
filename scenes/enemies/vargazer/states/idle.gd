@@ -11,4 +11,5 @@ func enter() -> void:
 func physics_process(_delta: float) -> void:
 	var enemy: EnemyBase = entity as EnemyBase
 	if enemy.player_in_range and enemy.player_in_sight:
+		enemy.aggro = true
 		transition_to("RangedAttack")

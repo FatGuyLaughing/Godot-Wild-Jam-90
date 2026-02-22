@@ -75,7 +75,7 @@ func physics_process(delta: float) -> void:
 
 
 func process_wait(_delta: float) -> void:
-	if valid_target:
+	if valid_target():
 		# enter track state
 		countdown = tracking_duration
 		laser = laser_scene.instantiate()
@@ -84,12 +84,13 @@ func process_wait(_delta: float) -> void:
 		_update_laser_target()
 		substate = Substate.TRACK
 	else:
-		transition_to("Idle")
+		transition_to("Chase")
 
 
 func process_track(delta: float) -> void:
-	if not valid_target:
-		transition_to("Idle")
+	if not valid_target():
+		transition_to("Chase")
+		return
 	countdown -= delta
 	if countdown <= 0:
 		# enter lock state
@@ -99,6 +100,9 @@ func process_track(delta: float) -> void:
 
 
 func process_lock(delta: float) -> void:
+	if not valid_target():
+		transition_to("Chase")
+		return
 	countdown -= delta
 	if countdown <= 0:
 		# enter fire state
@@ -113,6 +117,13 @@ func process_lock(delta: float) -> void:
 
 
 func process_fire(delta: float) -> void:
+	if not valid_target():
+		laser.disable_hitbox()
+		laser.queue_free()
+		countdown = cooldown_duration
+		substate = Substate.COOLDOWN
+		transition_to("Chase")
+		return
 	countdown -= delta
 	if countdown <= 0:
 		# enter cooldown state
@@ -120,8 +131,7 @@ func process_fire(delta: float) -> void:
 		laser.queue_free()
 		countdown = cooldown_duration
 		substate = Substate.COOLDOWN
-		# no longer attacking...
-		transition_to("Idle")
+		# cooldown will tick via _physics_process, re-enter WAIT next cycle
 
 
 func _update_laser_target() -> void:
