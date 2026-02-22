@@ -40,8 +40,8 @@ func setup_enemies():
 
 			# Connect enemy death signal to this room
 			# (Avoid double-connecting if reloaded)
-			if not child.enemy_died.is_connected(_on_enemy_died):
-				child.enemy_died.connect(_on_enemy_died)
+			if not child.died.is_connected(_on_enemy_died):
+				child.died.connect(_on_enemy_died)
 
 	# If a room starts with no enemies,
 	# remove fog immediately
