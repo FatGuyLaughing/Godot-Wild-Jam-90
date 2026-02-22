@@ -20,11 +20,11 @@ var health_ui: Control = null
 
 func _ready() -> void:
 	add_to_group("player")
-	
+
 	# Connect signals
 	_health.health_changed.connect(_on_health_changed)
 	_health.died.connect(_on_died)
-	
+
 	# Find and setup health UI
 	health_ui = get_health_ui()
 	if health_ui:
@@ -32,7 +32,7 @@ func _ready() -> void:
 		health_ui.set_health(_health.get_current_health())
 	else:
 		push_warning("HealthUI node not found!")
-	
+
 	_hitbox.enabled = false
 
 
@@ -43,7 +43,7 @@ func _process(_delta: float) -> void:
 ## Flips the sprite horizontally so the player always faces the mouse.
 ## Runs every frame regardless of state to support kiting while attacking.
 func _face_mouse() -> void:
-	_sprite.flip_h = get_global_mouse_position().x > global_position.x
+	_sprite.flip_h = get_global_mouse_position().x < global_position.x
 
 
 ## Forces transition to Dead state and emits died signal.
