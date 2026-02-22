@@ -20,11 +20,11 @@ var health_ui: Control = null
 
 func _ready() -> void:
 	add_to_group("player")
-	
+
 	# Connect signals
 	_health.health_changed.connect(_on_health_changed)
 	_health.died.connect(_on_died)
-	
+
 	# Find and setup health UI
 	health_ui = get_health_ui()
 	if health_ui:
@@ -32,7 +32,7 @@ func _ready() -> void:
 		health_ui.set_health(_health.get_current_health())
 	else:
 		push_warning("HealthUI node not found!")
-	
+
 	_hitbox.enabled = false
 
 
