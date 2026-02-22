@@ -10,6 +10,8 @@ func enter() -> void:
 
 func physics_process(_delta: float) -> void:
 	var gorebit: GorebitEnemy = entity as GorebitEnemy
+	if gorebit.is_airborne:
+		return
 	if gorebit.aggro:
 		transition_to("Chase")
 		return
