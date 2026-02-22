@@ -7,9 +7,6 @@
 
 [node name="Main_Level" type="Node2D" unique_id=1832875075]
 
-[node name="PlayerCharacter" parent="." unique_id=44599593 groups=["player"] instance=ExtResource("1_domd1")]
-position = Vector2(115, 459)
-
 [node name="Room_Manager" type="Node2D" parent="." unique_id=198938838 groups=["room_manager"]]
 script = ExtResource("3_8nimi")
 first_room_scene = ExtResource("3_domd1")
@@ -18,3 +15,6 @@ first_room_scene = ExtResource("3_domd1")
 anchors_preset = 9
 anchor_bottom = 1.0
 grow_vertical = 2
+
+[node name="PlayerCharacter" parent="." unique_id=44599593 groups=["player"] instance=ExtResource("1_domd1")]
+position = Vector2(115, 459)
