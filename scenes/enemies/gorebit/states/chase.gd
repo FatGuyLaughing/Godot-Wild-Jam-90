@@ -12,7 +12,7 @@ func enter() -> void:
 func physics_process(_delta: float) -> void:
 	var gorebit: GorebitEnemy = entity as GorebitEnemy
 
-	if not gorebit.player_in_range:
+	if not gorebit.aggro and not gorebit.player_in_range:
 		transition_to("Idle")
 		return
 

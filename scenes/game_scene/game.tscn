@@ -5,14 +5,10 @@
 [ext_resource type="TileSet" uid="uid://cntqsyy6h7vv" path="res://components/tileset/tileset_32x32.tres" id="2_o347i"]
 [ext_resource type="TileSet" uid="uid://cg7707aehbsfm" path="res://components/vfx/steam_wall_tileset/steam_wall.tres" id="3_700et"]
 [ext_resource type="PackedScene" uid="uid://wup70qs62hy0" path="res://components/spike_trap/spike_trap.tscn" id="5_7ulqd"]
-[ext_resource type="Script" uid="uid://cy6lxe66okinq" path="res://scenes/game_scene/fogtest.gd" id="6_7ulqd"]
 [ext_resource type="Script" uid="uid://doqs6h6xdjoqm" path="res://scenes/game_scene/MainLevel/Rooms/door.gd" id="7_wedpv"]
 [ext_resource type="PackedScene" uid="uid://c6jdvemwg3ey1" path="res://scenes/enemies/gorebit/gorebit.tscn" id="9_lnrhe"]
 [ext_resource type="PackedScene" uid="uid://eqs160etgllm" path="res://scenes/enemies/vargazer/vargazer.tscn" id="10_lnrhe"]
 [ext_resource type="PackedScene" uid="uid://co0kexpfb0g2w" path="res://scenes/enemies/gorebyte/gorebyte.tscn" id="11_tr8b4"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_o347i"]
-size = Vector2(94, 162)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ulqd"]
 size = Vector2(130, 15)
@@ -49,14 +45,6 @@ position = Vector2(574, 201)
 z_index = -1
 position = Vector2(854, 448)
 
-[node name="fogdeactivator" type="Area2D" parent="." unique_id=432931783]
-position = Vector2(1008, 369)
-collision_mask = 3
-script = ExtResource("6_7ulqd")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="fogdeactivator" unique_id=506978058]
-shape = SubResource("RectangleShape2D_o347i")
-
 [node name="door1" type="Area2D" parent="." unique_id=1632156709 groups=["doors"]]
 position = Vector2(639, 10)
 collision_mask = 3
@@ -85,5 +73,3 @@ position = Vector2(530, 171)
 
 [node name="Gorebyte" parent="." unique_id=1878878421 instance=ExtResource("11_tr8b4")]
 position = Vector2(1112, 383)
-
-[connection signal="body_entered" from="fogdeactivator" to="fogdeactivator" method="_on_body_entered"]

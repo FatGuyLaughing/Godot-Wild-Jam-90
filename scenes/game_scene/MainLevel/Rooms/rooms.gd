@@ -51,6 +51,18 @@ func setup_enemies():
 
 
 # --------------------------------------------------
+# Registers enemies that will be spawned later
+# (e.g. gorebits from a dying gorebyte).
+# Call this BEFORE the spawner dies so the count
+# never prematurely hits zero.
+# --------------------------------------------------
+func register_enemies(enemies: Array[EnemyBase]) -> void:
+	for enemy in enemies:
+		remaining_enemies += 1
+		enemy.died.connect(_on_enemy_died)
+
+
+# --------------------------------------------------
 # Called whenever an enemy emits "enemy_died"
 # --------------------------------------------------
 func _on_enemy_died():
