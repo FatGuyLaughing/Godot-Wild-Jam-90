@@ -14,7 +14,6 @@
 [ext_resource type="Script" uid="uid://cehq1sya56ppb" path="res://scenes/player/states/idle.gd" id="9_je7p5"]
 [ext_resource type="Script" uid="uid://dqmyvdw28a50a" path="res://scenes/player/states/move.gd" id="10_je7p5"]
 [ext_resource type="Script" uid="uid://b6ai11yyht4k2" path="res://scenes/player/states/melee_attack.gd" id="11_fm80t"]
-[ext_resource type="Script" uid="uid://dltcdnhoxux0p" path="res://scenes/player/states/hurt.gd" id="12_gx1jg"]
 [ext_resource type="Script" uid="uid://dokrxgwm5tmva" path="res://scenes/player/states/ranged_attack.gd" id="12_ugbui"]
 [ext_resource type="Script" uid="uid://dmwbgu6ur28mf" path="res://scenes/player/states/dead.gd" id="13_gx1jg"]
 [ext_resource type="PackedScene" uid="uid://dagsoh6hijejv" path="res://scenes/projectiles/feather/feather.tscn" id="14_myrg7"]
@@ -272,6 +271,9 @@ height = 48.0
 radius = 9.0
 height = 48.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uf5tr"]
+size = Vector2(85, 71.75)
+
 [node name="PlayerCharacter" type="CharacterBody2D" unique_id=44599593]
 y_sort_enabled = true
 collision_layer = 2
@@ -322,7 +324,7 @@ texture = SubResource("PortableCompressedTexture2D_lgqa7")
 offset = Vector2(0, -41)
 hframes = 5
 vframes = 5
-frame = 15
+frame = 14
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": true,
 "layer_section": true,
@@ -395,6 +397,8 @@ shape = SubResource("CapsuleShape2D_fcs02")
 [node name="HurtboxComponent" parent="." unique_id=1179701126 instance=ExtResource("2_p47bc")]
 unique_name_in_owner = true
 position = Vector2(2, -36)
+collision_layer = 8
+collision_mask = 32
 entity_type = 0
 
 [node name="CollisionShape2D" parent="HurtboxComponent" index="0" unique_id=1354527137]
@@ -403,6 +407,12 @@ shape = SubResource("CapsuleShape2D_myrg7")
 
 [node name="HitboxComponent" parent="." unique_id=1334252649 instance=ExtResource("3_75vfm")]
 unique_name_in_owner = true
+collision_layer = 4
+collision_mask = 64
+
+[node name="CollisionShape2D" parent="HitboxComponent" index="0" unique_id=1533460143]
+position = Vector2(2.5, -16)
+shape = SubResource("RectangleShape2D_uf5tr")
 
 [node name="HealthComponent" parent="." unique_id=634366022 node_paths=PackedStringArray("hurtbox") instance=ExtResource("4_p47bc")]
 unique_name_in_owner = true
@@ -442,10 +452,6 @@ metadata/_custom_type_script = "uid://cj2s51e6wd4tp"
 [node name="RangedAttack" type="Node" parent="StateMachine" unique_id=195741915]
 script = ExtResource("12_ugbui")
 projectile_scene = ExtResource("14_myrg7")
-metadata/_custom_type_script = "uid://cj2s51e6wd4tp"
-
-[node name="Hurt" type="Node" parent="StateMachine" unique_id=60577208]
-script = ExtResource("12_gx1jg")
 metadata/_custom_type_script = "uid://cj2s51e6wd4tp"
 
 [node name="Dead" type="Node" parent="StateMachine" unique_id=1222142277]
