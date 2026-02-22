@@ -9,3 +9,4 @@ func _ready() -> void:
 	super._ready()
 	if is_boss:
 		scale = Vector2(2, 2)
+		add_to_group("boss")
