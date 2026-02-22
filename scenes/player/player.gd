@@ -24,6 +24,7 @@ func _ready() -> void:
 	# Connect signals
 	_health.health_changed.connect(_on_health_changed)
 	_health.died.connect(_on_died)
+	_hitbox.hit.connect(_on_hitbox_hit)
 
 	# Find and setup health UI
 	health_ui = get_health_ui()
@@ -44,6 +45,11 @@ func _process(_delta: float) -> void:
 ## Runs every frame regardless of state to support kiting while attacking.
 func _face_mouse() -> void:
 	_sprite.flip_h = get_global_mouse_position().x < global_position.x
+
+
+## Heals the player when the hitbox connects with an enemy.
+func _on_hitbox_hit(_hurtbox: HurtboxComponent) -> void:
+	_health.heal(2.0)
 
 
 ## Forces transition to Dead state and emits died signal.
