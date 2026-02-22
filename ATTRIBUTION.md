@@ -2,6 +2,12 @@
 ## Collaborators
 
 [hatmix](https://hatmix.itch.io)
+[fatguylaughing](https://fatguylaughing.itch.io)
+[friendly mimic](https://friendlymimic.itch.io)
+[ax3ld3v]
+[dnuoz]
+[jewelz]
+[crowe]
 
 ### Godot Minimal Game Template
 ![Maaack Plugin Icon](/assets/plugin_logo/logo.png)  

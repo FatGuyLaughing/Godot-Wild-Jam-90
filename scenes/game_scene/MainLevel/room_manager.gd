@@ -6,6 +6,7 @@ extends Node2D
 
 var current_room: Node = null
 var door_timer: float = 0.0
+var _transitioning: bool = false
 
 
 func _physics_process(delta: float) -> void:
@@ -18,12 +19,14 @@ func _ready():
 	else:
 		push_warning("No first_room_scene assigned!")
 
-func add_room(new_scene: PackedScene) -> void:
+func add_room(new_scene: PackedScene, new_player_pos := Vector2.ZERO, reposition_player := false) -> void:
 	if not new_scene:
 		push_warning("No scene provided to add_room()")
 		return
 
-	# Save old room state
+	_transitioning = true
+
+	# Fade out and tear down the old room
 	if current_room and is_instance_valid(current_room):
 		await SceneTransition.fade_out()
 		if current_room.has_method("save_state"):
@@ -32,9 +35,17 @@ func add_room(new_scene: PackedScene) -> void:
 
 	# Instance new room
 	current_room = new_scene.instantiate()
-	add_child.call_deferred(current_room)
+	add_child(current_room)
 	print("Added room:", current_room.room_id)
-	SceneTransition.fade_in()
+
+	# Move the player before the scene is revealed
+	if reposition_player:
+		var player = get_tree().get_first_node_in_group("player")
+		if player:
+			player.global_position = new_player_pos
+			print("Player moved to:", player.global_position)
+		else:
+			push_warning("Player node not found at path: %s" % player_path)
 
 	# Connect all doors in this room
 	for door in current_room.get_children():
@@ -46,8 +57,12 @@ func add_room(new_scene: PackedScene) -> void:
 	if current_room.has_method("load_state"):
 		current_room.load_state(GameState.load_room_state(current_room.room_id))
 
+	# Reveal the new room
+	await SceneTransition.fade_in()
+	_transitioning = false
+
 func _on_door_request_room_change(new_position: Vector2, target_scene: PackedScene) -> void:
-	if door_timer > 0:
+	if _transitioning or door_timer > 0:
 		print("Door cooldown active, ignoring rapid trigger")
 		return
 
@@ -59,15 +74,8 @@ func _on_door_request_room_change(new_position: Vector2, target_scene: PackedSce
 		push_warning("Door requested a room change but target_scene is null")
 		return
 
-	change_room(new_position, target_scene)
+	add_room(target_scene, new_position, true)
 
 func change_room(new_player_pos: Vector2, new_scene: PackedScene) -> void:
 	print("Changing room to:", new_scene, "with player position:", new_player_pos)
-	add_room(new_scene)
-
-	var player = get_tree().get_first_node_in_group("player")
-	if player:
-		player.global_position = new_player_pos
-		print("Player moved to:", player.global_position)
-	else:
-		push_warning("Player node not found at path: %s" % player_path)
+	add_room(new_scene, new_player_pos, true)

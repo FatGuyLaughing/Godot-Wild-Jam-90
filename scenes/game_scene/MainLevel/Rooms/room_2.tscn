@@ -1,10 +1,11 @@
 [gd_scene format=4 uid="uid://bjopknqv0762c"]
 
-[ext_resource type="Script" path="res://scenes/game_scene/MainLevel/Rooms/room_2.gd" id="1_4juj0"]
+[ext_resource type="Script" uid="uid://0thec5n2wpkf" path="res://scenes/game_scene/MainLevel/Rooms/room_2.gd" id="1_4juj0"]
 [ext_resource type="Script" uid="uid://doqs6h6xdjoqm" path="res://scenes/game_scene/MainLevel/Rooms/door.gd" id="2_7td7y"]
 [ext_resource type="TileSet" uid="uid://cntqsyy6h7vv" path="res://components/tileset/tileset_32x32.tres" id="2_uwmc6"]
 [ext_resource type="TileSet" uid="uid://cg7707aehbsfm" path="res://components/vfx/steam_wall_tileset/steam_wall.tres" id="3_4juj0"]
 [ext_resource type="PackedScene" uid="uid://co0kexpfb0g2w" path="res://scenes/enemies/gorebyte/gorebyte.tscn" id="5_0lvot"]
+[ext_resource type="PackedScene" uid="uid://22njc57jowvl" path="res://components/healthUI/health_ui.tscn" id="6_spmfv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uwmc6"]
 size = Vector2(255, 125)
@@ -54,7 +55,12 @@ position = Vector2(634, 174)
 is_boss = true
 
 [node name="HealthComponent" parent="Gorebyte" index="5" unique_id=634366022]
-max_health = 200.0
+max_health = 500.0
+
+[node name="HealthUI" parent="." unique_id=1671868856 instance=ExtResource("6_spmfv")]
+offset_left = 1181.885
+offset_right = 1181.885
+target_type = 1
 
 [editable path="Gorebyte"]
 [editable path="Gorebyte/HurtboxComponent"]
