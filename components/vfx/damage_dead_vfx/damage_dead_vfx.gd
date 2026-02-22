@@ -22,7 +22,10 @@ func _on_knockback_applied(velocity: Vector2) -> void:
 
 
 func _on_died() -> void:
-	gpu_particles_2d.reparent(get_tree().current_scene)
+	var scene := get_tree().current_scene if get_tree() else null
+	if not is_instance_valid(scene):
+		return
+	gpu_particles_2d.reparent(scene)
 	gpu_particles_2d.process_material = gpu_particles_2d.process_material.duplicate()
 	gpu_particles_2d.process_material.direction = Vector3(0, -1, 0)
 	gpu_particles_2d.emitting = true
