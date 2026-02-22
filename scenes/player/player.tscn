@@ -264,8 +264,8 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fcs02"]
-radius = 9.0
-height = 48.0
+radius = 8.0
+height = 18.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_myrg7"]
 radius = 9.0
@@ -391,7 +391,7 @@ unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_ioxgp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1178236850]
-position = Vector2(2, -20)
+position = Vector2(0, -4)
 shape = SubResource("CapsuleShape2D_fcs02")
 
 [node name="HurtboxComponent" parent="." unique_id=1179701126 instance=ExtResource("2_p47bc")]
