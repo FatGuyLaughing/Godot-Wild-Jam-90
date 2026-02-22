@@ -54,7 +54,7 @@ position = Vector2(634, 174)
 is_boss = true
 
 [node name="HealthComponent" parent="Gorebyte" index="5" unique_id=634366022]
-max_health = 200.0
+max_health = 500.0
 
 [editable path="Gorebyte"]
 [editable path="Gorebyte/HurtboxComponent"]
