@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dibptag8uqy1v" path="res://components/knockback/knockback.tscn" id="5_75vfm"]
 [ext_resource type="PackedScene" uid="uid://4jii8umru44f" path="res://components/movement/movement.tscn" id="7_0owmy"]
 [ext_resource type="Script" uid="uid://bkgel2ay0al2c" path="res://components/state_machine/state_machine.gd" id="8_5gtgg"]
+[ext_resource type="PackedScene" uid="uid://dvyxophyxarsx" path="res://components/vfx/damage_dead_vfx/damage_dead_vfx.tscn" id="8_lgqa7"]
 [ext_resource type="Script" uid="uid://cehq1sya56ppb" path="res://scenes/player/states/idle.gd" id="9_je7p5"]
 [ext_resource type="Script" uid="uid://dqmyvdw28a50a" path="res://scenes/player/states/move.gd" id="10_je7p5"]
 [ext_resource type="Script" uid="uid://b6ai11yyht4k2" path="res://scenes/player/states/melee_attack.gd" id="11_fm80t"]
@@ -422,6 +423,9 @@ hurtbox = NodePath("../HurtboxComponent")
 [node name="KnockbackComponent" parent="." unique_id=184767056 node_paths=PackedStringArray("hurtbox") instance=ExtResource("5_75vfm")]
 unique_name_in_owner = true
 hurtbox = NodePath("../HurtboxComponent")
+
+[node name="DamageDeadVfx" parent="." unique_id=788064489 node_paths=PackedStringArray("knockback_component") instance=ExtResource("8_lgqa7")]
+knockback_component = NodePath("../KnockbackComponent")
 
 [node name="MovementComponent" parent="." unique_id=1168461939 node_paths=PackedStringArray("knockback") instance=ExtResource("7_0owmy")]
 unique_name_in_owner = true
