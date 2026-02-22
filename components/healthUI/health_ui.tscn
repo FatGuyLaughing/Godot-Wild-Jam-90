@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://22njc57jowvl"]
+
+[ext_resource type="Texture2D" uid="uid://c62ailghn0fo3" path="res://assets/ui/Blood_Pool.png" id="1_isxj8"]
+[ext_resource type="Script" uid="uid://b103mk28r5c1b" path="res://components/healthUI/health_ui.gd" id="1_jj112"]
+
+[node name="HealthUI" type="Control" unique_id=1671868856]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_jj112")
+heart_texture = ExtResource("1_isxj8")
+
+[node name="Heart" type="TextureRect" parent="." unique_id=1399574042]
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 1
+offset_right = 979.0
+offset_bottom = 98.0
+texture = ExtResource("1_isxj8")
+stretch_mode = 4

@@ -1,0 +1,243 @@
+[gd_scene format=4 uid="uid://c6jdvemwg3ey1"]
+
+[ext_resource type="PackedScene" uid="uid://2pssxf5l8v6p" path="res://scenes/enemies/enemy_base.tscn" id="1_jp2f0"]
+[ext_resource type="Script" uid="uid://cayucdk6ojqa6" path="res://scenes/enemies/gorebit/gorebit.gd" id="2_ofxg8"]
+[ext_resource type="AudioStream" uid="uid://clu178ws7d0yh" path="res://assets/audio/sfx/gorebit_attack.wav" id="3_jhdjw"]
+[ext_resource type="Script" uid="uid://bbgtcjc7y57ch" path="res://scenes/enemies/gorebit/states/idle.gd" id="4_jhdjw"]
+[ext_resource type="Script" uid="uid://b2ubontvyauin" path="res://scenes/enemies/gorebit/states/chase.gd" id="5_rjfqj"]
+[ext_resource type="Script" uid="uid://b3v8iregm07s7" path="res://scenes/enemies/gorebit/states/attack.gd" id="6_oarpa"]
+[ext_resource type="Script" uid="uid://do4wl4wtm2qy7" path="res://scenes/enemies/gorebit/states/dead.gd" id="8_h412u"]
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_jhdjw"]
+_data = PackedByteArray("AAADAAUAAAABAAAAYAAAAGAAAADKAwAAUklGRsIDAABXRUJQVlA4TLYDAAAvX8AXED/BIJKkRo0HfCAJifhAADb4nIMNtpEkNWo8siP/EDRYrwWjSLKd9P+frAAlSMcHV844yBmCbJuhDe1oM3uUv3+cExBW+do/AOHSZhD6tx8Ij/sAoX3fgXAcK084QGjOp/B9XlB4WxDW1whCOXVAmGIDQqAoybbbNuIT+STwXBu4hzBwbe8qQeHi/z8ReMBD2hwqov8O3LaNJMU9dg5AE3Q/0f97qtyPfc97D37gtnQheAh+5LZ03QZj77Z0W1zboi1HTr9FEjGIcLes9+6CiApiXJ/dvIWMggiAInvAjLcs0CIj1BTxcjLu8ACJjDcs6xVhMYDA5fR6isDWYYRmvPPiFBBwhfJyiqTaxqFAc945cQOCBaMAUAFgUWVLDNCct2bEjaoePBhVRbTzoKa0DQdVmfXmrPijGWlOpyUdNXZuNLPHjXg0Mxon3uTEOxFPGZPMluoYU6stmHhPLlimBp2MmC3U2uzColot1v+dUO5HH+H4HDrufnRCOPiPLoSZVUgeMd00EAEoy5p7gIueECNIiZyXGnYHSDcGggjACJC5TOGuF0VGLieLEVBmOUIYBYjx9HqKVNr84plF9kFIRtNheo3kODLp/QiBErhcLjHSQhYfwb4wBoBQRrL30GfimcgeIWExuILkeGURwVPG7LKHAS7JeQ2LTrWHEfTCxYv7akhAOd35gj/maDIwZBke1mFgQDCK0kOydbMFF3sBRkTEsjv3dTEqPfgQVSa3zZQZd46ZwDxdSMpdVam6DJ0iop0HXcAQERXESMqCdJ376AVJG5vh0Yw0p9NIVTN2bjSzx9lBIaMgAkhg/uwxQk0RX/HKaBnGJHPygcl7yXicHZh6X07GiCxUtRhAAHhNP57zZIu0eYwCJeAK5eUUk+5SZgd0xmucqKo2m/wm2c2tBmiwYBQAmjxnUWcwQkPWaxSjzSSpzL35QVVmzx1tqj3q0sjJuSGTc+PGzMl5XFDzx85oOe957UlHaFzU+c3qcVGt1Rqv/L9QfXwc+8pQ5yPn/ZzUx0dZlnVZLuFzqLvPXTNU/VCUTVk8PBfP9UOT4e0uqc/PqqpuVbVL6rJsHs5FXRTFt+dvD0VR1PV8hrrdX6u2ut6/XF9u9+22NHVRns/Nuam/Dvz8+qMoxs8s6yalvV2ru7v2rr19uV6vv3z5fr1WVXtf3dpteGqapm7q+mOYm3qoQeP946MZBZqnvv+1bdtbe7t9DnN7G2rQePv8bEeB9tettk8La87r14XV/yFWDw==")
+size_override = Vector2(96, 96)
+
+[sub_resource type="Animation" id="Animation_tj12e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer2D:stream")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_jhdjw"]
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer2D:stream")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_jhdjw")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = false
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 3, 3, 4, 0]
+}
+
+[sub_resource type="Animation" id="Animation_rjfqj"]
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [5, 6, 7, 2]
+}
+
+[sub_resource type="Animation" id="Animation_oarpa"]
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_g643m"]
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_h412u"]
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tj12e"]
+_data = {
+&"RESET": SubResource("Animation_tj12e"),
+&"attack": SubResource("Animation_jhdjw"),
+&"dead": SubResource("Animation_rjfqj"),
+&"hurt": SubResource("Animation_oarpa"),
+&"idle": SubResource("Animation_g643m"),
+&"move": SubResource("Animation_h412u")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_etoiq"]
+radius = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jhdjw"]
+radius = 11.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rjfqj"]
+radius = 7.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oarpa"]
+radius = 168.19037
+
+[node name="Gorebit" unique_id=200550846 instance=ExtResource("1_jp2f0")]
+script = ExtResource("2_ofxg8")
+attack_range = 30.0
+
+[node name="Sprite2D" parent="." index="0" unique_id=1183595025]
+texture_filter = 1
+texture = SubResource("PortableCompressedTexture2D_jhdjw")
+hframes = 3
+vframes = 3
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": true,
+"i_mode": 0,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "AnimationPlayer",
+"scale": "1.0",
+"slice": "",
+"source": "res://assets/enemies/Gorebit.aseprite",
+"source_uid": 5132726076798521727
+}
+metadata/_aseprite_wizard_source_file_hash_ = "5c4ed00d52144dfc10fdbdb3361a76a6"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1" unique_id=986001668]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_tj12e")
+
+[node name="CollisionShape2D" parent="." index="2" unique_id=1771161155]
+position = Vector2(0, 7)
+shape = SubResource("CircleShape2D_etoiq")
+
+[node name="CollisionShape2D" parent="HurtboxComponent" parent_id_path=PackedInt32Array(1179701126) index="0" unique_id=1354527137]
+position = Vector2(0, 7)
+shape = SubResource("CircleShape2D_jhdjw")
+
+[node name="HitboxComponent" parent="." index="4" unique_id=1334252649]
+damage = 15.0
+
+[node name="CollisionShape2D" parent="HitboxComponent" index="0" unique_id=1533460143]
+position = Vector2(0, 7)
+shape = SubResource("CircleShape2D_rjfqj")
+
+[node name="HealthComponent" parent="." index="5" unique_id=634366022]
+max_health = 40.0
+
+[node name="CollisionShape2D" parent="DetectionZone" parent_id_path=PackedInt32Array(391698888) index="0" unique_id=515830143]
+position = Vector2(0, 7)
+shape = SubResource("CircleShape2D_oarpa")
+
+[node name="StateMachine" parent="." index="11" unique_id=1405924420 node_paths=PackedStringArray("starting_state")]
+starting_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine" index="0" unique_id=970956696]
+script = ExtResource("4_jhdjw")
+metadata/_custom_type_script = "uid://cj2s51e6wd4tp"
+
+[node name="Chase" type="Node" parent="StateMachine" index="1" unique_id=198581040]
+script = ExtResource("5_rjfqj")
+metadata/_custom_type_script = "uid://cj2s51e6wd4tp"
+
+[node name="Attack" type="Node" parent="StateMachine" index="2" unique_id=1663040453]
+script = ExtResource("6_oarpa")
+metadata/_custom_type_script = "uid://cj2s51e6wd4tp"
+
+[node name="Dead" type="Node" parent="StateMachine" index="3" unique_id=1774832358]
+script = ExtResource("8_h412u")
+metadata/_custom_type_script = "uid://cj2s51e6wd4tp"
+
+[editable path="HurtboxComponent"]
+[editable path="HitboxComponent"]

@@ -1,0 +1,240 @@
+[gd_scene format=4 uid="uid://co0kexpfb0g2w"]
+
+[ext_resource type="PackedScene" uid="uid://2pssxf5l8v6p" path="res://scenes/enemies/enemy_base.tscn" id="1_kcs38"]
+[ext_resource type="Script" uid="uid://cvumixt34fhv7" path="res://scenes/enemies/gorebyte/gorebyte.gd" id="2_0fhen"]
+[ext_resource type="AudioStream" uid="uid://b3idv1wonajiu" path="res://assets/audio/sfx/gorebyte_attack.wav" id="2_1g4rg"]
+[ext_resource type="Script" uid="uid://bspdh05iorwdb" path="res://scenes/enemies/gorebyte/states/attack.gd" id="3_d2jyr"]
+[ext_resource type="Script" uid="uid://v7m6tuo88hhk" path="res://scenes/enemies/gorebyte/states/chase.gd" id="4_0fhen"]
+[ext_resource type="Script" uid="uid://tflj2c0vb8q2" path="res://scenes/enemies/gorebyte/states/dead.gd" id="5_xvo1f"]
+[ext_resource type="Script" uid="uid://0t51dvo2g8hl" path="res://scenes/enemies/gorebyte/states/idle.gd" id="7_r282s"]
+[ext_resource type="Script" path="res://scenes/enemies/gorebyte/states/boss_spawn.gd" id="8_bs0wn"]
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_0fhen"]
+_data = PackedByteArray("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")
+size_override = Vector2(192, 144)
+
+[sub_resource type="Animation" id="Animation_d2jyr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer2D:stream")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_1g4rg"]
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer2D:stream")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_1g4rg")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = false
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 1, 3, 3, 4, 4, 5, 6]
+}
+
+[sub_resource type="Animation" id="Animation_s7r3n"]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [7, 8, 9, 10, 2]
+}
+
+[sub_resource type="Animation" id="Animation_2h1ua"]
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 0, 1, 1]
+}
+
+[sub_resource type="Animation" id="Animation_uw1q4"]
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 0, 1, 1]
+}
+
+[sub_resource type="Animation" id="Animation_v7xji"]
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 0, 1, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_d2jyr"]
+_data = {
+&"RESET": SubResource("Animation_d2jyr"),
+&"attack": SubResource("Animation_1g4rg"),
+&"dead": SubResource("Animation_s7r3n"),
+&"hurt": SubResource("Animation_2h1ua"),
+&"idle": SubResource("Animation_uw1q4"),
+&"move": SubResource("Animation_v7xji")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kcs38"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0fhen"]
+radius = 28.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xvo1f"]
+radius = 32.24903
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d2jyr"]
+radius = 241.0
+
+[node name="Gorebyte" unique_id=200550846 instance=ExtResource("1_kcs38")]
+script = ExtResource("2_0fhen")
+attack_range = 30.0
+
+[node name="Sprite2D" parent="." index="0" unique_id=1183595025]
+texture_filter = 1
+texture = SubResource("PortableCompressedTexture2D_0fhen")
+hframes = 4
+vframes = 3
+frame = 1
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": true,
+"i_mode": 0,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "AnimationPlayer",
+"scale": "1.0",
+"slice": "",
+"source": "res://assets/enemies/Gorebyte.aseprite",
+"source_uid": 7948477646172973302
+}
+metadata/_aseprite_wizard_source_file_hash_ = "ffb2ab98efd94bbd176be1199a20a507"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1" unique_id=278133999]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_d2jyr")
+
+[node name="CollisionShape2D" parent="." index="2" unique_id=1771161155]
+shape = SubResource("CapsuleShape2D_kcs38")
+
+[node name="CollisionShape2D" parent="HurtboxComponent" parent_id_path=PackedInt32Array(1179701126) index="0" unique_id=1354527137]
+position = Vector2(0, 5)
+shape = SubResource("CircleShape2D_0fhen")
+
+[node name="CollisionShape2D" parent="HitboxComponent" parent_id_path=PackedInt32Array(1334252649) index="0" unique_id=1533460143]
+position = Vector2(0, 4)
+shape = SubResource("CircleShape2D_xvo1f")
+
+[node name="CollisionShape2D" parent="DetectionZone" parent_id_path=PackedInt32Array(391698888) index="0" unique_id=515830143]
+shape = SubResource("CircleShape2D_d2jyr")
+
+[node name="StateMachine" parent="." index="11" unique_id=1405924420 node_paths=PackedStringArray("starting_state")]
+starting_state = NodePath("Idle")
+
+[node name="Attack" type="Node" parent="StateMachine" index="0" unique_id=487165509]
+script = ExtResource("3_d2jyr")
+metadata/_custom_type_script = "uid://cj2s51e6wd4tp"
+
+[node name="Chase" type="Node" parent="StateMachine" index="1" unique_id=1258888528]
+script = ExtResource("4_0fhen")
+metadata/_custom_type_script = "uid://cj2s51e6wd4tp"
+
+[node name="Dead" type="Node" parent="StateMachine" index="2" unique_id=1262448211]
+script = ExtResource("5_xvo1f")
+metadata/_custom_type_script = "uid://cj2s51e6wd4tp"
+
+[node name="BossSpawn" type="Node" parent="StateMachine" index="3"]
+script = ExtResource("8_bs0wn")
+metadata/_custom_type_script = "uid://cj2s51e6wd4tp"
+
+[node name="Idle" type="Node" parent="StateMachine" index="4" unique_id=1285243060]
+script = ExtResource("7_r282s")
+metadata/_custom_type_script = "uid://cj2s51e6wd4tp"
+
+[editable path="HurtboxComponent"]
+[editable path="HitboxComponent"]

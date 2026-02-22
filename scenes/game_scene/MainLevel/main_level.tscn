@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://1adruxqkkti0"]
+
+[ext_resource type="PackedScene" uid="uid://haj0s8e6d10f" path="res://scenes/player/player.tscn" id="1_domd1"]
+[ext_resource type="Script" uid="uid://3w5tb8qd8deu" path="res://scenes/game_scene/MainLevel/room_manager.gd" id="3_8nimi"]
+[ext_resource type="PackedScene" uid="uid://br5kx565d3yl8" path="res://scenes/game_scene/game.tscn" id="3_domd1"]
+[ext_resource type="PackedScene" uid="uid://22njc57jowvl" path="res://components/healthUI/health_ui.tscn" id="4_8nimi"]
+[ext_resource type="Script" path="res://scenes/game_scene/MainLevel/main_level.gd" id="5_main"]
+
+[node name="Main_Level" type="Node2D" unique_id=1832875075]
+script = ExtResource("5_main")
+
+[node name="Room_Manager" type="Node2D" parent="." unique_id=198938838 groups=["room_manager"]]
+script = ExtResource("3_8nimi")
+first_room_scene = ExtResource("3_domd1")
+
+[node name="HealthUI" parent="." unique_id=1671868856 instance=ExtResource("4_8nimi")]
+anchors_preset = 9
+anchor_bottom = 1.0
+grow_vertical = 2
+
+[node name="PlayerCharacter" parent="." unique_id=44599593 groups=["player"] instance=ExtResource("1_domd1")]
+position = Vector2(115, 459)

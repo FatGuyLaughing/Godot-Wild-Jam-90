@@ -1,0 +1,20 @@
+[gd_resource type="ParticleProcessMaterial" format=3 uid="uid://dnmba4snh2buh"]
+
+[sub_resource type="Curve" id="Curve_vckl1"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.9874206, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_dqqfq"]
+curve = SubResource("Curve_vckl1")
+
+[resource]
+lifetime_randomness = 0.5
+direction = Vector3(0, -1, 0)
+spread = 30.0
+initial_velocity_min = 50.0
+initial_velocity_max = 70.0
+gravity = Vector3(0, 49, 0)
+scale_min = 3.0
+scale_max = 3.0
+scale_curve = SubResource("CurveTexture_dqqfq")
+color = Color(0.5019608, 0, 0, 1)

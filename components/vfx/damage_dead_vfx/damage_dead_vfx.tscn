@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dvyxophyxarsx"]
+
+[ext_resource type="Material" uid="uid://dnmba4snh2buh" path="res://components/vfx/damage_dead_vfx/particle_process_material.tres" id="1_dqqfq"]
+[ext_resource type="Script" uid="uid://dplaab5vp2fli" path="res://components/vfx/damage_dead_vfx/damage_dead_vfx.gd" id="1_vckl1"]
+
+[node name="DamageDeadVfx" type="GPUParticles2D" unique_id=788064489]
+emitting = false
+amount = 50
+one_shot = true
+explosiveness = 0.75
+randomness = 1.0
+process_material = ExtResource("1_dqqfq")
+script = ExtResource("1_vckl1")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1020753130]
+amount = 400
+explosiveness = 0.75
+randomness = 1.0
+process_material = ExtResource("1_dqqfq")

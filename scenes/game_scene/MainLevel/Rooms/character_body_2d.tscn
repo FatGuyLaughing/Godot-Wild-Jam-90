@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://divvu0d75iort"]
+
+[ext_resource type="Texture2D" uid="uid://344ngldhaqwf" path="res://assets/test_assets/ground1.jpg" id="1_67l0m"]
+[ext_resource type="Script" uid="uid://b2wbht33d0j73" path="res://scenes/game_scene/MainLevel/Rooms/character_body_2d.gd" id="1_ht2dh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ht2dh"]
+size = Vector2(64, 64)
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=597911775 groups=["player"]]
+script = ExtResource("1_ht2dh")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1587902311]
+texture = ExtResource("1_67l0m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2000896341]
+shape = SubResource("RectangleShape2D_ht2dh")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1115530407]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" unique_id=349563150]
+top_level = true
+shape = SubResource("RectangleShape2D_ht2dh")
