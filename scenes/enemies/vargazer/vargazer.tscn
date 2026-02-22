@@ -1,9 +1,9 @@
 [gd_scene format=4 uid="uid://eqs160etgllm"]
 
 [ext_resource type="PackedScene" uid="uid://2pssxf5l8v6p" path="res://scenes/enemies/enemy_base.tscn" id="1_g024v"]
-[ext_resource type="Script" uid="uid://dwikrkjns0hkf" path="res://scenes/enemies/vargazer/ranged_attack.gd" id="2_5nfpl"]
+[ext_resource type="Script" uid="uid://dwikrkjns0hkf" path="res://scenes/enemies/vargazer/states/ranged_attack.gd" id="2_5nfpl"]
 [ext_resource type="Script" uid="uid://b4hevw6oo1etu" path="res://scenes/enemies/vargazer/vargazer.gd" id="2_leacr"]
-[ext_resource type="Script" uid="uid://bcj0dec8gev21" path="res://scenes/enemies/vargazer/idle.gd" id="2_sbvp3"]
+[ext_resource type="Script" uid="uid://bcj0dec8gev21" path="res://scenes/enemies/vargazer/states/idle.gd" id="2_sbvp3"]
 [ext_resource type="AudioStream" uid="uid://c1qt1lv5trf8p" path="res://assets/audio/sfx/vargazer_attack.mp3" id="3_ydgli"]
 [ext_resource type="Script" uid="uid://cj2s51e6wd4tp" path="res://components/state_machine/state.gd" id="6_urc1a"]
 
@@ -235,6 +235,7 @@ metadata/_aseprite_wizard_config_ = {
 metadata/_aseprite_wizard_source_file_hash_ = "d171140d69a7b56faaf7de988deed804"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1" unique_id=521311464]
+unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_2ypyx")
 
 [node name="CollisionShape2D" parent="." index="2" unique_id=1771161155]
