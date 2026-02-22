@@ -364,6 +364,9 @@ lock = true
 [node name="VersionContainer" parent="VersionMargin" parent_id_path=PackedInt32Array(115503069) index="0" unique_id=645412385]
 modulate = Color(1, 1, 1, 0)
 
+[node name="VersionLabel" parent="VersionMargin/VersionContainer" index="0" unique_id=321873498]
+text = "v0.1.0"
+
 [node name="MouseFilter" type="Control" parent="." index="6" unique_id=907820896]
 layout_mode = 1
 anchors_preset = 15
