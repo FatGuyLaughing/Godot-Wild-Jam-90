@@ -34,6 +34,7 @@ target_position = Vector2(272, 597)
 target_room_path = "res://scenes/game_scene/MainLevel/Rooms/room_1.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="door2" unique_id=1020636590]
+position = Vector2(-11, -97)
 shape = SubResource("RectangleShape2D_uwmc6")
 
 [node name="door3" type="Area2D" parent="." unique_id=1428284069 groups=["doors"]]
@@ -45,6 +46,7 @@ target_position = Vector2(998, 143)
 target_room_path = "res://scenes/game_scene/MainLevel/Rooms/room_1.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="door3" unique_id=1444304180]
+position = Vector2(0, 152)
 shape = SubResource("RectangleShape2D_uwmc6")
 
 [node name="Gorebyte" parent="." unique_id=200550846 instance=ExtResource("5_0lvot")]
