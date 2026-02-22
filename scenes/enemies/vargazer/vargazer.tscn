@@ -200,6 +200,7 @@ radius = 32.01562
 radius = 190.01053
 
 [node name="Vargazer" unique_id=200550846 instance=ExtResource("1_g024v")]
+collision_mask = 0
 script = ExtResource("2_leacr")
 
 [node name="Sprite2D" parent="." index="0" unique_id=1183595025]
