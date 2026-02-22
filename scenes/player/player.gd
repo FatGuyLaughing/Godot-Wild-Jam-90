@@ -43,7 +43,7 @@ func _process(_delta: float) -> void:
 ## Flips the sprite horizontally so the player always faces the mouse.
 ## Runs every frame regardless of state to support kiting while attacking.
 func _face_mouse() -> void:
-	_sprite.flip_h = get_global_mouse_position().x > global_position.x
+	_sprite.flip_h = get_global_mouse_position().x < global_position.x
 
 
 ## Forces transition to Dead state and emits died signal.
