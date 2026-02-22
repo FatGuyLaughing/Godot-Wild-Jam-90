@@ -6,7 +6,6 @@
 [ext_resource type="Script" uid="uid://bspdh05iorwdb" path="res://scenes/enemies/gorebyte/states/attack.gd" id="3_d2jyr"]
 [ext_resource type="Script" uid="uid://v7m6tuo88hhk" path="res://scenes/enemies/gorebyte/states/chase.gd" id="4_0fhen"]
 [ext_resource type="Script" uid="uid://tflj2c0vb8q2" path="res://scenes/enemies/gorebyte/states/dead.gd" id="5_xvo1f"]
-[ext_resource type="Script" uid="uid://dmb7b36d83jcs" path="res://scenes/enemies/gorebyte/states/hurt.gd" id="6_riu36"]
 [ext_resource type="Script" uid="uid://0t51dvo2g8hl" path="res://scenes/enemies/gorebyte/states/idle.gd" id="7_r282s"]
 
 [sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_0fhen"]
@@ -221,11 +220,7 @@ metadata/_custom_type_script = "uid://cj2s51e6wd4tp"
 script = ExtResource("5_xvo1f")
 metadata/_custom_type_script = "uid://cj2s51e6wd4tp"
 
-[node name="Hurt" type="Node" parent="StateMachine" index="3" unique_id=1738294441]
-script = ExtResource("6_riu36")
-metadata/_custom_type_script = "uid://cj2s51e6wd4tp"
-
-[node name="Idle" type="Node" parent="StateMachine" index="4" unique_id=1285243060]
+[node name="Idle" type="Node" parent="StateMachine" index="3" unique_id=1285243060]
 script = ExtResource("7_r282s")
 metadata/_custom_type_script = "uid://cj2s51e6wd4tp"
 

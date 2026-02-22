@@ -6,7 +6,6 @@
 [ext_resource type="Script" uid="uid://bbgtcjc7y57ch" path="res://scenes/enemies/gorebit/states/idle.gd" id="4_jhdjw"]
 [ext_resource type="Script" uid="uid://b2ubontvyauin" path="res://scenes/enemies/gorebit/states/chase.gd" id="5_rjfqj"]
 [ext_resource type="Script" uid="uid://b3v8iregm07s7" path="res://scenes/enemies/gorebit/states/attack.gd" id="6_oarpa"]
-[ext_resource type="Script" uid="uid://bcumpvchglu6r" path="res://scenes/enemies/gorebit/states/hurt.gd" id="7_g643m"]
 [ext_resource type="Script" uid="uid://do4wl4wtm2qy7" path="res://scenes/enemies/gorebit/states/dead.gd" id="8_h412u"]
 
 [sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_jhdjw"]
@@ -236,11 +235,7 @@ metadata/_custom_type_script = "uid://cj2s51e6wd4tp"
 script = ExtResource("6_oarpa")
 metadata/_custom_type_script = "uid://cj2s51e6wd4tp"
 
-[node name="Hurt" type="Node" parent="StateMachine" index="3" unique_id=1172792262]
-script = ExtResource("7_g643m")
-metadata/_custom_type_script = "uid://cj2s51e6wd4tp"
-
-[node name="Dead" type="Node" parent="StateMachine" index="4" unique_id=1774832358]
+[node name="Dead" type="Node" parent="StateMachine" index="3" unique_id=1774832358]
 script = ExtResource("8_h412u")
 metadata/_custom_type_script = "uid://cj2s51e6wd4tp"
 

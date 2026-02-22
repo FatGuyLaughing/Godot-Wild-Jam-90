@@ -18,7 +18,6 @@ var player_in_sight: bool = false
 
 func _ready() -> void:
 	add_to_group("enemies")
-	_hurtbox.hit.connect(_on_hurtbox_hit)
 	_health.died.connect(_on_died)
 	_hitbox.enabled = false
 	_detection_zone.body_entered.connect(_on_detection_zone_body_entered)
@@ -33,11 +32,6 @@ func _physics_process(_delta: float) -> void:
 func _on_died() -> void:
 	_state_machine.transition_to("Dead")
 	died.emit()
-
-
-func _on_hurtbox_hit(_incoming_hitbox: HitboxComponent, _damage: float) -> void:
-	if _health.get_current_health() > 0.0:
-		_state_machine.transition_to("Hurt")
 
 
 func _on_detection_zone_body_entered(body: Node2D) -> void:

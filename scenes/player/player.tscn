@@ -14,7 +14,6 @@
 [ext_resource type="Script" uid="uid://cehq1sya56ppb" path="res://scenes/player/states/idle.gd" id="9_je7p5"]
 [ext_resource type="Script" uid="uid://dqmyvdw28a50a" path="res://scenes/player/states/move.gd" id="10_je7p5"]
 [ext_resource type="Script" uid="uid://b6ai11yyht4k2" path="res://scenes/player/states/melee_attack.gd" id="11_fm80t"]
-[ext_resource type="Script" uid="uid://dltcdnhoxux0p" path="res://scenes/player/states/hurt.gd" id="12_gx1jg"]
 [ext_resource type="Script" uid="uid://dokrxgwm5tmva" path="res://scenes/player/states/ranged_attack.gd" id="12_ugbui"]
 [ext_resource type="Script" uid="uid://dmwbgu6ur28mf" path="res://scenes/player/states/dead.gd" id="13_gx1jg"]
 [ext_resource type="PackedScene" uid="uid://dagsoh6hijejv" path="res://scenes/projectiles/feather/feather.tscn" id="14_myrg7"]
@@ -453,10 +452,6 @@ metadata/_custom_type_script = "uid://cj2s51e6wd4tp"
 [node name="RangedAttack" type="Node" parent="StateMachine" unique_id=195741915]
 script = ExtResource("12_ugbui")
 projectile_scene = ExtResource("14_myrg7")
-metadata/_custom_type_script = "uid://cj2s51e6wd4tp"
-
-[node name="Hurt" type="Node" parent="StateMachine" unique_id=60577208]
-script = ExtResource("12_gx1jg")
 metadata/_custom_type_script = "uid://cj2s51e6wd4tp"
 
 [node name="Dead" type="Node" parent="StateMachine" unique_id=1222142277]
