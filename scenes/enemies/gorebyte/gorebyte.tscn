@@ -155,6 +155,9 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_0fhen"]
 radius = 28.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_xvo1f"]
+radius = 32.24903
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_d2jyr"]
 radius = 241.0
 
@@ -167,7 +170,7 @@ texture_filter = 1
 texture = SubResource("PortableCompressedTexture2D_0fhen")
 hframes = 4
 vframes = 3
-frame = 2
+frame = 1
 metadata/_aseprite_wizard_interface_config_ = {
 "pending_changes": {}
 }
@@ -201,6 +204,10 @@ shape = SubResource("CapsuleShape2D_kcs38")
 [node name="CollisionShape2D" parent="HurtboxComponent" parent_id_path=PackedInt32Array(1179701126) index="0" unique_id=1354527137]
 position = Vector2(0, 5)
 shape = SubResource("CircleShape2D_0fhen")
+
+[node name="CollisionShape2D" parent="HitboxComponent" parent_id_path=PackedInt32Array(1334252649) index="0" unique_id=1533460143]
+position = Vector2(0, 4)
+shape = SubResource("CircleShape2D_xvo1f")
 
 [node name="CollisionShape2D" parent="DetectionZone" parent_id_path=PackedInt32Array(391698888) index="0" unique_id=515830143]
 shape = SubResource("CircleShape2D_d2jyr")
