@@ -8,4 +8,4 @@ extends State
 
 
 func enter() -> void:
-	_animation_player.play("dead")
+	entity.queue_free()
