@@ -25,6 +25,7 @@ func add_room(new_scene: PackedScene) -> void:
 
 	# Save old room state
 	if current_room and is_instance_valid(current_room):
+		await SceneTransition.fade_out()
 		if current_room.has_method("save_state"):
 			GameState.save_room_state(current_room.room_id, current_room.save_state())
 		current_room.queue_free()
@@ -33,6 +34,7 @@ func add_room(new_scene: PackedScene) -> void:
 	current_room = new_scene.instantiate()
 	add_child.call_deferred(current_room)
 	print("Added room:", current_room.room_id)
+	SceneTransition.fade_in()
 
 	# Connect all doors in this room
 	for door in current_room.get_children():
