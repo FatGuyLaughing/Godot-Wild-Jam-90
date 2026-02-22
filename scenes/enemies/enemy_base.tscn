@@ -28,11 +28,15 @@ material = SubResource("ShaderMaterial_oansv")
 
 [node name="HurtboxComponent" parent="." unique_id=1179701126 instance=ExtResource("2_qa0nx")]
 unique_name_in_owner = true
+collision_layer = 64
+collision_mask = 4
 entity_type = 1
 invincibility_duration = 0.5
 
 [node name="HitboxComponent" parent="." unique_id=1334252649 instance=ExtResource("3_xdb20")]
 unique_name_in_owner = true
+collision_layer = 32
+collision_mask = 8
 entity_type = 1
 enabled = false
 

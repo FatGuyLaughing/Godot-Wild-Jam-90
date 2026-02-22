@@ -6,9 +6,11 @@ extends State
 
 @onready var _animation_player: AnimationPlayer = %AnimationPlayer
 @onready var _movement: MovementComponent = %MovementComponent
+@onready var _hitbox: HitboxComponent = %HitboxComponent
 
 
 func enter() -> void:
+	_hitbox.enabled = true
 	_animation_player.play("attack")
 	_animation_player.animation_finished.connect(_on_animation_finished)
 
@@ -20,6 +22,7 @@ func physics_process(_delta: float) -> void:
 
 
 func exit() -> void:
+	_hitbox.enabled = false
 	_animation_player.animation_finished.disconnect(_on_animation_finished)
 
 
