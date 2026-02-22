@@ -45,4 +45,6 @@ func _spawn_gorebits() -> void:
 	for offset in offsets:
 		var gorebit = GOREBIT_SCENE.instantiate()
 		gorebit.global_position = gorebyte.global_position + offset
+		gorebit.aggro = true
+		gorebit.player_ref = gorebyte.player_ref
 		parent.call_deferred("add_child", gorebit)
