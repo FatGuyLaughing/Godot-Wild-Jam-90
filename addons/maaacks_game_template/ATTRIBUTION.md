@@ -1,6 +1,23 @@
 # Attribution
 ## Collaborators
 
+### Project Leader & Lead Artist/Designer
+Author: [friendly mimic](https://friendlymimic.itch.io)
+
+### Coders
+Author: [hatmix](https://hatmix.itch.io)
+Author: [fatguylaughing](https://fatguylaughing.itch.io)
+Author: [ax3ld3v]
+
+### Artists
+Author: [dnuoz]
+
+### Musician
+Author: [jewelz]
+
+### Writer
+Author: [crowe]
+
 ### Godot Minimal Game Template
 ![Maaack Plugin Icon](/addons/maaacks_game_template/assets/plugin_logo/logo.png)  
 Author: [Marek Belski and contributors](https://github.com/Maaack/Godot-Minimal-Game-Template/graphs/contributors)  

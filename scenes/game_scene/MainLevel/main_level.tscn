@@ -4,7 +4,8 @@
 [ext_resource type="Script" uid="uid://3w5tb8qd8deu" path="res://scenes/game_scene/MainLevel/room_manager.gd" id="3_8nimi"]
 [ext_resource type="PackedScene" uid="uid://br5kx565d3yl8" path="res://scenes/game_scene/game.tscn" id="3_domd1"]
 [ext_resource type="PackedScene" uid="uid://22njc57jowvl" path="res://components/healthUI/health_ui.tscn" id="4_8nimi"]
-[ext_resource type="Script" path="res://scenes/game_scene/MainLevel/main_level.gd" id="5_main"]
+[ext_resource type="Script" uid="uid://ddbtugaqeuyvn" path="res://scenes/game_scene/MainLevel/main_level.gd" id="5_main"]
+[ext_resource type="AudioStream" uid="uid://deus4ubawfy0m" path="res://assets/audio/music/Valka_Boss_Music__by__Jewelz.mp3" id="6_0dagt"]
 
 [node name="Main_Level" type="Node2D" unique_id=1832875075]
 script = ExtResource("5_main")
@@ -20,3 +21,8 @@ grow_vertical = 2
 
 [node name="PlayerCharacter" parent="." unique_id=44599593 groups=["player"] instance=ExtResource("1_domd1")]
 position = Vector2(115, 459)
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="." unique_id=389591946]
+stream = ExtResource("6_0dagt")
+autoplay = true
+parameters/looping = true
